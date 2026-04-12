@@ -1,11 +1,9 @@
 AC_DEFUN([AX_PYTHON],
 [
-has_python=false
 has_python3=false
 AC_ARG_WITH(python3,
     [  --with-python3           will use $PYTHON to find python],
     [
-       has_python=true
        has_python3=true
     ],
     has_python3=false
@@ -30,6 +28,5 @@ then
     AC_DEFINE(HAVE_PYTHON3, 1, Define if you have python3)
 fi
 
-AM_CONDITIONAL(HAVE_PYTHON, $has_python)
 AM_CONDITIONAL(HAVE_PYTHON3, $has_python3)
 ])

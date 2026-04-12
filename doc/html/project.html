@@ -15,52 +15,171 @@
   </div>
 
   <div class='contents'>
-    <h1>Windows</h1>
+    <p>This guide explains how to link QuickFIX into your application.</p>
 
-    <p>Open <b>project | properties</b> in Microsoft Visual
-    Studio.</p>
+    <h1>Using CMake (Recommended)</h1>
 
+    <p>The easiest way to use QuickFIX in your project is with CMake's
+    <code>find_package</code>:</p>
+
+    <pre class='fragment'>
+# In your CMakeLists.txt
+find_package(quickfix REQUIRED)
+
+add_executable(myapp main.cpp)
+target_link_libraries(myapp quickfix)
+</pre>
+
+    <p>If QuickFIX is installed in a non-standard location, set
+    <code>CMAKE_PREFIX_PATH</code> to the installation directory.</p>
+
+    <br/><hr/>
+    <h1>Windows with Visual Studio</h1>
+
+    <p>When using Visual Studio without CMake, configure your project manually:</p>
+
+    <h2>Project Properties</h2>
     <ul>
-      <li><b>C/C++</b> | <b>Code Generation</b> | <b>Enable C++
-      Exceptions</b>, should be Yes.</li>
+      <li><b>C/C++</b> | <b>Language</b> | <b>C++ Language Standard</b>: ISO C++17 or later</li>
 
-      <li><b>C/C++</b> | <b>Code Generation</b> | <b>Runtime
-      Library</b>, should be set to <i>Multithreaded DLL</i> or
-      <i>Debug Multithreaded DLL</i>.</li>
+      <li><b>C/C++</b> | <b>Code Generation</b> | <b>Enable C++ Exceptions</b>: Yes (/EHsc)</li>
 
-      <li><b>C/C++</b> | <b>General</b> | <b>Additional Include
-      Directories</b> add the root <i>quickfix</i> directory.</li>
+      <li><b>C/C++</b> | <b>Code Generation</b> | <b>Runtime Library</b>:
+      <i>Multi-threaded DLL (/MD)</i> for Release or
+      <i>Multi-threaded Debug DLL (/MDd)</i> for Debug</li>
 
-      <li><b>Linker</b> | <b>Input</b> | <b>Additional
-      Dependencies</b>, must contain <i>quickfix.lib</i> and
-      <i>ws2_32.lib</i>.</li>
+      <li><b>C/C++</b> | <b>General</b> | <b>Additional Include Directories</b>:
+      Add the QuickFIX include directory (e.g., <code>C:\quickfix\include</code>)</li>
 
-      <li><b>Linker</b> | <b>General</b> | <b>Additional Library
-      Directories</b>, add the <i>quickfix/lib</i> directory.</li>
+      <li><b>Linker</b> | <b>General</b> | <b>Additional Library Directories</b>:
+      Add the QuickFIX library directory (e.g., <code>C:\quickfix\lib</code>)</li>
+
+      <li><b>Linker</b> | <b>Input</b> | <b>Additional Dependencies</b>:
+      Add <code>quickfix.lib</code> and <code>ws2_32.lib</code></li>
+    </ul>
+
+    <h2>With SSL Support</h2>
+    <p>If using SSL/TLS features, also add OpenSSL libraries:</p>
+    <ul>
+      <li><code>libssl.lib</code></li>
+      <li><code>libcrypto.lib</code></li>
+    </ul>
+
+    <h2>With Database Support</h2>
+    <p>If using database message stores, add the appropriate client library:</p>
+    <ul>
+      <li>MySQL: <code>libmysql.lib</code></li>
+      <li>PostgreSQL: <code>libpq.lib</code></li>
+      <li>ODBC: <code>odbc32.lib</code></li>
     </ul>
 
     <br/><hr/>
-    <h1>Linux/Solaris</h1>
+    <h1>Linux / macOS / Unix</h1>
 
+    <h2>Compiler Flags</h2>
     <ul>
-      <li>Exceptions must be enabled with <b>-fexceptions</b></li>
-
-      <li>The <b>-finline-functions</b> optimization is
-      recommended.</li>
-
-      <li>Quickfix library must be linked in with
-      <b>-lquickfix</b></li>
-
-      <li>Quickfix makes use of pthreads and libxml. These must be
-      linked in with <b>-lpthread</b>, <b>-lxml2</b> and
-      <b>-lz</b></li>
-
-      <li>On Solaris you must link with <b>-lnsl</b> and
-      <b>-lsocket</b></li>
-
-      <li>GNU <tt>ld</tt> is a one-pass linker. Put more generally
-      useful libraries (libsocket) last on the command line.</li>
+      <li><b>C++ Standard</b>: <code>-std=c++17</code> or <code>-std=c++20</code></li>
+      <li><b>Exceptions</b>: <code>-fexceptions</code> (usually enabled by default)</li>
+      <li><b>Optimization</b>: <code>-O2</code> or <code>-O3</code> for release builds</li>
     </ul>
+
+    <h2>Linking</h2>
+    <p>Link against QuickFIX and required system libraries:</p>
+    <pre class='fragment'>
+g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread
+</pre>
+
+    <h3>With SSL Support</h3>
+    <pre class='fragment'>
+g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread -lssl -lcrypto
+</pre>
+
+    <h3>With MySQL Support</h3>
+    <pre class='fragment'>
+g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread $(mysql_config --libs)
+</pre>
+
+    <h3>With PostgreSQL Support</h3>
+    <pre class='fragment'>
+g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread -lpq
+</pre>
+
+    <h2>Platform-Specific Notes</h2>
+
+    <h3>Solaris</h3>
+    <p>On Solaris, you must also link with network libraries:</p>
+    <pre class='fragment'>
+g++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread -lnsl -lsocket
+</pre>
+
+    <h3>macOS</h3>
+    <p>On macOS, use the system Clang compiler:</p>
+    <pre class='fragment'>
+clang++ -std=c++17 myapp.cpp -o myapp -lquickfix -lpthread
+</pre>
+
+    <h2>Linker Order</h2>
+    <p>Note: GNU <code>ld</code> is a one-pass linker. Place more
+    generally useful libraries (like <code>-lpthread</code>, <code>-lsocket</code>)
+    <b>after</b> more specific libraries on the command line.</p>
+
+    <br/><hr/>
+    <h1>Include Files</h1>
+
+    <p>In your C++ source files, include QuickFIX headers as follows:</p>
+    <pre class='fragment'>
+#include "quickfix/Application.h"
+#include "quickfix/MessageCracker.h"
+#include "quickfix/Values.h"
+#include "quickfix/Mutex.h"
+
+// For specific FIX versions
+#include "quickfix/fix44/NewOrderSingle.h"
+#include "quickfix/fix44/ExecutionReport.h"
+</pre>
+
+    <br/><hr/>
+    <h1>Minimal Example</h1>
+
+    <p>Here's a minimal example of a QuickFIX application:</p>
+    <pre class='fragment'>
+#include "quickfix/Application.h"
+#include "quickfix/MessageCracker.h"
+#include "quickfix/SessionSettings.h"
+#include "quickfix/FileStore.h"
+#include "quickfix/FileLog.h"
+#include "quickfix/SocketAcceptor.h"
+
+class MyApplication : public FIX::Application
+{
+public:
+    void onCreate(const FIX::SessionID&) override {}
+    void onLogon(const FIX::SessionID&) override {}
+    void onLogout(const FIX::SessionID&) override {}
+    void toAdmin(FIX::Message&, const FIX::SessionID&) override {}
+    void toApp(FIX::Message&, const FIX::SessionID&) override {}
+    void fromAdmin(const FIX::Message&, const FIX::SessionID&) override {}
+    void fromApp(const FIX::Message&, const FIX::SessionID&) override {}
+};
+
+int main(int argc, char** argv)
+{
+    FIX::SessionSettings settings("config.cfg");
+    MyApplication application;
+    FIX::FileStoreFactory storeFactory(settings);
+    FIX::FileLogFactory logFactory(settings);
+    FIX::SocketAcceptor acceptor(application, storeFactory, settings, logFactory);
+
+    acceptor.start();
+    // Wait for Ctrl-C or termination signal
+    acceptor.block();
+    acceptor.stop();
+
+    return 0;
+}
+</pre>
+
+    <p>See the <b>examples/</b> directory for more complete applications.</p>
   </div>
 </body>
 </html>

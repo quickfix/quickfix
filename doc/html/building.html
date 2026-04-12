@@ -15,61 +15,160 @@
   </div>
 
   <div class='contents'>
-    <h1>Windows</h1>
+    <h1>Building with CMake (Recommended)</h1>
 
-    <p>Open <b>quickfix_vs12.sln</b>, <b>quickfix_vs14.sln</b>, or
-    <b>quickfix_vs15.sln</b></p>
+    <p>QuickFIX uses CMake as its primary build system, providing consistent builds across all platforms.</p>
 
-    <p>Batch build all projects. <b>lib\quickfix.lib</b> and
-    <b>lib\debug\quickfix.lib</b> can be linked into your
-    application. Header files are copied to the <b>include</b>
-    directory.</p>
+    <h2>Prerequisites</h2>
+    <ul>
+      <li>C++17 compatible compiler (GCC 7+, Clang 5+, MSVC 2017+)</li>
+      <li>CMake 3.5 or higher</li>
+      <li>Optional: OpenSSL for SSL/TLS support</li>
+      <li>Optional: MySQL, PostgreSQL, or ODBC client libraries</li>
+    </ul>
 
-    <p>Compile time options are controlled from the
-    <b>config_windows.h</b> file in the <i>src</i> directory. The
-    following options are supported:<br>
-    <br></p>
+    <h2>Windows</h2>
 
+    <p><b>Basic Build:</b></p>
+    <pre class='fragment'>
+mkdir build
+cd build
+cmake -G "Visual Studio 17 2022" -A x64 ..
+cmake --build . --config Release
+cmake --install . --config Release
+</pre>
+
+    <p><b>With SSL Support:</b></p>
+    <pre class='fragment'>
+mkdir build
+cd build
+cmake -G "Visual Studio 17 2022" -A x64 ^
+  -DHAVE_SSL=ON ^
+  -DOPENSSL_ROOT_DIR="C:\path\to\openssl" ^
+  -DCMAKE_INSTALL_PREFIX="C:\quickfix" ..
+cmake --build . --config Release
+cmake --install . --config Release
+</pre>
+
+    <p><b>With Database Support:</b></p>
+    <pre class='fragment'>
+cmake -G "Visual Studio 17 2022" -A x64 ^
+  -DHAVE_MYSQL=ON ^
+  -DHAVE_POSTGRESQL=ON ^
+  -DHAVE_ODBC=ON ..
+cmake --build . --config Release
+</pre>
+
+    <p>Supported Visual Studio versions: VS 2017, VS 2019, VS 2022</p>
+
+    <br/><hr/>
+    <h2>Linux / macOS</h2>
+
+    <p><b>Basic Build:</b></p>
+    <pre class='fragment'>
+cmake -DCMAKE_BUILD_TYPE=Release .
+make -j$(nproc)
+sudo make install
+</pre>
+
+    <p><b>With SSL Support:</b></p>
+    <pre class='fragment'>
+cmake -DCMAKE_BUILD_TYPE=Release -DHAVE_SSL=ON .
+make -j$(nproc)
+sudo make install
+</pre>
+
+    <p><b>With Database Support:</b></p>
+    <pre class='fragment'>
+cmake -DCMAKE_BUILD_TYPE=Release \
+  -DHAVE_MYSQL=ON \
+  -DHAVE_POSTGRESQL=ON .
+make -j$(nproc)
+sudo make install
+</pre>
+
+    <p><b>Custom Installation Directory:</b></p>
+    <pre class='fragment'>
+cmake -DCMAKE_BUILD_TYPE=Release \
+  -DCMAKE_INSTALL_PREFIX=/usr/local .
+make -j$(nproc)
+sudo make install
+</pre>
+
+    <h2>CMake Build Options</h2>
     <table>
       <tr>
-        <td><font color="#0000FF">#define HAVE_ODBC 1</font></td>
+        <td><b>Option</b></td>
+        <td><b>Description</b></td>
+        <td><b>Default</b></td>
       </tr>
-
       <tr>
-        <td>Compiles ODBC support into QuickFIX.</td>
+        <td><font color="#0000FF">-DHAVE_SSL=ON</font></td>
+        <td>Enable SSL/TLS support (requires OpenSSL)</td>
+        <td>OFF</td>
       </tr>
-
       <tr>
-        <td><font color="#0000FF">#define HAVE_MYSQL 1</font></td>
+        <td><font color="#0000FF">-DHAVE_MYSQL=ON</font></td>
+        <td>Enable MySQL message store support</td>
+        <td>OFF</td>
       </tr>
-
       <tr>
-        <td>Compiles MySQL support into QuickFIX. If you enable
-        this option, the mysql include and library directories must
-        be in the Visual Studio search paths.</td>
+        <td><font color="#0000FF">-DHAVE_POSTGRESQL=ON</font></td>
+        <td>Enable PostgreSQL message store support</td>
+        <td>OFF</td>
       </tr>
-
       <tr>
-        <td><font color="#0000FF">#define HAVE_POSTGRESQL
-        1</font></td>
+        <td><font color="#0000FF">-DHAVE_ODBC=ON</font></td>
+        <td>Enable ODBC message store support</td>
+        <td>OFF</td>
       </tr>
-
       <tr>
-        <td>Compiles PostgreSQL support into QuickFIX. If you
-        enable this option, the postgres include and library
-        directories must be in the Visual Studio search paths.</td>
+        <td><font color="#0000FF">-DHAVE_PYTHON3=ON</font></td>
+        <td>Build Python 3 bindings</td>
+        <td>OFF</td>
+      </tr>
+      <tr>
+        <td><font color="#0000FF">-DQUICKFIX_SHARED_LIBS=ON</font></td>
+        <td>Build shared libraries instead of static</td>
+        <td>ON</td>
+      </tr>
+      <tr>
+        <td><font color="#0000FF">-DQUICKFIX_EXAMPLES=ON</font></td>
+        <td>Build example applications</td>
+        <td>ON</td>
+      </tr>
+      <tr>
+        <td><font color="#0000FF">-DQUICKFIX_TESTS=ON</font></td>
+        <td>Build test suite</td>
+        <td>ON</td>
+      </tr>
+      <tr>
+        <td><font color="#0000FF">-DCMAKE_BUILD_TYPE=Release</font></td>
+        <td>Build type (Debug, Release, RelWithDebInfo)</td>
+        <td>-</td>
+      </tr>
+      <tr>
+        <td><font color="#0000FF">-DCMAKE_INSTALL_PREFIX=/path</font></td>
+        <td>Installation directory</td>
+        <td>/usr/local</td>
       </tr>
     </table>
 
     <br/><hr/>
-    <h1>Linux / Solaris / FreeBSD / Mac OS X</h1>
-    <pre class='fragment'>
-./configure &amp;&amp; ./make
+    <h1>Building with Autotools (Alternative)</h1>
 
+    <p>QuickFIX also supports traditional autotools-based builds on Unix-like systems.</p>
+
+    <h2>Linux / Solaris / FreeBSD / macOS</h2>
+    <pre class='fragment'>
+./bootstrap
+./configure
+make
+make check
 sudo make install
 </pre>
 
-    <p>You can also run configure with the <font color=
+    <p>You can run configure with the <font color=
     "#0000FF">--prefix=&lt;base directory&gt;</font> option to
     install to a custom location.</p>
 
@@ -77,40 +176,53 @@ sudo make install
 
     <table>
       <tr>
-        <td><font color="#0000FF">--with-python3</font></td>
+        <td><font color="#0000FF">--prefix=/usr/local</font></td>
+      </tr>
+      <tr>
+        <td>Installation directory</td>
       </tr>
 
       <tr>
-        <td>Build the Python3 API</td>
+        <td><font color="#0000FF">--with-openssl[=PATH]</font></td>
+      </tr>
+      <tr>
+        <td>Enable SSL support, optionally specify OpenSSL installation path</td>
+      </tr>
+
+      <tr>
+        <td><font color="#0000FF">--with-python3</font></td>
+      </tr>
+      <tr>
+        <td>Build the Python 3 bindings</td>
       </tr>
 
       <tr>
         <td><font color="#0000FF">--with-ruby</font></td>
       </tr>
-
       <tr>
-        <td>Build the Ruby API</td>
+        <td>Build the Ruby bindings</td>
       </tr>
 
       <tr>
         <td><font color="#0000FF">--with-mysql</font></td>
       </tr>
-
       <tr>
-        <td>Compile in mysql support</td>
+        <td>Compile with MySQL support</td>
       </tr>
 
       <tr>
         <td><font color="#0000FF">--with-postgresql</font></td>
       </tr>
-
       <tr>
-        <td>Compile in postgresql support</td>
+        <td>Compile with PostgreSQL support</td>
       </tr>
-
     </table>
 
-    <p>When using the SUNPro compiler:<br>
+    <br/><hr/>
+    <h2>Platform-Specific Notes</h2>
+
+    <h3>Solaris with SUNPro Compiler</h3>
+    <p>See <a href="../../README.SunOS">README.SunOS</a> for detailed instructions. When using the SUNPro compiler:<br>
     <br>
     <b>CC</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br>
     <b>CFLAGS</b>=<i>-g -xs</i><br>
@@ -120,6 +232,51 @@ sudo make install
     <b>LDFLAGS</b>=<i>-g -xs -lCstd</i><br>
     <b>AR</b>=<i>&lt;full path to SUNPro CC binary&gt;</i><br>
     <b>AR_FLAGS</b>=<i>-g -xs -xar -o</i><br></p>
+
+    <h3>AIX</h3>
+    <p>See <a href="../../README.AIX">README.AIX</a> for detailed build instructions on AIX systems.</p>
+
+    <h3>FreeBSD</h3>
+    <p>FreeBSD is supported via autotools. CMake support may require minor adjustments.</p>
+
+    <br/><hr/>
+    <h2>Testing Your Build</h2>
+
+    <p><b>With CMake:</b></p>
+    <pre class='fragment'>
+cmake --build . --target test
+# or
+ctest
+</pre>
+
+    <p><b>With Autotools:</b></p>
+    <pre class='fragment'>
+make check
+</pre>
+
+    <br/><hr/>
+    <h2>Using vcpkg</h2>
+
+    <p>QuickFIX is available via the vcpkg package manager:</p>
+    <pre class='fragment'>
+git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh  # Windows: bootstrap-vcpkg.bat
+./vcpkg integrate install
+./vcpkg install quickfix
+</pre>
+
+    <br/><hr/>
+    <h2>Troubleshooting</h2>
+
+    <ul>
+      <li>Ensure your compiler supports C++17</li>
+      <li>For SSL issues, verify OpenSSL is properly installed and OPENSSL_ROOT_DIR is set correctly</li>
+      <li>For database support, ensure client libraries are installed and in the library path</li>
+      <li>On Windows, run CMake from the "Developer Command Prompt for Visual Studio"</li>
+      <li>Check the GitHub Issues page for known build problems</li>
+    </ul>
+
   </div>
 </body>
 </html>

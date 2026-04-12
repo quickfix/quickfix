@@ -17,121 +17,102 @@
   <div class='contents'>
     <h1>Required Dependencies</h1>
 
+    <h2>Compiler Requirements</h2>
+    <p>QuickFIX requires a C++17 compatible compiler:</p>
+    <ul>
+      <li><b>GCC 7+</b> or later</li>
+      <li><b>Clang 5+</b> or later</li>
+      <li><b>MSVC 2017+</b> (Visual Studio 2017 or later)</li>
+    </ul>
+
+    <h2>Build Systems</h2>
+    <p>One of the following build systems is required:</p>
+    <ul>
+      <li><b>CMake 3.5+</b> (recommended for all platforms)</li>
+      <li><b>Autotools</b> (autoconf, automake, libtool) for Unix-like systems</li>
+    </ul>
+
+    <h2>Platform-Specific Dependencies</h2>
+
     <table border="1" cellspacing="0" cellpadding="5" width="100%">
       <tbody>
         <tr bgcolor="#DDDDDD">
-          <th></th>
-
-          <th>Run</th>
-
-          <th>Build</th>
-
-          <th>Test</th>
+          <th>Platform</th>
+          <th>Build Tools</th>
+          <th>Testing</th>
         </tr>
 
         <tr bgcolor="#FFFFFF">
           <td align="center"><b>Windows</b></td>
-
-          <td></td>
-
           <td>
-            <a href="http://msdn.microsoft.com/visualc/">Microsoft
-            Visual C++</a><br>
+            <a href="https://visualstudio.microsoft.com/">Visual Studio 2017+</a><br>
+            <a href="https://cmake.org/">CMake 3.5+</a><br>
           </td>
-
           <td>
-            <a>Ruby</a><br>
+            <a href="https://github.com/catchorg/Catch2">Catch2</a> (bundled)
           </td>
         </tr>
 
         <tr>
           <td align="center"><b>Linux</b></td>
-
           <td>
-            <a href=
-            "http://www.rpmfind.net/linux/rpm2html/search.php?query=glibc">
-            glibc</a><br>
+            GCC 7+ or Clang 5+<br>
+            <a href="https://cmake.org/">CMake 3.5+</a> or Autotools<br>
+            make<br>
+            Standard C++ library
           </td>
-
           <td>
-            <a href=
-            "http://www.rpmfind.net/linux/rpm2html/search.php?query=gcc">
-            gcc</a><br>
-            <a href=
-            "http://www.rpmfind.net/linux/rpm2html/search.php?query=gcc-c%2B%2B">
-            gcc-c++</a><br>
-            <a href=
-            "http://www.rpmfind.net/linux/rpm2html/search.php?query=glibc-devel">
-            glibc-devel</a><br>
-            <a href="ftp://ftp.gnu.org/pub/gnu/make/">gnu
-            make</a><br>
-            <a href=
-            "http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">
-            sstream</a><br>
+            <a href="https://github.com/catchorg/Catch2">Catch2</a> (bundled)
           </td>
+        </tr>
 
+        <tr>
+          <td align="center"><b>macOS</b></td>
           <td>
-            <a href=
-            "http://www.rpmfind.net/linux/rpm2html/search.php?query=ruby">
-            Ruby</a><br>
+            <a href="https://developer.apple.com/xcode/">Xcode Command Line Tools</a><br>
+            <a href="https://cmake.org/">CMake 3.5+</a> or Autotools<br>
+            Clang (included with Xcode)
+          </td>
+          <td>
+            <a href="https://github.com/catchorg/Catch2">Catch2</a> (bundled)
           </td>
         </tr>
 
         <tr>
           <td align="center"><b>Solaris</b></td>
-
           <td>
-            <a href=
-            "http://www.gnu.org/software/libc/#Availability">glibc</a><br>
+            GCC 7+ or SunPRO C++<br>
+            Autotools<br>
+            GNU make<br>
+            See <a href="../../README.SunOS">README.SunOS</a> for details
           </td>
-
           <td>
-            <a href=
-            "http://www.gnu.org/software/gcc/releases.html">gcc</a>
-            or SunPRO<br>
-            gcc-c++<br>
-            glibc-devel<br>
-
-            <a href="ftp://ftp.gnu.org/pub/gnu/make/">gnu
-            make</a><br>
-            <a href=
-            "http://gcc.gnu.org/ml/libstdc++/2000-q2/msg00700/sstream">
-            sstream</a><br>
+            <a href="https://github.com/catchorg/Catch2">Catch2</a> (bundled)
           </td>
-
-          <td>
-            <a href=
-            "http://www.ruby-lang.org/en/download.html">Ruby</a><br>
-            </td>
         </tr>
 
         <tr>
           <td align="center"><b>FreeBSD</b></td>
-
           <td>
+            Clang or GCC 7+<br>
+            Autotools<br>
+            GNU make
           </td>
-
           <td>
-          </td>
-
-          <td>
-            <a href="http://www.freebsd.org/ports/">Ruby<br></a>
+            <a href="https://github.com/catchorg/Catch2">Catch2</a> (bundled)
           </td>
         </tr>
 
         <tr>
-          <td align="center"><b>Mac OS X</b></td>
-
+          <td align="center"><b>AIX</b></td>
           <td>
+            IBM XL C/C++ 12.1+<br>
+            Autotools<br>
+            See <a href="../../README.AIX">README.AIX</a> for details
           </td>
-
           <td>
-            <a href=
-            "http://developer.apple.com/tools/download/">Xcode
-            Tools</a><br>
+            Unit tests disabled on AIX
           </td>
-
-          <td></td>
         </tr>
       </tbody>
     </table>
@@ -139,20 +120,36 @@
     <br/><hr/>
     <h1>Optional Dependencies</h1>
 
+    <h2>SSL/TLS Support</h2>
     <ul>
-      <li>
-        <a href="http://www.mysql.com/downloads/">MySQL</a>
-      </li>
+      <li><a href="https://www.openssl.org/">OpenSSL</a> - For encrypted FIX connections</li>
+    </ul>
 
-      <li>
-        <a href=
-        "http://www.microsoft.com/sql/default.mspx">MSSQL</a>
-      </li>
+    <h2>Database Message Stores</h2>
+    <ul>
+      <li><a href="https://www.mysql.com/">MySQL</a> - MySQL client library for MySQL message store</li>
+      <li><a href="https://www.postgresql.org/">PostgreSQL</a> - PostgreSQL client library for PostgreSQL message store</li>
+      <li><b>ODBC</b> - ODBC driver for database connectivity (replaces deprecated MSSQL support)</li>
+    </ul>
 
-      <li>
-        <a href=
-        "http://www.postgresql.org/download/">PostgreSQL</a>
-      </li>
+    <h2>Language Bindings</h2>
+    <ul>
+      <li><a href="https://www.python.org/">Python 3</a> - For Python bindings (Python 2 no longer supported)</li>
+      <li><a href="https://www.ruby-lang.org/">Ruby</a> - For Ruby bindings</li>
+      <li><a href="http://www.swig.org/">SWIG</a> - Required only if regenerating language bindings</li>
+    </ul>
+
+    <h2>Documentation</h2>
+    <ul>
+      <li><a href="https://www.doxygen.nl/">Doxygen</a> - For generating API documentation</li>
+    </ul>
+
+    <h2>Embedded Libraries</h2>
+    <p>The following libraries are included with QuickFIX and do not need to be installed separately:</p>
+    <ul>
+      <li><b>pugixml</b> - XML parsing (embedded, replaces libxml2)</li>
+      <li><b>Catch2</b> - Unit testing framework (embedded)</li>
+      <li><b>double-conversion</b> - Fast double/string conversion (embedded)</li>
     </ul>
   </div>
 </body>

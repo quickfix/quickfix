@@ -9,7 +9,7 @@ if(UNIX)
   add_definitions(-D_FILE_OFFSET_BITS=64)
 endif()
 
-project(${quickfix_PROJECT_NAME} VERSION 0.1 LANGUAGES CXX C)
+project(${quickfix_PROJECT_NAME} VERSION 1.16.0 LANGUAGES CXX C)
 message("-- Project name ${CMAKE_PROJECT_NAME}")
 
 set(CMAKE_CXX_STANDARD 17)
@@ -24,7 +24,7 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${QUICKFIX_LIB_OUTPUT_DIR}")
 
-# Multi-config generators (Visual Studio, Xcode) — set per-config variables
+# Multi-config generators (Visual Studio, Xcode) ï¿½ set per-config variables
 foreach(cfg IN ITEMS Debug Release RelWithDebInfo MinSizeRel)
   string(TOUPPER "${cfg}" cfg_up)
   set("CMAKE_ARCHIVE_OUTPUT_DIRECTORY_${cfg_up}" "${QUICKFIX_LIB_OUTPUT_DIR}")
@@ -53,7 +53,6 @@ option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
 option(HAVE_ODBC "Build with ODBC")
-option(HAVE_PYTHON "Build with default Python version")
 option(HAVE_PYTHON3 "Build with default Python3 version")
 
 # add option to build shared or static
@@ -99,10 +98,7 @@ set(ODBC_LIBRARIES "ODBC::ODBC")
 message("-- Building with ODBC")
 endif()
 
-if (HAVE_PYTHON)
-  find_package(PythonLibs REQUIRED)
-  include_directories(${PYTHON_INCLUDE_DIRS})
-elseif (HAVE_PYTHON3)
+if (HAVE_PYTHON3)
   find_package(PythonLibs 3 REQUIRED)
   include_directories(${PYTHON_INCLUDE_DIRS})
 endif ()
