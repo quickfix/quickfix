@@ -74,27 +74,27 @@ message_order::message_order(const int order[])
   setOrder(order, size);
 }
 
-message_order::message_order(const int order[], int size)
+message_order::message_order(const int order[], size_t size)
     : m_mode(group),
       m_delim(0),
       m_largest(0) {
   setOrder(order, size);
 }
 
-void message_order::setOrder(const int order[], int size) {
+void message_order::setOrder(const int order[], size_t size) {
   if (size < 1) {
     return;
   }
   m_largest = m_delim = order[0];
 
   // collect all fields and find the largest field number
-  for (int i = 1; i < size; ++i) {
+  for (size_t i = 1; i < size; ++i) {
     int field = order[i];
     m_largest = m_largest > field ? m_largest : field;
   }
 
   m_groupOrder = shared_array<int>::create(m_largest + 1);
-  for (int i = 0; i < size; ++i) {
+  for (size_t i = 0; i < size; ++i) {
     m_groupOrder[order[i]] = i + 1;
   }
 }
