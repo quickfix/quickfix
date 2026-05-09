@@ -53,8 +53,9 @@ private:
   }
 
   virtual void onError(SocketMonitor &monitor, socket_handle socket) override {
-    monitor.drop(socket);
-    m_strategy.onDisconnect(m_connector, socket);
+    if (monitor.drop(socket)) {
+      m_strategy.onDisconnect(m_connector, socket);
+    }
   }
 
   virtual void onError(SocketMonitor &) override { m_strategy.onError(m_connector); }
