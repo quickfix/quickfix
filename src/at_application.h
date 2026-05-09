@@ -111,7 +111,15 @@ public:
   std::set<std::pair<FIX::ClOrdID, FIX::SessionID>> m_orderIDs;
 
 public:
-  void reset() { m_orderIDs.clear(); }
+  void reset(const FIX::SessionID &sessionID) {
+    for (auto it = m_orderIDs.begin(); it != m_orderIDs.end();) {
+      if (it->second == sessionID) {
+        it = m_orderIDs.erase(it);
+      } else {
+        ++it;
+      }
+    }
+  }
 };
 
 class Application : public FIX::Application {
@@ -124,7 +132,7 @@ class Application : public FIX::Application {
 
   void onLogon(const FIX::SessionID &sessionID) EXCEPT(FIX::RejectLogon) {}
 
-  void onLogout(const FIX::SessionID &sessionID) { m_cracker.reset(); }
+  void onLogout(const FIX::SessionID &sessionID) { m_cracker.reset(sessionID); }
 
   void toAdmin(FIX::Message &message, const FIX::SessionID &) {}
 

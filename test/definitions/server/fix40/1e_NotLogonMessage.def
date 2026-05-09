@@ -1,5 +1,5 @@
 # If first message is not a Logon, we must disconnect
 
 iCONNECT
-I8=FIX.4.035=034=149=TW52=<TIME>56=DLSI
+I8=FIX.4.035=034=149=TW4052=<TIME>56=DLSI
 eDISCONNECT
