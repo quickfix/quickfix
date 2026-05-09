@@ -43,7 +43,7 @@ SocketMonitor::SocketMonitor(int timeout)
   m_timeval.tv_sec = 0;
   m_timeval.tv_usec = 0;
 #ifndef SELECT_DECREMENTS_TIME
-  m_ticks = clock();
+  m_ticks = Clock::now();
 #endif
 }
 
@@ -128,9 +128,9 @@ inline timeval *SocketMonitor::getTimeval(bool poll, double timeout) {
   }
   return &m_timeval;
 #else
-  double elapsed = (double)(clock() - m_ticks) / (double)CLOCKS_PER_SEC;
+  const double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(Clock::now() - m_ticks).count();
   if (elapsed >= timeout || elapsed == 0.0) {
-    m_ticks = clock();
+    m_ticks = Clock::now();
     m_timeval.tv_sec = 0;
     m_timeval.tv_usec = (long)(timeout * 1000000);
   } else {
