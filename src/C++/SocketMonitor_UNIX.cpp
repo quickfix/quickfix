@@ -219,7 +219,7 @@ void SocketMonitor::processPollList(Strategy &strategy, struct pollfd *pfds, uns
     if ((pfds[i].revents & POLLOUT)) {
       processWrite(strategy, pfds[i].fd);
     }
-    if ((pfds[i].revents & POLLERR)) {
+    if ((pfds[i].revents & POLLERR) || ((pfds[i].revents & POLLHUP) && !(pfds[i].revents & POLLIN))) {
       processError(strategy, pfds[i].fd);
     }
   }
