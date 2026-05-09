@@ -380,6 +380,8 @@ void ssl_socket_close(socket_handle socket, SSL *ssl) {
       break;
     }
   }
+
+  socket_close(socket);
 }
 
 static void thread_setup(void) {
