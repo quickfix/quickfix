@@ -411,6 +411,8 @@ void SSLSocketInitiator::handshakeSSLAndHandleConnection(SocketConnector &connec
   } else if (sslHandshakeStatus == SSL_HANDSHAKE_FAILED) {
     setDisconnected(pSocketConnection->getSession()->getSessionID());
 
+    pSocketConnection->disconnect();
+
     Session *pSession = pSocketConnection->getSession();
     if (pSession) {
       pSession->disconnect();
