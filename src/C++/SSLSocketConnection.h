@@ -130,6 +130,7 @@
 #include "Mutex.h"
 #include "Parser.h"
 #include "Responder.h"
+#include "SOCKSProxyProvider.h"
 #include "SessionID.h"
 #include "SocketMonitor.h"
 #include "Utility.h"
@@ -182,6 +183,12 @@ public:
   void onTimeout();
 
   SSL *sslObject() { return m_ssl; }
+  SOCKSInitiator *socksObject() { return m_socks; }
+  SOCKSInitiator *socksObject(SOCKSInitiator *socks) {
+    SOCKSInitiator *old = m_socks;
+    m_socks = socks;
+    return old;
+  }
 
   bool didProcessQueueRequestToRead() const;
   bool didReadFromSocketRequestToWrite() const;
@@ -198,6 +205,7 @@ private:
 
   socket_handle m_socket;
   SSL *m_ssl;
+  SOCKSInitiator *m_socks;
   char m_buffer[BUFSIZ];
 
   Parser m_parser;

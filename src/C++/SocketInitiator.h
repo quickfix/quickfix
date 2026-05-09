@@ -58,7 +58,8 @@ private:
   void onError(SocketConnector &);
   void onTimeout(SocketConnector &);
 
-  SessionSettings m_settings;
+  // It looks like it hides the actual effective settings in Initiator::m_settings.
+  // SessionSettings m_settings;
 
   HostDetailsProvider m_hostDetailsProvider;
   SocketConnector m_connector;
