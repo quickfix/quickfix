@@ -95,7 +95,7 @@ void message_order::setOrder(const int order[], size_t size) {
 
   m_groupOrder = shared_array<int>::create(m_largest + 1);
   for (size_t i = 0; i < size; ++i) {
-    m_groupOrder[order[i]] = i + 1;
+    m_groupOrder[order[i]] = static_cast<int>(i + 1);
   }
 }
 } // namespace FIX
