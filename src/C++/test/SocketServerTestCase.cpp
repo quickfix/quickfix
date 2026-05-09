@@ -34,7 +34,7 @@
 
 using namespace FIX;
 
-struct TestStrategy : public SocketServer::Strategy {
+struct SocketServerTestStrategy : public SocketServer::Strategy {
   void onConnect(SocketServer &, socket_handle accept, socket_handle socket) {
     connect++;
     connectSocket = socket;
@@ -68,7 +68,7 @@ struct TestStrategy : public SocketServer::Strategy {
 };
 
 TEST_CASE("SocketServerTests") {
-  TestStrategy strategy;
+  SocketServerTestStrategy strategy;
 
   SECTION("accept") {
     SocketServer object(0);
