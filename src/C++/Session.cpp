@@ -355,6 +355,10 @@ void Session::nextSequenceReset(const Message &sequenceReset, const UtcTimeStamp
 
     if (newSeqNo > getExpectedTargetNum()) {
       m_state.setNextTargetMsgSeqNum(MsgSeqNum(newSeqNo));
+      if (isGapFill) {
+        m_state.clearQueueUpTo(newSeqNo);
+        nextQueued(now);
+      }
     } else if (newSeqNo < getExpectedTargetNum()) {
       generateReject(sequenceReset, SessionRejectReason_VALUE_IS_INCORRECT);
     }
