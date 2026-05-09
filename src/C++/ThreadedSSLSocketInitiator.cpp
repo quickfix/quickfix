@@ -175,8 +175,8 @@ ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
   socket_term();
 }
 
-void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) EXCEPT(ConfigError) {
-  const Dictionary &dict = s.get();
+void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &settings) EXCEPT(ConfigError) {
+  const Dictionary &dict = settings.get();
 
   if (dict.has(RECONNECT_INTERVAL)) // ReconnectInterval in [DEFAULT]
   {
@@ -193,7 +193,7 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &s) EXCEPT(Co
   }
 }
 
-void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT(RuntimeError) {
+void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &settings) EXCEPT(RuntimeError) {
   if (m_sslInit) {
     return;
   }
@@ -203,7 +203,7 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT(R
   std::string errStr;
 
   /* set up the application context */
-  if ((m_ctx = createSSLContext(false, m_settings, errStr)) == 0) {
+  if ((m_ctx = createSSLContext(false, settings, errStr)) == 0) {
     throw RuntimeError(errStr);
   }
 
@@ -220,7 +220,7 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT(R
   } else if (!loadSSLCert(
                  m_ctx,
                  false,
-                 m_settings,
+                 settings,
                  getLog(),
                  ThreadedSSLSocketInitiator::passwordHandleCB,
                  this,
@@ -230,7 +230,7 @@ void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT(R
   }
 
   int verifyLevel;
-  if (!loadCAInfo(m_ctx, false, m_settings, getLog(), errStr, verifyLevel)) {
+  if (!loadCAInfo(m_ctx, false, settings, getLog(), errStr, verifyLevel)) {
     ssl_term();
     throw RuntimeError(errStr);
   }
