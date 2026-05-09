@@ -30,10 +30,10 @@
 #include <sys/time.h>
 #include <sys/types.h>
 
+#include <chrono>
 #include <poll.h>
 #include <queue>
 #include <set>
-#include <time.h>
 
 #include "Utility.h"
 
@@ -73,7 +73,8 @@ private:
   void processPollList(Strategy &strategy, struct pollfd *pfds, unsigned pfds_size);
 
   int m_timeout;
-  clock_t m_ticks;
+  using Clock = std::chrono::steady_clock;
+  Clock::time_point m_ticks;
 
   socket_handle m_signal;
   socket_handle m_interrupt;

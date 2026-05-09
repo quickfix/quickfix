@@ -40,7 +40,7 @@ SocketMonitor::SocketMonitor(int timeout)
   socket_setnonblock(m_interrupt);
   m_readSockets.insert(m_interrupt);
 
-  m_ticks = clock();
+  m_ticks = Clock::now();
 }
 
 SocketMonitor::~SocketMonitor() {
@@ -117,9 +117,9 @@ inline int SocketMonitor::getTimeval(bool poll, double timeout) {
     return 0;
   }
 
-  double elapsed = (double)(clock() - m_ticks) / (double)CLOCKS_PER_SEC;
+  const double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(Clock::now() - m_ticks).count();
   if (elapsed >= timeout || elapsed == 0.0) {
-    m_ticks = clock();
+    m_ticks = Clock::now();
     return (timeout * 1000);
   } else {
     return ((timeout - elapsed) * 1000);

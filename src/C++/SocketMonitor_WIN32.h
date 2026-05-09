@@ -29,9 +29,9 @@
 #include <Winsock2.h>
 typedef int socklen_t;
 
+#include <chrono>
 #include <queue>
 #include <set>
-#include <chrono>
 
 namespace FIX {
 /// Monitors events on a collection of sockets.
