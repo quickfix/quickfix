@@ -151,6 +151,10 @@ public:
     Locker l(m_mutex);
     m_queue.clear();
   }
+  void clearQueueUpTo(SEQNUM msgSeqNum) {
+    Locker l(m_mutex);
+    m_queue.erase(m_queue.begin(), m_queue.lower_bound(msgSeqNum));
+  }
 
   bool set(SEQNUM s, const std::string &m) EXCEPT(IOException) {
     Locker l(m_mutex);
