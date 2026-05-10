@@ -174,6 +174,21 @@ void SocketMonitor::block(Strategy &strategy, bool poll, double timeout) {
     }
   }
 
+  // A connect() refusal on localhost can complete synchronously on Windows,
+  // leaving SO_ERROR set but never signalling select()'s exceptfds. Check
+  // every connecting socket for a pending error before entering select().
+  {
+    Sockets pending = m_connectSockets;
+    for (socket_handle s : pending) {
+      if (m_connectSockets.count(s) == 0) continue;
+      int error = 0, len = sizeof(error);
+      getsockopt(s, SOL_SOCKET, SO_ERROR, (char *)&error, &len);
+      if (error)
+        strategy.onError(*this, s);
+    }
+  }
+  if (!m_dropped.empty()) return;
+
   fd_set readSet;
   FD_ZERO(&readSet);
   buildSet(m_readSockets, readSet);
