@@ -94,6 +94,12 @@ bool SocketMonitor::addWrite(socket_handle s) {
   return true;
 }
 
+void SocketMonitor::addSyncError(socket_handle s) {
+  if (m_connectSockets.count(s)) {
+    m_syncErrors.push(s);
+  }
+}
+
 bool SocketMonitor::drop(socket_handle s) {
   Sockets::iterator i = m_readSockets.find(s);
   Sockets::iterator j = m_writeSockets.find(s);
@@ -166,6 +172,17 @@ void SocketMonitor::unsignal(socket_handle s) {
 }
 
 void SocketMonitor::block(Strategy &strategy, bool poll, double timeout) {
+  // Sockets whose connect() returned a hard error immediately (not WSAEWOULDBLOCK).
+  // Process them while still in m_connectSockets so drop() returns true and
+  // onDisconnect fires exactly once.
+  while (!m_syncErrors.empty()) {
+    socket_handle s = m_syncErrors.front();
+    m_syncErrors.pop();
+    if (m_connectSockets.count(s)) {
+      strategy.onError(*this, s);
+    }
+  }
+
   while (m_dropped.size()) {
     strategy.onError(*this, m_dropped.front());
     m_dropped.pop();

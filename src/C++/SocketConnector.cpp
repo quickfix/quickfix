@@ -93,7 +93,13 @@ socket_handle SocketConnector::connect(
       socket_bind(socket, sourceAddress.c_str(), sourcePort);
     }
     m_monitor.addConnect(socket);
-    socket_connect(socket, address.c_str(), port);
+    if (socket_connect(socket, address.c_str(), port) != 0) {
+#ifdef _MSC_VER
+      if (WSAGetLastError() != WSAEWOULDBLOCK) {
+        m_monitor.addSyncError(socket);
+      }
+#endif
+    }
   }
   return socket;
 }
