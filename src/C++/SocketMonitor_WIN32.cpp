@@ -221,9 +221,16 @@ void SocketMonitor::processWriteSet(Strategy &strategy, fd_set &writeSet) {
   for (unsigned i = 0; i < writeSet.fd_count; ++i) {
     socket_handle s = writeSet.fd_array[i];
     if (m_connectSockets.find(s) != m_connectSockets.end()) {
-      m_connectSockets.erase(s);
-      m_readSockets.insert(s);
-      strategy.onConnect(*this, s);
+      int error = 0;
+      int len = sizeof(error);
+      getsockopt(s, SOL_SOCKET, SO_ERROR, (char *)&error, &len);
+      if (error) {
+        strategy.onError(*this, s);
+      } else {
+        m_connectSockets.erase(s);
+        m_readSockets.insert(s);
+        strategy.onConnect(*this, s);
+      }
     } else {
       strategy.onWrite(*this, s);
     }
