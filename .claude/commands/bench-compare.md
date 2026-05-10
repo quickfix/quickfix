@@ -44,21 +44,31 @@ The argument $ARGUMENTS is either a branch name or a PR number to compare agains
    ```
    If the build fails, report the error and stop.
 
-   After building, locate the `pt` binary (its output location varies depending on whether the build dir is inside or outside the source tree):
+   After building, locate the `pt` binary as an absolute path:
    ```
-   CURRENT_PT=$(find build-bench-current -name "pt" -type f | head -1)
-   # fallback: check lib/pt at project root (happens when build dir is inside source tree)
-   [ -z "$CURRENT_PT" ] && CURRENT_PT=lib/pt
+   CURRENT_PT=$(find $(pwd)/build-bench-current -name "pt" -type f | head -1)
+   [ -z "$CURRENT_PT" ] && CURRENT_PT=$(pwd)/lib/pt
    ```
 
-5. **Run benchmarks on the current branch 3 times** from the `test/` directory, using a different port offset for each trial to avoid conflicts:
+5. **Run benchmarks on the current branch 3 times** from the `test/` directory. Each trial consists of two runs: non-network benchmarks, then network benchmarks (with fewer samples since each involves real socket setup).
+
    ```
    cd test
-   ../${CURRENT_PT} -p 6671 -c 200000 2>&1   # trial 1
-   ../${CURRENT_PT} -p 6671 -c 200000 2>&1   # trial 2
-   ../${CURRENT_PT} -p 6671 -c 200000 2>&1   # trial 3
+
+   # Trial 1
+   ${CURRENT_PT} --quickfix-spec-path ../spec -# "~[network]" 2>&1
+   ${CURRENT_PT} --quickfix-spec-path ../spec --port 54322 "[network]" --benchmark-samples 5 2>&1
+
+   # Trial 2
+   ${CURRENT_PT} --quickfix-spec-path ../spec -# "~[network]" 2>&1
+   ${CURRENT_PT} --quickfix-spec-path ../spec --port 54322 "[network]" --benchmark-samples 5 2>&1
+
+   # Trial 3
+   ${CURRENT_PT} --quickfix-spec-path ../spec -# "~[network]" 2>&1
+   ${CURRENT_PT} --quickfix-spec-path ../spec --port 54322 "[network]" --benchmark-samples 5 2>&1
    ```
-   Capture all three outputs as CURRENT_TRIAL_1, CURRENT_TRIAL_2, CURRENT_TRIAL_3.
+
+   Capture the combined output of each trial pair as CURRENT_TRIAL_1, CURRENT_TRIAL_2, CURRENT_TRIAL_3.
 
 6. **Create a git worktree** for the comparison target:
    ```
@@ -73,19 +83,30 @@ The argument $ARGUMENTS is either a branch name or a PR number to compare agains
    ```
    If the build fails, clean up the worktree (`git worktree remove --force /tmp/quickfix-bench-compare`) and stop.
 
-   Locate the binary:
+   Locate the binary as an absolute path:
    ```
    COMPARE_PT=$(find /tmp/quickfix-bench-build -name "pt" -type f | head -1)
    ```
 
-8. **Run benchmarks on the comparison target 3 times** from the worktree's `test/` directory:
+8. **Run benchmarks on the comparison target 3 times** from the worktree's `test/` directory (using a different port for network benchmarks to avoid conflicts if runs overlap):
+
    ```
    cd /tmp/quickfix-bench-compare/test
-   ${COMPARE_PT} -p 6672 -c 200000 2>&1   # trial 1
-   ${COMPARE_PT} -p 6672 -c 200000 2>&1   # trial 2
-   ${COMPARE_PT} -p 6672 -c 200000 2>&1   # trial 3
+
+   # Trial 1
+   ${COMPARE_PT} --quickfix-spec-path ../spec -# "~[network]" 2>&1
+   ${COMPARE_PT} --quickfix-spec-path ../spec --port 54332 "[network]" --benchmark-samples 5 2>&1
+
+   # Trial 2
+   ${COMPARE_PT} --quickfix-spec-path ../spec -# "~[network]" 2>&1
+   ${COMPARE_PT} --quickfix-spec-path ../spec --port 54332 "[network]" --benchmark-samples 5 2>&1
+
+   # Trial 3
+   ${COMPARE_PT} --quickfix-spec-path ../spec -# "~[network]" 2>&1
+   ${COMPARE_PT} --quickfix-spec-path ../spec --port 54332 "[network]" --benchmark-samples 5 2>&1
    ```
-   Capture all three outputs as COMPARE_TRIAL_1, COMPARE_TRIAL_2, COMPARE_TRIAL_3.
+
+   Capture the combined output of each trial pair as COMPARE_TRIAL_1, COMPARE_TRIAL_2, COMPARE_TRIAL_3.
 
 9. **Clean up** the worktree and build directory:
    ```
@@ -93,7 +114,24 @@ The argument $ARGUMENTS is either a branch name or a PR number to compare agains
    rm -rf /tmp/quickfix-bench-build
    ```
 
-10. **Parse and display results**. For each benchmark in each set of three trials, extract the `num_per_second` values and compute the **median** across the three trials. Use the median as the representative value for each branch.
+10. **Parse and display results**. The Catch2 output has this structure for each benchmark:
+
+    ```
+    BenchmarkName                      100         12345     2.7474 ms
+                                 1.0262 ns    1.02135 ns    1.04603 ns
+                               0.043910 ns  0.007503 ns   0.103297 ns
+    ```
+
+    - Line 1: benchmark name (left-justified, no leading whitespace), followed by samples, iterations, estimated time
+    - Line 2: mean, low mean, high mean — each as `<value> <unit>` (unit is one of `ns`, `µs`, `ms`, `s`)
+    - Line 3: std dev stats (ignore for comparison)
+
+    To parse each trial output:
+    - Identify benchmark name lines: non-empty lines that don't start with whitespace, aren't all dashes, and aren't the column-header line (`benchmark name ... samples ...`). The benchmark name is all text before the first run of 2+ spaces.
+    - The immediately following non-empty line (starts with whitespace) contains the mean as the first `<value> <unit>` pair.
+    - Convert mean to ops/sec: divide 1 by the mean expressed in seconds (`ns` → ×10⁻⁹, `µs` → ×10⁻⁶, `ms` → ×10⁻³, `s` → ×1).
+
+    For each benchmark, extract the mean-derived ops/sec from all three trials and compute the **median** as the representative value for each branch.
 
     Then for each benchmark present in both sets, compute:
     - `Δ%` = `(current_median - compare_median) / compare_median * 100` (positive = current branch is faster)
@@ -106,10 +144,11 @@ The argument $ARGUMENTS is either a branch name or a PR number to compare agains
 
     | Benchmark                                    | Current median (ops/s) | <COMPARE_LABEL> median (ops/s) | Δ%     |
     |----------------------------------------------|------------------------|--------------------------------|--------|
-    | Converting integers to strings               |          4,250,000     |              4,100,000         | +3.7%  |
+    | IntegerToString                              |      975,000,000       |          942,000,000           | +3.7%  |
+    | Socket/SendMessage                           |          1,250         |              1,180             | +5.9%  |
     | ...                                          |                        |                                |        |
 
-    > Count: 200,000 iterations per benchmark × 3 trials, median reported | Build: Release
+    > 3 trials, median reported | Catch2 statistical benchmarks | Build: Release
     ```
 
     Highlight any benchmark where `|Δ%| >= 5%` with a note at the end.
