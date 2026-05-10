@@ -4,24 +4,24 @@
 
 iCONNECT
 # logon message and response
-I8=FIX.4.235=A34=149=TW52=<TIME>56=ISLD98=0108=2
-E8=FIX.4.29=6035=A34=149=ISLD52=00000000-00:00:00.00056=TW98=0108=210=0
+I8=FIX.4.235=A34=149=TW4252=<TIME>56=ISLD98=0108=2
+E8=FIX.4.29=6235=A34=149=ISLD52=00000000-00:00:00.00056=TW4298=0108=210=0
 
 #------------------------
 # begin message exchange
 #------------------------
 
 # heartbeat message with a field identified that doesn't have a value
-I8=FIX.4.235=034=249=TW52=<TIME>56=
+I8=FIX.4.235=034=249=TW4252=<TIME>56=
 # expect a reject
-E8=FIX.4.29=10635=334=249=ISLD52=00000000-00:00:00.00056=TW45=258=Tag specified without a value371=56372=0373=410=0
+E8=FIX.4.29=10835=334=249=ISLD52=00000000-00:00:00.00056=TW4245=258=Tag specified without a value371=56372=0373=410=0
 
 #------------------------
 # end message exchange
 #------------------------
 
 # logout message and response
-I8=FIX.4.235=534=349=TW52=<TIME>56=ISLD
-E8=FIX.4.29=4935=534=349=ISLD52=00000000-00:00:00.00056=TW10=0
+I8=FIX.4.235=534=349=TW4252=<TIME>56=ISLD
+E8=FIX.4.29=5135=534=349=ISLD52=00000000-00:00:00.00056=TW4210=0
 
 eDISCONNECT
