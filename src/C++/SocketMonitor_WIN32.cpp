@@ -225,6 +225,20 @@ void SocketMonitor::block(Strategy &strategy, bool poll, double timeout) {
   int result = select(FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll, timeout));
 
   if (result == 0) {
+    // select() timed out — poll connecting sockets for errors Windows may not
+    // surface in exceptfds (e.g. RST received during the wait window).
+    {
+      Sockets pending = m_connectSockets;
+      for (socket_handle s : pending) {
+        if (!m_connectSockets.count(s)) continue;
+        int error = 0, len = sizeof(error);
+        getsockopt(s, SOL_SOCKET, SO_ERROR, (char *)&error, &len);
+        if (error) {
+          strategy.onError(*this, s);
+          return;
+        }
+      }
+    }
     strategy.onTimeout(*this);
     return;
   } else if (result > 0) {
