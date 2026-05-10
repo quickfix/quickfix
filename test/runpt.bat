@@ -1,9 +1,8 @@
 echo off
 if "%1" == "" goto usage
-if "%2" == "" goto usage
 
-if "%1" == "debug" goto debug:
-if "%1" == "release" goto release:
+if "%1" == "debug" goto debug
+if "%1" == "release" goto release
 goto usage
 
 :debug
@@ -15,10 +14,12 @@ set DIR=release\pt
 goto start
 
 :start
-%DIR%\pt.exe -p %2 -c 500000
+set SPECPATH=%~dp0..\spec
+%DIR%\pt.exe --quickfix-spec-path "%SPECPATH%" -# "~[network]" %2 %3 %4 %5
+%DIR%\pt.exe --quickfix-spec-path "%SPECPATH%" -# "[network]" %2 %3 %4 %5
 goto quit
 
 :usage
-echo "Usage: runpt [release | debug] [port]"
+echo Usage: runpt [release ^| debug] [catch2-options...]
 
 :quit

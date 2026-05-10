@@ -27,11 +27,11 @@
 #include "config.h"
 #endif
 
-#include "Application.h"
 #include "DataDictionary.h"
 #include "FieldConvertors.h"
 #include "FileStore.h"
-#include "Parser.h"
+#include "Message.h"
+#include "MessageStore.h"
 #include "Session.h"
 #include "SessionID.h"
 #include "SocketAcceptor.h"
@@ -43,385 +43,26 @@
 #include "fix42/Heartbeat.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix42/QuoteRequest.h"
-#include "getopt-repl.h"
-#include <iostream>
-#include <memory>
 
-long testIntegerToString(int);
-long testStringToInteger(int);
-long testDoubleToString(int);
-long testStringToDouble(int);
-long testCreateHeartbeat(int);
-long testIdentifyType(int);
-long testSerializeHeartbeat(int);
-long testDeserializeHeartbeat(int);
-long testDeserializeAndValidateHeartbeat(int);
-long testCreateNewOrderSingle(int);
-long testSerializeNewOrderSingle(int);
-long testDeserializeNewOrderSingle(int);
-long testDeserializeAndValidateNewOrderSingle(int);
-long testCreateQuoteRequest(int);
-long testReadFromQuoteRequest(int);
-long testSerializeQuoteRequest(int);
-long testDeserializeQuoteRequest(int);
-long testDeserializeAndValidateQuoteRequest(int);
-long testFileStoreNewOrderSingle(int);
-long testValidateNewOrderSingle(int);
-long testValidateDictNewOrderSingle(int);
-long testValidateQuoteRequest(int);
-long testValidateDictQuoteRequest(int);
-long testSendOnSocket(int, short);
-long testSendOnThreadedSocket(int, short);
-void report(long, int);
+#include "TestHelper.h"
+#include "catch_amalgamated.hpp"
 
-#ifndef _MSC_VER
-#include <sys/time.h>
-long GetTickCount() {
-  timeval tv;
-  gettimeofday(&tv, 0);
-  long microsec = tv.tv_sec * 1e6;
-  microsec += (long)tv.tv_usec;
+#include <atomic>
+#include <sstream>
 
-  return (long)microsec;
-}
-#endif
-
-std::unique_ptr<FIX::DataDictionary> s_dataDictionary;
-const bool VALIDATE = true;
-const bool DONT_VALIDATE = false;
-
-int main(int argc, char **argv) {
-  int count = 0;
-  short port = 0;
-
-  int opt;
-  while ((opt = getopt(argc, argv, "+p:+c:")) != -1) {
-    switch (opt) {
-    case 'p':
-      port = (short)atol(optarg);
-      break;
-    case 'c':
-      count = atoi(optarg);
-      break;
-    default:
-      std::cout << "usage: " << argv[0] << " -p port -c count" << std::endl;
-      return EXIT_FAILURE;
-    }
-  }
-
-  try {
-    s_dataDictionary.reset(new FIX::DataDictionary("../spec/FIX42.xml"));
-
-    std::cout << "Converting integers to strings: ";
-    report(testIntegerToString(count), count);
-
-    std::cout << "Converting strings to integers: ";
-    report(testStringToInteger(count), count);
-
-    std::cout << "Converting doubles to strings: ";
-    report(testDoubleToString(count), count);
-
-    std::cout << "Converting strings to doubles: ";
-    report(testStringToDouble(count), count);
-
-    std::cout << "Creating Heartbeat messages: ";
-    report(testCreateHeartbeat(count), count);
-
-    std::cout << "Identifying message types: ";
-    report(testIdentifyType(count), count);
-
-    std::cout << "Serializing Heartbeat messages: ";
-    report(testSerializeHeartbeat(count), count);
-
-    std::cout << "Deserializing Heartbeat messages: ";
-    report(testDeserializeHeartbeat(count), count);
-
-    std::cout << "Deserializing and validating Heartbeat messages: ";
-    report(testDeserializeAndValidateHeartbeat(count), count);
-
-    std::cout << "Creating NewOrderSingle messages: ";
-    report(testCreateNewOrderSingle(count), count);
-
-    std::cout << "Serializing NewOrderSingle messages: ";
-    report(testSerializeNewOrderSingle(count), count);
-
-    std::cout << "Deserializing NewOrderSingle messages: ";
-    report(testDeserializeNewOrderSingle(count), count);
-
-    std::cout << "Deserializing and validating NewOrderSingle messages: ";
-    report(testDeserializeAndValidateNewOrderSingle(count), count);
-
-    std::cout << "Creating QuoteRequest messages: ";
-    report(testCreateQuoteRequest(count), count);
-
-    std::cout << "Serializing QuoteRequest messages: ";
-    report(testSerializeQuoteRequest(count), count);
-
-    std::cout << "Deserializing QuoteRequest messages: ";
-    report(testDeserializeQuoteRequest(count), count);
-
-    std::cout << "Deserializing and validating QuoteRequest messages: ";
-    report(testDeserializeAndValidateQuoteRequest(count), count);
-
-    std::cout << "Reading fields from QuoteRequest message: ";
-    report(testReadFromQuoteRequest(count), count);
-
-    std::cout << "Storing NewOrderSingle messages: ";
-    report(testFileStoreNewOrderSingle(count), count);
-
-    std::cout << "Validating NewOrderSingle messages with no data dictionary: ";
-    report(testValidateNewOrderSingle(count), count);
-
-    std::cout << "Validating NewOrderSingle messages with data dictionary: ";
-    report(testValidateDictNewOrderSingle(count), count);
-
-    std::cout << "Validating QuoteRequest messages with no data dictionary: ";
-    report(testValidateQuoteRequest(count), count);
-
-    std::cout << "Validating QuoteRequest messages with data dictionary: ";
-    report(testValidateDictQuoteRequest(count), count);
-
-    std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on Socket";
-    report(testSendOnSocket(count, port), count);
-
-    std::cout << "Sending/Receiving NewOrderSingle/ExecutionReports on ThreadedSocket";
-    report(testSendOnThreadedSocket(count, port), count);
-  } catch (std::exception const &e) {
-    std::cerr << e.what() << std::endl;
-    return EXIT_FAILURE;
-  }
-
-  return EXIT_SUCCESS;
-}
-
-void report(long total_micros, int count) {
-  double total_seconds = static_cast<double>(total_micros) / 1e6;
-  double num_per_second = count / total_seconds;
-  double micros_per = static_cast<double>(total_micros) / count;
-  std::cout << std::endl
-            << "    num: " << count << ", total_seconds: " << total_seconds << ", num_per_second: " << num_per_second
-            << ", micros_per: " << micros_per << std::endl;
-}
-
-long testIntegerToString(int count) {
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::IntConvertor::convert(1234);
-  }
-  return GetTickCount() - start;
-}
-
-long testStringToInteger(int count) {
-  std::string value("1234");
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::IntConvertor::convert(value);
-  }
-  return GetTickCount() - start;
-}
-
-long testDoubleToString(int count) {
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::DoubleConvertor::convert(123.45);
-  }
-  return GetTickCount() - start;
-}
-
-long testStringToDouble(int count) {
-  std::string value("123.45");
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::DoubleConvertor::convert(value);
-  }
-  return GetTickCount() - start;
-}
-
-long testCreateHeartbeat(int count) {
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX42::Heartbeat();
-  }
-
-  return GetTickCount() - start;
-}
-
-long testIdentifyType(int count) {
-  FIX42::Heartbeat message;
-  std::string messageString = message.toString();
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::identifyType(messageString);
-  }
-
-  return GetTickCount() - start;
-}
-
-long testSerializeHeartbeat(int count) {
-  FIX42::Heartbeat message;
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    message.toString();
-  }
-  return GetTickCount() - start;
-}
-
-long testDeserializeHeartbeat(int count) {
-  FIX42::Heartbeat message;
-  std::string string = message.toString();
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    message.setString(string, DONT_VALIDATE, s_dataDictionary.get());
-  }
-  return GetTickCount() - start;
-}
-
-long testDeserializeAndValidateHeartbeat(int count) {
-  FIX42::Heartbeat message;
-  std::string string = message.toString();
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    message.setString(string, VALIDATE, s_dataDictionary.get());
-  }
-  return GetTickCount() - start;
-}
-
-long testCreateNewOrderSingle(int count) {
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::ClOrdID clOrdID("ORDERID");
-    FIX::HandlInst handlInst('1');
-    FIX::Symbol symbol("LNUX");
-    FIX::Side side(FIX::Side_BUY);
-    FIX::TransactTime transactTime = FIX::TransactTime::now();
-    FIX::OrdType ordType(FIX::OrdType_MARKET);
-    FIX42::NewOrderSingle(clOrdID, handlInst, symbol, side, transactTime, ordType);
-  }
-
-  return GetTickCount() - start;
-}
-
-long testSerializeNewOrderSingle(int count) {
+static FIX42::NewOrderSingle makeNewOrderSingle() {
   FIX::ClOrdID clOrdID("ORDERID");
   FIX::HandlInst handlInst('1');
   FIX::Symbol symbol("LNUX");
   FIX::Side side(FIX::Side_BUY);
   FIX::TransactTime transactTime = FIX::TransactTime::now();
   FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    message.toString();
-  }
-  return GetTickCount() - start;
+  return FIX42::NewOrderSingle(clOrdID, handlInst, symbol, side, transactTime, ordType);
 }
 
-long testDeserializeNewOrderSingle(int count) {
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
-  std::string string = message.toString();
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    message.setString(string, DONT_VALIDATE, s_dataDictionary.get());
-  }
-  return GetTickCount() - start;
-}
-
-long testDeserializeAndValidateNewOrderSingle(int count) {
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
-  std::string string = message.toString();
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    message.setString(string, VALIDATE, s_dataDictionary.get());
-  }
-  return GetTickCount() - start;
-}
-
-long testCreateQuoteRequest(int count) {
-  count = count - 1;
-
-  long start = GetTickCount();
-  FIX::Symbol symbol;
-  FIX::MaturityMonthYear maturityMonthYear;
-  FIX::PutOrCall putOrCall;
-  FIX::StrikePrice strikePrice;
-  FIX::Side side;
-  FIX::OrderQty orderQty;
-  FIX::Currency currency;
-  FIX::OrdType ordType;
-
-  for (int i = 0; i <= count; ++i) {
-    FIX42::QuoteRequest massQuote(FIX::QuoteReqID("1"));
-    FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
-
-    for (int j = 1; j <= 10; ++j) {
-      symbol.setValue("IBM");
-      maturityMonthYear.setValue("022003");
-      putOrCall.setValue(FIX::PutOrCall_PUT);
-      strikePrice.setValue(120);
-      side.setValue(FIX::Side_BUY);
-      orderQty.setValue(100);
-      currency.setValue("USD");
-      ordType.setValue(FIX::OrdType_MARKET);
-      noRelatedSym.set(symbol);
-      noRelatedSym.set(maturityMonthYear);
-      noRelatedSym.set(putOrCall);
-      noRelatedSym.set(strikePrice);
-      noRelatedSym.set(side);
-      noRelatedSym.set(orderQty);
-      noRelatedSym.set(currency);
-      noRelatedSym.set(ordType);
-      massQuote.addGroup(noRelatedSym);
-      noRelatedSym.clear();
-    }
-  }
-
-  return GetTickCount() - start;
-}
-
-long testSerializeQuoteRequest(int count) {
+static FIX42::QuoteRequest makeQuoteRequest() {
   FIX42::QuoteRequest message(FIX::QuoteReqID("1"));
   FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
-
   for (int i = 1; i <= 10; ++i) {
     noRelatedSym.set(FIX::Symbol("IBM"));
     noRelatedSym.set(FIX::MaturityMonthYear());
@@ -432,91 +73,72 @@ long testSerializeQuoteRequest(int count) {
     noRelatedSym.set(FIX::Currency("USD"));
     noRelatedSym.set(FIX::OrdType(FIX::OrdType_MARKET));
     message.addGroup(noRelatedSym);
+    noRelatedSym.clear();
   }
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int j = 0; j <= count; ++j) {
-    message.toString();
-  }
-  return GetTickCount() - start;
+  return message;
 }
 
-long testDeserializeQuoteRequest(int count) {
-  FIX42::QuoteRequest message(FIX::QuoteReqID("1"));
-  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+TEST_CASE("TypeConversions", "[benchmark]") {
+  BENCHMARK("IntegerToString") { return FIX::IntConvertor::convert(1234); };
 
-  for (int i = 1; i <= 10; ++i) {
-    noRelatedSym.set(FIX::Symbol("IBM"));
-    noRelatedSym.set(FIX::MaturityMonthYear());
-    noRelatedSym.set(FIX::PutOrCall(FIX::PutOrCall_PUT));
-    noRelatedSym.set(FIX::StrikePrice(120));
-    noRelatedSym.set(FIX::Side(FIX::Side_BUY));
-    noRelatedSym.set(FIX::OrderQty(100));
-    noRelatedSym.set(FIX::Currency("USD"));
-    noRelatedSym.set(FIX::OrdType(FIX::OrdType_MARKET));
-    message.addGroup(noRelatedSym);
-  }
-  std::string string = message.toString();
+  BENCHMARK("StringToInteger") {
+    std::string value("1234");
+    return FIX::IntConvertor::convert(value);
+  };
 
-  count = count - 1;
+  BENCHMARK("DoubleToString") { return FIX::DoubleConvertor::convert(123.45); };
 
-  long start = GetTickCount();
-  for (int j = 0; j <= count; ++j) {
-    message.setString(string, DONT_VALIDATE, s_dataDictionary.get());
-  }
-  return GetTickCount() - start;
+  BENCHMARK("StringToDouble") {
+    std::string value("123.45");
+    return FIX::DoubleConvertor::convert(value);
+  };
 }
 
-long testDeserializeAndValidateQuoteRequest(int count) {
-  FIX42::QuoteRequest message(FIX::QuoteReqID("1"));
-  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
+TEST_CASE("HeartbeatMessage", "[benchmark]") {
+  FIX::DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
+  FIX42::Heartbeat message;
+  std::string serialized = message.toString();
 
-  for (int i = 1; i <= 10; ++i) {
-    noRelatedSym.set(FIX::Symbol("IBM"));
-    noRelatedSym.set(FIX::MaturityMonthYear());
-    noRelatedSym.set(FIX::PutOrCall(FIX::PutOrCall_PUT));
-    noRelatedSym.set(FIX::StrikePrice(120));
-    noRelatedSym.set(FIX::Side(FIX::Side_BUY));
-    noRelatedSym.set(FIX::OrderQty(100));
-    noRelatedSym.set(FIX::Currency("USD"));
-    noRelatedSym.set(FIX::OrdType(FIX::OrdType_MARKET));
-    message.addGroup(noRelatedSym);
-  }
-  std::string string = message.toString();
+  BENCHMARK("Create") { return FIX42::Heartbeat(); };
 
-  count = count - 1;
+  BENCHMARK("IdentifyType") { return FIX::identifyType(serialized); };
 
-  long start = GetTickCount();
-  for (int j = 0; j <= count; ++j) {
-    message.setString(string, VALIDATE, s_dataDictionary.get());
-  }
-  return GetTickCount() - start;
+  BENCHMARK("Serialize") { return message.toString(); };
+
+  BENCHMARK("Deserialize") { return message.setString(serialized, false, &dataDictionary); };
+
+  BENCHMARK("DeserializeAndValidate") { return message.setString(serialized, true, &dataDictionary); };
 }
 
-long testReadFromQuoteRequest(int count) {
-  count = count - 1;
+TEST_CASE("NewOrderSingleMessage", "[benchmark]") {
+  FIX::DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
+  FIX42::NewOrderSingle message = makeNewOrderSingle();
+  std::string serialized = message.toString();
 
-  FIX42::QuoteRequest message(FIX::QuoteReqID("1"));
+  BENCHMARK("Create") { return makeNewOrderSingle(); };
+
+  BENCHMARK("Serialize") { return message.toString(); };
+
+  BENCHMARK("Deserialize") { return message.setString(serialized, false, &dataDictionary); };
+
+  BENCHMARK("DeserializeAndValidate") { return message.setString(serialized, true, &dataDictionary); };
+}
+
+TEST_CASE("QuoteRequestMessage", "[benchmark]") {
+  FIX::DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
+  FIX42::QuoteRequest message = makeQuoteRequest();
   FIX42::QuoteRequest::NoRelatedSym group;
+  std::string serialized = message.toString();
 
-  for (int i = 1; i <= 10; ++i) {
-    group.set(FIX::Symbol("IBM"));
-    group.set(FIX::MaturityMonthYear());
-    group.set(FIX::PutOrCall(FIX::PutOrCall_PUT));
-    group.set(FIX::StrikePrice(120));
-    group.set(FIX::Side(FIX::Side_BUY));
-    group.set(FIX::OrderQty(100));
-    group.set(FIX::Currency("USD"));
-    group.set(FIX::OrdType(FIX::OrdType_MARKET));
-    message.addGroup(group);
-  }
-  group.clear();
+  BENCHMARK("Create") { return makeQuoteRequest(); };
 
-  long start = GetTickCount();
-  for (int j = 0; j <= count; ++j) {
-    FIX::QuoteReqID quoteReqID;
+  BENCHMARK("Serialize") { return message.toString(); };
+
+  BENCHMARK("Deserialize") { return message.setString(serialized, false, &dataDictionary); };
+
+  BENCHMARK("DeserializeAndValidate") { return message.setString(serialized, true, &dataDictionary); };
+
+  BENCHMARK("ReadFields") {
     FIX::Symbol symbol;
     FIX::MaturityMonthYear maturityMonthYear;
     FIX::PutOrCall putOrCall;
@@ -525,11 +147,10 @@ long testReadFromQuoteRequest(int count) {
     FIX::OrderQty orderQty;
     FIX::Currency currency;
     FIX::OrdType ordType;
-
     FIX::NoRelatedSym noRelatedSym;
     message.get(noRelatedSym);
-    int end = noRelatedSym;
-    for (int k = 1; k <= end; ++k) {
+    int count = noRelatedSym;
+    for (int k = 1; k <= count; ++k) {
       message.getGroup(k, group);
       group.get(symbol);
       group.get(maturityMonthYear);
@@ -539,298 +160,187 @@ long testReadFromQuoteRequest(int count) {
       group.get(orderQty);
       group.get(currency);
       group.get(ordType);
-      maturityMonthYear.getValue();
-      putOrCall.getValue();
-      strikePrice.getValue();
-      side.getValue();
-      orderQty.getValue();
-      currency.getValue();
-      ordType.getValue();
     }
-  }
-
-  return GetTickCount() - start;
+    return noRelatedSym;
+  };
 }
 
-long testFileStoreNewOrderSingle(int count) {
+TEST_CASE("Validation", "[benchmark]") {
+  FIX::DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
+  FIX::DataDictionary emptyDataDictionary;
+
+  FIX42::NewOrderSingle newOrderSingle = makeNewOrderSingle();
+  newOrderSingle.getHeader().set(FIX::SenderCompID("SENDER"));
+  newOrderSingle.getHeader().set(FIX::TargetCompID("TARGET"));
+  newOrderSingle.getHeader().set(FIX::MsgSeqNum(1));
+  newOrderSingle.getHeader().set(FIX::SendingTime::now());
+  newOrderSingle.getHeader().set(FIX::BodyLength(newOrderSingle.calculateLength()));
+  newOrderSingle.getTrailer().set(FIX::CheckSum(newOrderSingle.checkSum()));
+
+  FIX42::QuoteRequest quoteRequest = makeQuoteRequest();
+  quoteRequest.getHeader().set(FIX::SenderCompID("SENDER"));
+  quoteRequest.getHeader().set(FIX::TargetCompID("TARGET"));
+  quoteRequest.getHeader().set(FIX::MsgSeqNum(1));
+  quoteRequest.getHeader().set(FIX::SendingTime::now());
+  quoteRequest.getHeader().set(FIX::BodyLength(quoteRequest.calculateLength()));
+  quoteRequest.getTrailer().set(FIX::CheckSum(quoteRequest.checkSum()));
+
+  BENCHMARK("ValidateNewOrderSingle") { emptyDataDictionary.validate(newOrderSingle); };
+
+  BENCHMARK("ValidateDictNewOrderSingle") { dataDictionary.validate(newOrderSingle); };
+
+  BENCHMARK("ValidateQuoteRequest") { emptyDataDictionary.validate(quoteRequest); };
+
+  BENCHMARK("ValidateDictQuoteRequest") { dataDictionary.validate(quoteRequest); };
+}
+
+TEST_CASE("FileStore", "[benchmark]") {
   FIX::BeginString beginString(FIX::BeginString_FIX42);
   FIX::SenderCompID senderCompID("SENDER");
   FIX::TargetCompID targetCompID("TARGET");
-  FIX::SessionID id(beginString, senderCompID, targetCompID);
+  FIX::SessionID sessionID(beginString, senderCompID, targetCompID);
 
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
+  FIX42::NewOrderSingle message = makeNewOrderSingle();
   message.getHeader().set(FIX::MsgSeqNum(1));
   std::string messageString = message.toString();
 
-  FIX::FileStore store(FIX::UtcTimeStamp::now(), "store", id);
-  store.reset(FIX::UtcTimeStamp::now());
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    store.set(++i, messageString);
-  }
-  long end = GetTickCount();
-  store.reset(FIX::UtcTimeStamp::now());
-  return end - start;
+  BENCHMARK_ADVANCED("StoreNewOrderSingle")(Catch::Benchmark::Chronometer meter) {
+    FIX::FileStore store(FIX::UtcTimeStamp::now(), "store", sessionID);
+    store.reset(FIX::UtcTimeStamp::now());
+    int seq = 0;
+    meter.measure([&] { store.set(++seq, messageString); });
+    store.reset(FIX::UtcTimeStamp::now());
+  };
 }
 
-long testValidateNewOrderSingle(int count) {
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
-  message.getHeader().set(FIX::SenderCompID("SENDER"));
-  message.getHeader().set(FIX::TargetCompID("TARGET"));
-  message.getHeader().set(FIX::MsgSeqNum(1));
-  message.getHeader().set(FIX::SendingTime::now());
-  message.getHeader().set(FIX::BodyLength(message.calculateLength()));
-  message.getTrailer().set(FIX::CheckSum(message.checkSum()));
+static unsigned short s_networkBenchmarkPort = 54322;
 
-  FIX::DataDictionary dataDictionary;
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    dataDictionary.validate(message);
-  }
-  return GetTickCount() - start;
-}
-
-long testValidateDictNewOrderSingle(int count) {
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
-  message.getHeader().set(FIX::SenderCompID("SENDER"));
-  message.getHeader().set(FIX::TargetCompID("TARGET"));
-  message.getHeader().set(FIX::MsgSeqNum(1));
-  message.getHeader().set(FIX::SendingTime::now());
-  message.getHeader().set(FIX::BodyLength(message.calculateLength()));
-  message.getTrailer().set(FIX::CheckSum(message.checkSum()));
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    s_dataDictionary->validate(message);
-  }
-  return GetTickCount() - start;
-}
-
-long testValidateQuoteRequest(int count) {
-  FIX42::QuoteRequest message(FIX::QuoteReqID("1"));
-  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
-
-  for (int i = 1; i <= 10; ++i) {
-    noRelatedSym.set(FIX::Symbol("IBM"));
-    noRelatedSym.set(FIX::MaturityMonthYear());
-    noRelatedSym.set(FIX::PutOrCall(FIX::PutOrCall_PUT));
-    noRelatedSym.set(FIX::StrikePrice(120));
-    noRelatedSym.set(FIX::Side(FIX::Side_BUY));
-    noRelatedSym.set(FIX::OrderQty(100));
-    noRelatedSym.set(FIX::Currency("USD"));
-    noRelatedSym.set(FIX::OrdType(FIX::OrdType_MARKET));
-    message.addGroup(noRelatedSym);
-  }
-
-  message.getHeader().set(FIX::SenderCompID("SENDER"));
-  message.getHeader().set(FIX::TargetCompID("TARGET"));
-  message.getHeader().set(FIX::MsgSeqNum(1));
-  message.getHeader().set(FIX::SendingTime::now());
-  message.getHeader().set(FIX::BodyLength(message.calculateLength()));
-  message.getTrailer().set(FIX::CheckSum(message.checkSum()));
-
-  FIX::DataDictionary dataDictionary;
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int j = 0; j <= count; ++j) {
-    dataDictionary.validate(message);
-  }
-  return GetTickCount() - start;
-}
-
-long testValidateDictQuoteRequest(int count) {
-  FIX42::QuoteRequest message(FIX::QuoteReqID("1"));
-  FIX42::QuoteRequest::NoRelatedSym noRelatedSym;
-
-  for (int i = 1; i <= 10; ++i) {
-    noRelatedSym.set(FIX::Symbol("IBM"));
-    noRelatedSym.set(FIX::MaturityMonthYear());
-    noRelatedSym.set(FIX::PutOrCall(FIX::PutOrCall_PUT));
-    noRelatedSym.set(FIX::StrikePrice(120));
-    noRelatedSym.set(FIX::Side(FIX::Side_BUY));
-    noRelatedSym.set(FIX::OrderQty(100));
-    noRelatedSym.set(FIX::Currency("USD"));
-    noRelatedSym.set(FIX::OrdType(FIX::OrdType_MARKET));
-    message.addGroup(noRelatedSym);
-  }
-
-  message.getHeader().set(FIX::SenderCompID("SENDER"));
-  message.getHeader().set(FIX::TargetCompID("TARGET"));
-  message.getHeader().set(FIX::MsgSeqNum(1));
-  message.getHeader().set(FIX::SendingTime::now());
-  message.getHeader().set(FIX::BodyLength(message.calculateLength()));
-  message.getTrailer().set(FIX::CheckSum(message.checkSum()));
-
-  count = count - 1;
-
-  long start = GetTickCount();
-  for (int j = 0; j <= count; ++j) {
-    s_dataDictionary->validate(message);
-  }
-  return GetTickCount() - start;
-}
-
-class TestApplication : public FIX::NullApplication {
+class NetworkBenchmarkApplication : public FIX::NullApplication {
 public:
-  TestApplication()
-      : m_count(0) {}
-
-  void fromApp(const FIX::Message &m, const FIX::SessionID &)
+  std::atomic<int> received{0};
+  void fromApp(const FIX::Message &, const FIX::SessionID &)
       EXCEPT(FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType) {
-    m_count++;
+    received.fetch_add(1, std::memory_order_relaxed);
   }
-
-  int getCount() { return m_count; }
-
-private:
-  int m_count;
 };
 
-long testSendOnSocket(int count, short port) {
-  std::stringstream stream;
-  stream << "[DEFAULT]" << std::endl
-         << "SocketConnectHost=localhost" << std::endl
-         << "SocketConnectPort=" << (unsigned short)port << std::endl
-         << "SocketAcceptPort=" << (unsigned short)port << std::endl
-         << "SocketReuseAddress=Y" << std::endl
-         << "StartTime=00:00:00" << std::endl
-         << "EndTime=00:00:00" << std::endl
-         << "UseDataDictionary=N" << std::endl
-         << "BeginString=FIX.4.2" << std::endl
-         << "PersistMessages=N" << std::endl
-         << "[SESSION]" << std::endl
-         << "ConnectionType=acceptor" << std::endl
-         << "SenderCompID=SERVER" << std::endl
-         << "TargetCompID=CLIENT" << std::endl
-         << "[SESSION]" << std::endl
-         << "ConnectionType=initiator" << std::endl
-         << "SenderCompID=CLIENT" << std::endl
-         << "TargetCompID=SERVER" << std::endl
-         << "HeartBtInt=30" << std::endl;
-
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
-
-  FIX::SessionID sessionID("FIX.4.2", "CLIENT", "SERVER");
-
-  TestApplication application;
-  FIX::MemoryStoreFactory factory;
-  FIX::SessionSettings settings(stream);
-  FIX::ScreenLogFactory logFactory(settings);
-
-  FIX::SocketAcceptor acceptor(application, factory, settings);
-  acceptor.start();
-
-  FIX::SocketInitiator initiator(application, factory, settings);
-  initiator.start();
-
-  FIX::process_sleep(1);
-
-  long start = GetTickCount();
-
-  for (int i = 0; i <= count; ++i) {
-    FIX::Session::sendToTarget(message, sessionID);
-  }
-
-  while (application.getCount() < count) {
-    FIX::process_sleep(0.1);
-  }
-
-  long ticks = GetTickCount() - start;
-
-  initiator.stop();
-  acceptor.stop();
-
-  return ticks;
+static std::string makeSocketConfig(
+    unsigned short port,
+    const std::string &serverCompID,
+    const std::string &clientCompID) {
+  std::ostringstream stream;
+  stream << "[DEFAULT]\n"
+         << "SocketConnectHost=localhost\n"
+         << "SocketConnectPort=" << port << "\n"
+         << "SocketAcceptPort=" << port << "\n"
+         << "SocketReuseAddress=Y\n"
+         << "StartTime=00:00:00\n"
+         << "EndTime=00:00:00\n"
+         << "UseDataDictionary=N\n"
+         << "BeginString=FIX.4.2\n"
+         << "PersistMessages=N\n"
+         << "[SESSION]\n"
+         << "ConnectionType=acceptor\n"
+         << "SenderCompID=" << serverCompID << "\n"
+         << "TargetCompID=" << clientCompID << "\n"
+         << "[SESSION]\n"
+         << "ConnectionType=initiator\n"
+         << "SenderCompID=" << clientCompID << "\n"
+         << "TargetCompID=" << serverCompID << "\n"
+         << "HeartBtInt=30\n";
+  return stream.str();
 }
 
-long testSendOnThreadedSocket(int count, short port) {
-  std::stringstream stream;
-  stream << "[DEFAULT]" << std::endl
-         << "SocketConnectHost=localhost" << std::endl
-         << "SocketConnectPort=" << (unsigned short)port << std::endl
-         << "SocketAcceptPort=" << (unsigned short)port << std::endl
-         << "SocketReuseAddress=Y" << std::endl
-         << "StartTime=00:00:00" << std::endl
-         << "EndTime=00:00:00" << std::endl
-         << "UseDataDictionary=N" << std::endl
-         << "BeginString=FIX.4.2" << std::endl
-         << "PersistMessages=N" << std::endl
-         << "[SESSION]" << std::endl
-         << "ConnectionType=acceptor" << std::endl
-         << "SenderCompID=SERVER" << std::endl
-         << "TargetCompID=CLIENT" << std::endl
-         << "[SESSION]" << std::endl
-         << "ConnectionType=initiator" << std::endl
-         << "SenderCompID=CLIENT" << std::endl
-         << "TargetCompID=SERVER" << std::endl
-         << "HeartBtInt=30" << std::endl;
+// Each network benchmark context connects once and stays connected for all
+// samples. The two contexts use different ports and session IDs so they can
+// coexist during the program's lifetime without a session registry conflict.
 
-  FIX::ClOrdID clOrdID("ORDERID");
-  FIX::HandlInst handlInst('1');
-  FIX::Symbol symbol("LNUX");
-  FIX::Side side(FIX::Side_BUY);
-  FIX::TransactTime transactTime = FIX::TransactTime::now();
-  FIX::OrdType ordType(FIX::OrdType_MARKET);
-  FIX42::NewOrderSingle message(clOrdID, handlInst, symbol, side, transactTime, ordType);
+struct SocketBenchmarkContext {
+  NetworkBenchmarkApplication application;
+  FIX::MemoryStoreFactory storeFactory;
+  FIX::SessionID sessionID;
+  std::unique_ptr<FIX::SocketAcceptor> acceptor;
+  std::unique_ptr<FIX::SocketInitiator> initiator;
 
-  FIX::SessionID sessionID("FIX.4.2", "CLIENT", "SERVER");
-
-  TestApplication application;
-  FIX::MemoryStoreFactory factory;
-  FIX::SessionSettings settings(stream);
-
-  FIX::ThreadedSocketAcceptor acceptor(application, factory, settings);
-  acceptor.start();
-
-  FIX::ThreadedSocketInitiator initiator(application, factory, settings);
-  initiator.start();
-
-  FIX::process_sleep(1);
-
-  long start = GetTickCount();
-  for (int i = 0; i <= count; ++i) {
-    FIX::Session::sendToTarget(message, sessionID);
+  explicit SocketBenchmarkContext(unsigned short port)
+      : sessionID("FIX.4.2", "CLIENT", "SERVER") {
+    std::istringstream configStream(makeSocketConfig(port, "SERVER", "CLIENT"));
+    FIX::SessionSettings settings(configStream);
+    acceptor = std::make_unique<FIX::SocketAcceptor>(application, storeFactory, settings);
+    acceptor->start();
+    initiator = std::make_unique<FIX::SocketInitiator>(application, storeFactory, settings);
+    initiator->start();
+    FIX::process_sleep(1);
   }
 
-  while (application.getCount() < count) {
-    FIX::process_sleep(0.1);
+  ~SocketBenchmarkContext() {
+    initiator->stop();
+    acceptor->stop();
+  }
+};
+
+struct ThreadedSocketBenchmarkContext {
+  NetworkBenchmarkApplication application;
+  FIX::MemoryStoreFactory storeFactory;
+  FIX::SessionID sessionID;
+  std::unique_ptr<FIX::ThreadedSocketAcceptor> acceptor;
+  std::unique_ptr<FIX::ThreadedSocketInitiator> initiator;
+
+  explicit ThreadedSocketBenchmarkContext(unsigned short port)
+      : sessionID("FIX.4.2", "TCLIENT", "TSERVER") {
+    std::istringstream configStream(makeSocketConfig(port, "TSERVER", "TCLIENT"));
+    FIX::SessionSettings settings(configStream);
+    acceptor = std::make_unique<FIX::ThreadedSocketAcceptor>(application, storeFactory, settings);
+    acceptor->start();
+    initiator = std::make_unique<FIX::ThreadedSocketInitiator>(application, storeFactory, settings);
+    initiator->start();
+    FIX::process_sleep(1);
   }
 
-  long ticks = GetTickCount() - start;
+  ~ThreadedSocketBenchmarkContext() {
+    initiator->stop();
+    acceptor->stop();
+  }
+};
 
-  initiator.stop();
-  acceptor.stop();
+TEST_CASE("Socket", "[benchmark][network]") {
+  static SocketBenchmarkContext context(s_networkBenchmarkPort);
+  FIX42::NewOrderSingle message = makeNewOrderSingle();
 
-  return ticks;
+  BENCHMARK("SendMessage") {
+    int expected = context.application.received.load(std::memory_order_relaxed) + 1;
+    FIX::Session::sendToTarget(message, context.sessionID);
+    while (context.application.received.load(std::memory_order_relaxed) < expected) {
+      FIX::process_sleep(0.0001);
+    }
+    return context.application.received.load(std::memory_order_relaxed);
+  };
+}
+
+TEST_CASE("ThreadedSocket", "[benchmark][network]") {
+  static ThreadedSocketBenchmarkContext context(s_networkBenchmarkPort + 1);
+  FIX42::NewOrderSingle message = makeNewOrderSingle();
+
+  BENCHMARK("SendMessage") {
+    int expected = context.application.received.load(std::memory_order_relaxed) + 1;
+    FIX::Session::sendToTarget(message, context.sessionID);
+    while (context.application.received.load(std::memory_order_relaxed) < expected) {
+      FIX::process_sleep(0.0001);
+    }
+    return context.application.received.load(std::memory_order_relaxed);
+  };
+}
+
+int main(int argc, char **argv) {
+  Catch::Session session;
+  auto &cli = session.cli();
+  auto newCli = cli
+                | Catch::Clara::Opt(
+                    [](std::string path) { FIX::TestSettings::specPath = path; },
+                    "path")["--quickfix-spec-path"]("QuickFIX spec path (required for message benchmarks)")
+                | Catch::Clara::Opt(
+                    [](int port) { s_networkBenchmarkPort = static_cast<unsigned short>(port); },
+                    "port")["--port"]("Port for network benchmarks (default: 54322)");
+  session.cli(newCli);
+  return session.run(argc, argv);
 }

@@ -12,7 +12,9 @@ noinst_PROGRAMS = at ut pt
 
 at_SOURCES = at.cpp at_application.h
 ut_SOURCES = ut.cpp
-pt_SOURCES = pt.cpp
+pt_SOURCES = pt.cpp \
+	C++/test/catch_amalgamated.cpp \
+	C++/test/TestHelper.cpp
 
 EXTRA_DIST = getopt.c getopt-repl.h
 
@@ -20,7 +22,8 @@ at_LDADD = C++/libquickfix.la
 ut_LDADD = C++/libquickfix.la
 pt_LDADD = C++/libquickfix.la
 
-AM_CPPFLAGS =-IC++ -IC++/test
+AM_CPPFLAGS = -IC++ -IC++/test
+pt_CPPFLAGS = -DCATCH_AMALGAMATED_CUSTOM_MAIN $(AM_CPPFLAGS)
 
 all-local:
 	rm -f $(top_builddir)/test/ut 

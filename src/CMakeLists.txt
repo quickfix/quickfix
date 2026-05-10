@@ -22,11 +22,16 @@ if (QUICKFIX_EXAMPLES)
 endif()  
 
 if (QUICKFIX_EXAMPLES)
-  add_executable(pt pt.cpp getopt.c)
-  
-  target_include_directories(pt PRIVATE ${PROJECT_SOURCE_DIR} 
-    ${PROJECT_SOURCE_DIR}/src/C++)
-    
+  add_executable(pt pt.cpp
+    ${PROJECT_SOURCE_DIR}/src/C++/test/catch_amalgamated.cpp
+    ${PROJECT_SOURCE_DIR}/src/C++/test/TestHelper.cpp)
+
+  target_compile_definitions(pt PRIVATE CATCH_AMALGAMATED_CUSTOM_MAIN)
+
+  target_include_directories(pt PRIVATE ${PROJECT_SOURCE_DIR}
+    ${PROJECT_SOURCE_DIR}/src/C++
+    ${PROJECT_SOURCE_DIR}/src/C++/test)
+
   target_link_libraries(pt ${PROJECT_NAME})
   
   if (NOT WIN32)

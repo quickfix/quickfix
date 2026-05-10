@@ -1,8 +1,13 @@
 #!/bin/sh
 
-DIR=`pwd`
+trap "trap - TERM && kill -- -$$ 2> /dev/null" INT TERM KILL EXIT
 
-./pt -p $1 -c 500000
-RESULT=$?
+SCRIPT=$(realpath "$0")
+DIR=$(dirname "$0")
+
 cd $DIR
+
+./pt --quickfix-spec-path $DIR/../spec -# "~[network]" "$@"
+./pt --quickfix-spec-path $DIR/../spec -# "[network]" "$@"
+RESULT=$?
 exit $RESULT
