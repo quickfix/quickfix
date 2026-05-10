@@ -30,8 +30,8 @@
 #include "DataDictionary.h"
 #include "FieldConvertors.h"
 #include "FileStore.h"
-#include "MessageStore.h"
 #include "Message.h"
+#include "MessageStore.h"
 #include "Session.h"
 #include "SessionID.h"
 #include "SocketAcceptor.h"
@@ -224,9 +224,10 @@ public:
   }
 };
 
-static std::string makeSocketConfig(unsigned short port,
-                                    const std::string &serverCompID,
-                                    const std::string &clientCompID) {
+static std::string makeSocketConfig(
+    unsigned short port,
+    const std::string &serverCompID,
+    const std::string &clientCompID) {
   std::ostringstream stream;
   stream << "[DEFAULT]\n"
          << "SocketConnectHost=localhost\n"
@@ -309,8 +310,9 @@ TEST_CASE("Socket", "[benchmark][network]") {
   BENCHMARK("SendMessage") {
     int expected = context.application.received.load(std::memory_order_relaxed) + 1;
     FIX::Session::sendToTarget(message, context.sessionID);
-    while (context.application.received.load(std::memory_order_relaxed) < expected)
+    while (context.application.received.load(std::memory_order_relaxed) < expected) {
       FIX::process_sleep(0.0001);
+    }
     return context.application.received.load(std::memory_order_relaxed);
   };
 }
@@ -322,8 +324,9 @@ TEST_CASE("ThreadedSocket", "[benchmark][network]") {
   BENCHMARK("SendMessage") {
     int expected = context.application.received.load(std::memory_order_relaxed) + 1;
     FIX::Session::sendToTarget(message, context.sessionID);
-    while (context.application.received.load(std::memory_order_relaxed) < expected)
+    while (context.application.received.load(std::memory_order_relaxed) < expected) {
       FIX::process_sleep(0.0001);
+    }
     return context.application.received.load(std::memory_order_relaxed);
   };
 }
@@ -331,11 +334,13 @@ TEST_CASE("ThreadedSocket", "[benchmark][network]") {
 int main(int argc, char **argv) {
   Catch::Session session;
   auto &cli = session.cli();
-  auto newCli =
-      cli | Catch::Clara::Opt([](std::string path) { FIX::TestSettings::specPath = path; },
-                              "path")["--quickfix-spec-path"]("QuickFIX spec path (required for message benchmarks)")
-          | Catch::Clara::Opt([](int port) { s_networkBenchmarkPort = static_cast<unsigned short>(port); },
-                              "port")["--port"]("Port for network benchmarks (default: 54322)");
+  auto newCli = cli
+                | Catch::Clara::Opt(
+                    [](std::string path) { FIX::TestSettings::specPath = path; },
+                    "path")["--quickfix-spec-path"]("QuickFIX spec path (required for message benchmarks)")
+                | Catch::Clara::Opt(
+                    [](int port) { s_networkBenchmarkPort = static_cast<unsigned short>(port); },
+                    "port")["--port"]("Port for network benchmarks (default: 54322)");
   session.cli(newCli);
   return session.run(argc, argv);
 }
