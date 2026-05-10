@@ -118,7 +118,8 @@ jobs:
         shell: bash
         working-directory: ./test
         run: |
-          $pt -p $(($PortBase + $Offset)) -c 500000
+          $pt --quickfix-spec-path ../spec -# "~[network]"
+          $pt --quickfix-spec-path ../spec -# "[network]" --port $(($PortBase + $Offset))
         env:
           pt: ${{ env.pt }}
           PortBase: 6668
