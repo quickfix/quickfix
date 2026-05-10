@@ -15,8 +15,8 @@ goto start
 
 :start
 set SPECPATH=%~dp0..\spec
-%DIR%\pt.exe --quickfix-spec-path "%SPECPATH%" --benchmark-samples 100 -# "~[network]" %2 %3 %4 %5
-%DIR%\pt.exe --quickfix-spec-path "%SPECPATH%" --benchmark-samples 5 -# "[network]" %2 %3 %4 %5
+%DIR%\pt.exe --quickfix-spec-path "%SPECPATH%" -# "~[network]" %2 %3 %4 %5
+%DIR%\pt.exe --quickfix-spec-path "%SPECPATH%" -# "[network]" %2 %3 %4 %5
 goto quit
 
 :usage

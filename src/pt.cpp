@@ -224,7 +224,9 @@ public:
   }
 };
 
-static std::string makeSocketConfig(unsigned short port) {
+static std::string makeSocketConfig(unsigned short port,
+                                    const std::string &serverCompID,
+                                    const std::string &clientCompID) {
   std::ostringstream stream;
   stream << "[DEFAULT]\n"
          << "SocketConnectHost=localhost\n"
@@ -238,62 +240,91 @@ static std::string makeSocketConfig(unsigned short port) {
          << "PersistMessages=N\n"
          << "[SESSION]\n"
          << "ConnectionType=acceptor\n"
-         << "SenderCompID=SERVER\n"
-         << "TargetCompID=CLIENT\n"
+         << "SenderCompID=" << serverCompID << "\n"
+         << "TargetCompID=" << clientCompID << "\n"
          << "[SESSION]\n"
          << "ConnectionType=initiator\n"
-         << "SenderCompID=CLIENT\n"
-         << "TargetCompID=SERVER\n"
+         << "SenderCompID=" << clientCompID << "\n"
+         << "TargetCompID=" << serverCompID << "\n"
          << "HeartBtInt=30\n";
   return stream.str();
 }
 
-TEST_CASE("SocketTransport", "[benchmark][network]") {
-  FIX::SessionID sessionID("FIX.4.2", "CLIENT", "SERVER");
+// Each network benchmark context connects once and stays connected for all
+// samples. The two contexts use different ports and session IDs so they can
+// coexist during the program's lifetime without a session registry conflict.
+
+struct SocketBenchmarkContext {
+  NetworkBenchmarkApplication application;
+  FIX::MemoryStoreFactory storeFactory;
+  FIX::SessionID sessionID;
+  std::unique_ptr<FIX::SocketAcceptor> acceptor;
+  std::unique_ptr<FIX::SocketInitiator> initiator;
+
+  explicit SocketBenchmarkContext(unsigned short port)
+      : sessionID("FIX.4.2", "CLIENT", "SERVER") {
+    std::istringstream configStream(makeSocketConfig(port, "SERVER", "CLIENT"));
+    FIX::SessionSettings settings(configStream);
+    acceptor = std::make_unique<FIX::SocketAcceptor>(application, storeFactory, settings);
+    acceptor->start();
+    initiator = std::make_unique<FIX::SocketInitiator>(application, storeFactory, settings);
+    initiator->start();
+    FIX::process_sleep(1);
+  }
+
+  ~SocketBenchmarkContext() {
+    initiator->stop();
+    acceptor->stop();
+  }
+};
+
+struct ThreadedSocketBenchmarkContext {
+  NetworkBenchmarkApplication application;
+  FIX::MemoryStoreFactory storeFactory;
+  FIX::SessionID sessionID;
+  std::unique_ptr<FIX::ThreadedSocketAcceptor> acceptor;
+  std::unique_ptr<FIX::ThreadedSocketInitiator> initiator;
+
+  explicit ThreadedSocketBenchmarkContext(unsigned short port)
+      : sessionID("FIX.4.2", "TCLIENT", "TSERVER") {
+    std::istringstream configStream(makeSocketConfig(port, "TSERVER", "TCLIENT"));
+    FIX::SessionSettings settings(configStream);
+    acceptor = std::make_unique<FIX::ThreadedSocketAcceptor>(application, storeFactory, settings);
+    acceptor->start();
+    initiator = std::make_unique<FIX::ThreadedSocketInitiator>(application, storeFactory, settings);
+    initiator->start();
+    FIX::process_sleep(1);
+  }
+
+  ~ThreadedSocketBenchmarkContext() {
+    initiator->stop();
+    acceptor->stop();
+  }
+};
+
+TEST_CASE("Socket", "[benchmark][network]") {
+  static SocketBenchmarkContext context(s_networkBenchmarkPort);
   FIX42::NewOrderSingle message = makeNewOrderSingle();
 
-  BENCHMARK_ADVANCED("Socket")(Catch::Benchmark::Chronometer meter) {
-    NetworkBenchmarkApplication application;
-    FIX::MemoryStoreFactory storeFactory;
-    std::istringstream configStream(makeSocketConfig(s_networkBenchmarkPort));
-    FIX::SessionSettings settings(configStream);
-    FIX::SocketAcceptor acceptor(application, storeFactory, settings);
-    acceptor.start();
-    FIX::SocketInitiator initiator(application, storeFactory, settings);
-    initiator.start();
-    FIX::process_sleep(1);
-
-    meter.measure([&] {
-      int expected = application.received.load(std::memory_order_relaxed) + 1;
-      FIX::Session::sendToTarget(message, sessionID);
-      while (application.received.load(std::memory_order_relaxed) < expected)
-        FIX::process_sleep(0.0001);
-    });
-
-    initiator.stop();
-    acceptor.stop();
+  BENCHMARK("SendMessage") {
+    int expected = context.application.received.load(std::memory_order_relaxed) + 1;
+    FIX::Session::sendToTarget(message, context.sessionID);
+    while (context.application.received.load(std::memory_order_relaxed) < expected)
+      FIX::process_sleep(0.0001);
+    return context.application.received.load(std::memory_order_relaxed);
   };
+}
 
-  BENCHMARK_ADVANCED("ThreadedSocket")(Catch::Benchmark::Chronometer meter) {
-    NetworkBenchmarkApplication application;
-    FIX::MemoryStoreFactory storeFactory;
-    std::istringstream configStream(makeSocketConfig(s_networkBenchmarkPort));
-    FIX::SessionSettings settings(configStream);
-    FIX::ThreadedSocketAcceptor acceptor(application, storeFactory, settings);
-    acceptor.start();
-    FIX::ThreadedSocketInitiator initiator(application, storeFactory, settings);
-    initiator.start();
-    FIX::process_sleep(1);
+TEST_CASE("ThreadedSocket", "[benchmark][network]") {
+  static ThreadedSocketBenchmarkContext context(s_networkBenchmarkPort + 1);
+  FIX42::NewOrderSingle message = makeNewOrderSingle();
 
-    meter.measure([&] {
-      int expected = application.received.load(std::memory_order_relaxed) + 1;
-      FIX::Session::sendToTarget(message, sessionID);
-      while (application.received.load(std::memory_order_relaxed) < expected)
-        FIX::process_sleep(0.0001);
-    });
-
-    initiator.stop();
-    acceptor.stop();
+  BENCHMARK("SendMessage") {
+    int expected = context.application.received.load(std::memory_order_relaxed) + 1;
+    FIX::Session::sendToTarget(message, context.sessionID);
+    while (context.application.received.load(std::memory_order_relaxed) < expected)
+      FIX::process_sleep(0.0001);
+    return context.application.received.load(std::memory_order_relaxed);
   };
 }
 
