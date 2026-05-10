@@ -94,12 +94,6 @@ bool SocketMonitor::addWrite(socket_handle s) {
   return true;
 }
 
-void SocketMonitor::addSyncError(socket_handle s) {
-  if (m_connectSockets.count(s)) {
-    m_syncErrors.push(s);
-  }
-}
-
 bool SocketMonitor::drop(socket_handle s) {
   Sockets::iterator i = m_readSockets.find(s);
   Sockets::iterator j = m_writeSockets.find(s);
@@ -172,43 +166,12 @@ void SocketMonitor::unsignal(socket_handle s) {
 }
 
 void SocketMonitor::block(Strategy &strategy, bool poll, double timeout) {
-  // Sockets whose connect() returned a hard error immediately (not WSAEWOULDBLOCK).
-  // Process them while still in m_connectSockets so drop() returns true and
-  // onDisconnect fires exactly once.
-  while (!m_syncErrors.empty()) {
-    socket_handle s = m_syncErrors.front();
-    m_syncErrors.pop();
-    if (m_connectSockets.count(s)) {
-      strategy.onError(*this, s);
-    }
-  }
-
   while (m_dropped.size()) {
     strategy.onError(*this, m_dropped.front());
     m_dropped.pop();
     if (m_dropped.size() == 0) {
       return;
     }
-  }
-
-  // A connect() refusal on localhost can complete synchronously on Windows,
-  // leaving SO_ERROR set but never signalling select()'s exceptfds. Check
-  // every connecting socket for a pending error before entering select().
-  {
-    Sockets pending = m_connectSockets;
-    for (socket_handle s : pending) {
-      if (m_connectSockets.count(s) == 0) {
-        continue;
-      }
-      int error = 0, len = sizeof(error);
-      getsockopt(s, SOL_SOCKET, SO_ERROR, (char *)&error, &len);
-      if (error) {
-        strategy.onError(*this, s);
-      }
-    }
-  }
-  if (!m_dropped.empty()) {
-    return;
   }
 
   fd_set readSet;
@@ -230,22 +193,6 @@ void SocketMonitor::block(Strategy &strategy, bool poll, double timeout) {
   int result = select(FD_SETSIZE, &readSet, &writeSet, &exceptSet, getTimeval(poll, timeout));
 
   if (result == 0) {
-    // select() timed out — poll connecting sockets for errors Windows may not
-    // surface in exceptfds (e.g. RST received during the wait window).
-    {
-      Sockets pending = m_connectSockets;
-      for (socket_handle s : pending) {
-        if (!m_connectSockets.count(s)) {
-          continue;
-        }
-        int error = 0, len = sizeof(error);
-        getsockopt(s, SOL_SOCKET, SO_ERROR, (char *)&error, &len);
-        if (error) {
-          strategy.onError(*this, s);
-          return;
-        }
-      }
-    }
     strategy.onTimeout(*this);
     return;
   } else if (result > 0) {
@@ -274,16 +221,9 @@ void SocketMonitor::processWriteSet(Strategy &strategy, fd_set &writeSet) {
   for (unsigned i = 0; i < writeSet.fd_count; ++i) {
     socket_handle s = writeSet.fd_array[i];
     if (m_connectSockets.find(s) != m_connectSockets.end()) {
-      int error = 0;
-      int len = sizeof(error);
-      getsockopt(s, SOL_SOCKET, SO_ERROR, (char *)&error, &len);
-      if (error) {
-        strategy.onError(*this, s);
-      } else {
-        m_connectSockets.erase(s);
-        m_readSockets.insert(s);
-        strategy.onConnect(*this, s);
-      }
+      m_connectSockets.erase(s);
+      m_readSockets.insert(s);
+      strategy.onConnect(*this, s);
     } else {
       strategy.onWrite(*this, s);
     }

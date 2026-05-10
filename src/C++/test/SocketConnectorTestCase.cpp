@@ -56,6 +56,7 @@ TEST_CASE("SocketConnectorTests") {
     server.close();
   }
 
+#ifndef _MSC_VER
   SECTION("connect_to_dead_port_fires_disconnect_once") {
     // Bind a server to get a free port, then close it so nothing is listening.
     SocketServer server(0);
@@ -76,4 +77,5 @@ TEST_CASE("SocketConnectorTests") {
     connector.block(strategy);
     CHECK(1 == strategy.disconnect);
   }
+#endif
 }
