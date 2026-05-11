@@ -12,6 +12,7 @@ jobs:
           matrix:
               runner: [windows-2022, ubuntu-latest, macos-latest]
               configuration: [Debug, Release]
+              ssl: ['OFF', 'ON']
               include:
                 - configuration: Debug
                   config: debug
@@ -27,12 +28,29 @@ jobs:
           event_name: ${{ github.event_name }}
       - name: Checkout
         uses: actions/checkout@v2
+      - name: Install OpenSSL (macOS)
+        if: matrix.ssl == 'ON' && matrix.runner == 'macos-latest'
+        run: brew install openssl
+      - name: Install OpenSSL (Linux)
+        if: matrix.ssl == 'ON' && matrix.runner == 'ubuntu-latest'
+        run: sudo apt-get install -y libssl-dev
+      - name: Set OPENSSL_ROOT_DIR (macOS)
+        if: matrix.ssl == 'ON' && matrix.runner == 'macos-latest'
+        shell: bash
+        run: echo "OPENSSL_ROOT_DIR=/opt/homebrew/opt/openssl" >> $GITHUB_ENV
+      - name: Set OPENSSL_ROOT_DIR (Windows)
+        if: matrix.ssl == 'ON' && matrix.runner == 'windows-2022'
+        shell: bash
+        run: echo "OPENSSL_ROOT_DIR=C:/Program Files/OpenSSL" >> $GITHUB_ENV
       - name: Generate
         shell: bash
         run: |
-          cmake . -DCMAKE_BUILD_TYPE=$Configuration -DCMAKE_INSTALL_PREFIX=../install_prefix/$Configuration
+          cmake . -DCMAKE_BUILD_TYPE=$Configuration -DCMAKE_INSTALL_PREFIX=../install_prefix/$Configuration \
+            -DHAVE_SSL=$SSL ${OPENSSL_ROOT_DIR:+-DOPENSSL_ROOT_DIR="$OPENSSL_ROOT_DIR"}
         env:
           Configuration: ${{ matrix.configuration }}
+          SSL: ${{ matrix.ssl }}
+          OPENSSL_ROOT_DIR: ${{ env.OPENSSL_ROOT_DIR }}
       - name: Build
         shell: bash
         run: |
