@@ -54,7 +54,8 @@ FileStore::FileStore(const UtcTimeStamp &now, std::string path, const SessionID 
       m_msgFile(0),
       m_headerFile(0),
       m_seqNumsFile(0),
-      m_sessionFile(0) {
+      m_sessionFile(0),
+      m_msgFileSize(0) {
   file_mkdir(path.c_str());
 
   if (path.empty()) {
@@ -171,6 +172,17 @@ void FileStore::open(bool deleteFile) {
 
   setNextSenderMsgSeqNum(getNextSenderMsgSeqNum());
   setNextTargetMsgSeqNum(getNextTargetMsgSeqNum());
+
+  if (FILE_SEEK(m_msgFile, 0, SEEK_END)) {
+    throw ConfigError("Cannot seek in body file: " + m_msgFileName);
+  }
+  m_msgFileSize = FILE_TELL(m_msgFile);
+  if (m_msgFileSize < 0) {
+    throw ConfigError("Cannot get position in body file: " + m_msgFileName);
+  }
+  if (FILE_SEEK(m_headerFile, 0, SEEK_END)) {
+    throw ConfigError("Cannot seek in header file: " + m_headerFileName);
+  }
 }
 
 void FileStore::populateCache() {
@@ -241,31 +253,21 @@ MessageStore *FileStoreFactory::create(const UtcTimeStamp &now, const SessionID 
 void FileStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
 bool FileStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) {
-  if (FILE_SEEK(m_msgFile, 0, SEEK_END)) {
-    throw IOException("Cannot seek to end of " + m_msgFileName);
-  }
-  if (FILE_SEEK(m_headerFile, 0, SEEK_END)) {
-    throw IOException("Cannot seek to end of " + m_headerFileName);
-  }
-
-  int64_t offset = FILE_TELL(m_msgFile);
-  if (offset < 0) {
-    throw IOException("Unable to get file pointer position from " + m_msgFileName);
-  }
+  int64_t offset = m_msgFileSize;
   std::size_t size = msg.size();
 
   if (fprintf(m_headerFile, "%" SCNu64 ",%" PRId64 ",%zu ", msgSeqNum, offset, size) < 0) {
     throw IOException("Unable to write to file " + m_headerFileName);
   }
-  std::pair<NumToOffset::iterator, bool> it
-      = m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
-  if (it.second == false) {
+  auto it = m_offsets.insert(NumToOffset::value_type(msgSeqNum, std::make_pair(offset, size)));
+  if (!it.second) {
     it.first->second = std::make_pair(offset, size);
   }
-  fwrite(msg.c_str(), sizeof(char), msg.size(), m_msgFile);
+  fwrite(msg.c_str(), sizeof(char), size, m_msgFile);
   if (ferror(m_msgFile)) {
     throw IOException("Unable to write to file " + m_msgFileName);
   }
+  m_msgFileSize += size;
   if (fflush(m_msgFile) == EOF) {
     throw IOException("Unable to flush file " + m_msgFileName);
   }
@@ -363,15 +365,11 @@ bool FileStore::get(SEQNUM msgSeqNum, std::string &msg) const EXCEPT(IOException
   if (FILE_SEEK(m_msgFile, offset.first, SEEK_SET)) {
     throw IOException("Unable to seek in file " + m_msgFileName);
   }
-  char *buffer = new char[offset.second + 1];
-  size_t result = fread(buffer, sizeof(char), offset.second, m_msgFile);
-  if (ferror(m_msgFile) || result != (size_t)offset.second) {
-    delete[] buffer;
+  msg.resize(offset.second);
+  size_t result = fread(&msg[0], sizeof(char), offset.second, m_msgFile);
+  if (ferror(m_msgFile) || result != offset.second) {
     throw IOException("Unable to read from file " + m_msgFileName);
   }
-  buffer[offset.second] = 0;
-  msg = buffer;
-  delete[] buffer;
   return true;
 }
 
