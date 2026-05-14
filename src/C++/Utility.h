@@ -232,24 +232,4 @@ std::string file_appendpath(const std::string &path, const std::string &file);
 #define STRING_SPRINTF sprintf
 #endif
 
-#if (!defined(_MSC_VER) || (_MSC_VER >= 1300))
-using std::abort;
-using std::abs;
-using std::atof;
-using std::atoi;
-using std::atol;
-using std::exit;
-using std::isdigit;
-using std::labs;
-using std::memcpy;
-using std::memset;
-using std::sprintf;
-using std::strcmp;
-using std::strerror;
-using std::strftime;
-using std::strlen;
-using std::strtod;
-using std::strtol;
-#endif
-
 #endif
