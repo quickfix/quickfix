@@ -40,6 +40,21 @@ ThreadedSocketConnection::ThreadedSocketConnection(socket_handle s, Sessions ses
 #if _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
+#else
+  m_epfd = epoll_create1(0);
+  if (m_epfd < 0) {
+    pLog->onEvent("[ThreadedSocketConnection] epoll_create1 failed");
+    return;
+  }
+  struct epoll_event revent{};
+  revent.data.fd = m_socket;
+  revent.events = EPOLLIN | EPOLLPRI;
+  if (epoll_ctl(m_epfd, EPOLL_CTL_ADD, m_socket, &revent) < 0) {
+    close(m_epfd);
+    m_epfd = -1;
+    pLog->onEvent("[ThreadedSocketConnection] epoll_ctl failed");
+    return;
+  }
 #endif
 }
 
@@ -62,6 +77,21 @@ ThreadedSocketConnection::ThreadedSocketConnection(
 #if _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
+#else
+  m_epfd = epoll_create1(0);
+  if (m_epfd < 0) {
+    pLog->onEvent("[ThreadedSocketConnection] epoll_create1 failed");
+    return;
+  }
+  struct epoll_event revent{};
+  revent.data.fd = m_socket;
+  revent.events = EPOLLIN | EPOLLPRI;
+  if (epoll_ctl(m_epfd, EPOLL_CTL_ADD, m_socket, &revent) < 0) {
+    close(m_epfd);
+    m_epfd = -1;
+    pLog->onEvent("[ThreadedSocketConnection] epoll_ctl failed");
+    return;
+  }
 #endif
   if (m_pSession) {
     m_pSession->setResponder(this);
@@ -69,6 +99,11 @@ ThreadedSocketConnection::ThreadedSocketConnection(
 }
 
 ThreadedSocketConnection::~ThreadedSocketConnection() {
+#ifndef _MSC_VER
+  if (m_epfd > 0) {
+    close(m_epfd);
+  }
+#endif
   if (m_pSession) {
     m_pSession->setResponder(0);
     Session::unregisterSession(m_pSession->getSessionID());
@@ -103,12 +138,12 @@ void ThreadedSocketConnection::disconnect() {
 }
 
 bool ThreadedSocketConnection::read() {
+  if (m_disconnect) {
+    return false;
+  }
 #if _MSC_VER
   struct timeval timeout = {1, 0};
   fd_set readset = m_fds;
-#else
-  int timeout = 1000; // 1000ms = 1 second
-  struct pollfd pfd = {m_socket, POLLIN | POLLPRI, 0};
 #endif
 
   try {
@@ -116,7 +151,12 @@ bool ThreadedSocketConnection::read() {
 #if _MSC_VER
     int result = select(0, &readset, 0, 0, &timeout);
 #else
-    int result = poll(&pfd, 1, timeout);
+    if (m_epfd < 0) {
+      return false;
+    }
+    int timeout = 1000; // 1000ms
+    struct epoll_event event{};
+    int result = epoll_wait(m_epfd, &event, 1, timeout);
 #endif
 
     if (result > 0) // Something to read

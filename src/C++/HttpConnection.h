@@ -67,6 +67,8 @@ private:
   HttpParser m_parser;
 #if _MSC_VER
   fd_set m_fds;
+#else
+  int m_epfd = -1;
 #endif
 };
 } // namespace FIX

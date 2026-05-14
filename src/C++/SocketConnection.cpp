@@ -41,6 +41,36 @@ SocketConnection::SocketConnection(socket_handle s, Sessions sessions, SocketMon
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
+#else
+  m_repfd = epoll_create1(0);
+  if (m_repfd < 0) {
+    return;
+  }
+  struct epoll_event revent{};
+  revent.data.fd = m_socket;
+  revent.events = EPOLLIN | EPOLLPRI;
+  if (epoll_ctl(m_repfd, EPOLL_CTL_ADD, m_socket, &revent) < 0) {
+    close(m_repfd);
+    m_repfd = -1;
+    return;
+  }
+
+  m_wepfd = epoll_create1(0);
+  if (m_wepfd < 0) {
+    close(m_repfd);
+    m_repfd = -1;
+    return;
+  }
+  struct epoll_event wevent{};
+  wevent.data.fd = m_socket;
+  wevent.events = EPOLLOUT;
+  if (epoll_ctl(m_wepfd, EPOLL_CTL_ADD, m_socket, &wevent) < 0) {
+    close(m_repfd);
+    close(m_wepfd);
+    m_repfd = -1;
+    m_wepfd = -1;
+    return;
+  }
 #endif
 }
 
@@ -56,11 +86,49 @@ SocketConnection::SocketConnection(
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
+#else
+  m_repfd = epoll_create1(0);
+  if (m_repfd < 0) {
+    return;
+  }
+  struct epoll_event revent{};
+  revent.data.fd = m_socket;
+  revent.events = EPOLLIN | EPOLLPRI;
+  if (epoll_ctl(m_repfd, EPOLL_CTL_ADD, m_socket, &revent) < 0) {
+    close(m_repfd);
+    m_repfd = -1;
+    return;
+  }
+
+  m_wepfd = epoll_create1(0);
+  if (m_wepfd < 0) {
+    close(m_repfd);
+    m_repfd = -1;
+    return;
+  }
+  struct epoll_event wevent{};
+  wevent.data.fd = m_socket;
+  wevent.events = EPOLLOUT;
+  if (epoll_ctl(m_wepfd, EPOLL_CTL_ADD, m_socket, &wevent) < 0) {
+    close(m_repfd);
+    close(m_wepfd);
+    m_repfd = -1;
+    m_wepfd = -1;
+    return;
+  }
 #endif
   m_sessions.insert(sessionID);
 }
 
 SocketConnection::~SocketConnection() {
+#ifndef _MSC_VER
+  if (m_repfd > -1) {
+    close(m_repfd);
+  }
+  if (m_wepfd > -1) {
+    close(m_wepfd);
+  }
+#endif
   if (m_pSession) {
     Session::unregisterSession(m_pSession->getSessionID());
   }
@@ -89,8 +157,9 @@ bool SocketConnection::processQueue() {
     return false;
   }
 #else
-  struct pollfd pfd = {m_socket, POLLOUT, 0};
-  if (poll(&pfd, 1, 0) <= 0) {
+  int timeout = 1000; // 1000ms
+  struct epoll_event event{};
+  if (epoll_wait(m_wepfd, &event, 1, timeout) <= 0) {
     return false;
   }
 #endif
@@ -139,16 +208,18 @@ bool SocketConnection::read(SocketAcceptor &acceptor, SocketServer &server) {
 #if _MSC_VER
       struct timeval timeout = {1, 0};
       fd_set readset = m_fds;
-#else
-      int timeout = 1000; // 1000ms = 1 second
-      struct pollfd pfd = {m_socket, POLLIN | POLLPRI, 0};
 #endif
 
       while (!readMessage(message)) {
 #if _MSC_VER
         int result = select(0, &readset, 0, 0, &timeout);
 #else
-        int result = poll(&pfd, 1, timeout);
+        if (m_repfd < 0) {
+          return false;
+        }
+        int timeout = 1000; // 1000ms
+        struct epoll_event event{};
+        int result = epoll_wait(m_repfd, &event, 1, timeout);
 #endif
         if (result > 0) {
           readFromSocket();
