@@ -185,6 +185,7 @@ public:
 
   bool didProcessQueueRequestToRead() const;
   bool didReadFromSocketRequestToWrite() const;
+  void disconnect();
 
 private:
   typedef std::deque<std::string, ALLOCATOR<std::string>> Queue;
@@ -194,7 +195,6 @@ private:
   bool readMessage(std::string &msg);
   void readMessages(SocketMonitor &s);
   bool send(const std::string &);
-  void disconnect();
 
   socket_handle m_socket;
   SSL *m_ssl;
