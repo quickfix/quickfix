@@ -196,21 +196,20 @@ size_t FieldMap::totalFields() const {
 }
 
 std::string &FieldMap::calculateString(std::string &result) const {
+  if (m_groups.empty()) {
+    for (auto const &field : m_fields) {
+      result += field.getFixString();
+    }
+    return result;
+  }
+
   for (auto const &field : m_fields) {
     result += field.getFixString();
-
-    // add groups if they exist
-    if (!m_groups.size()) {
-      continue;
-    }
-
     Groups::const_iterator tagWithGroups = m_groups.find(field.getTag());
-    if (tagWithGroups == m_groups.end()) {
-      continue;
-    }
-
-    for (auto const &group : tagWithGroups->second) {
-      group->calculateString(result);
+    if (tagWithGroups != m_groups.end()) {
+      for (auto const &group : tagWithGroups->second) {
+        group->calculateString(result);
+      }
     }
   }
   return result;
@@ -246,6 +245,31 @@ int FieldMap::calculateTotal(int checkSumField) const {
   for (auto const &tagWithGroups : m_groups) {
     for (auto const &group : tagWithGroups.second) {
       result += group->calculateTotal();
+    }
+  }
+  return result;
+}
+
+FieldMap::LengthAndTotal FieldMap::calculateLengthAndTotal(int beginStringField, int bodyLengthField, int checkSumField)
+    const {
+  LengthAndTotal result{0, 0};
+
+  for (auto const &field : m_fields) {
+    const int tag = field.getTag();
+    if (tag == checkSumField || tag == bodyLengthField) {
+      continue;
+    }
+    if (tag != beginStringField) {
+      result.length += field.getLength();
+    }
+    result.total += field.getTotal();
+  }
+
+  for (auto const &tagWithGroups : m_groups) {
+    for (auto const &group : tagWithGroups.second) {
+      auto sub = group->calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
+      result.length += sub.length;
+      result.total += sub.total;
     }
   }
   return result;

@@ -241,6 +241,15 @@ public:
 
   int calculateTotal(int checkSumField = FIELD::CheckSum) const;
 
+  struct LengthAndTotal {
+    int length;
+    int total;
+  };
+  LengthAndTotal calculateLengthAndTotal(
+      int beginStringField = FIELD::BeginString,
+      int bodyLengthField = FIELD::BodyLength,
+      int checkSumField = FIELD::CheckSum) const;
+
   iterator begin() { return m_fields.begin(); }
   iterator end() { return m_fields.end(); }
   const_iterator begin() const { return m_fields.begin(); }
