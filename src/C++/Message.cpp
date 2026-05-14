@@ -220,7 +220,10 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
   // The field wire format is "tag=value\001"; sum the ASCII values of each byte.
   auto sumAsciiDigits = [](int n) {
     int s = 0;
-    do { s += '0' + (n % 10); n /= 10; } while (n > 0);
+    do {
+      s += '0' + (n % 10);
+      n /= 10;
+    } while (n > 0);
     return s;
   };
   int blContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLen) + '\001';

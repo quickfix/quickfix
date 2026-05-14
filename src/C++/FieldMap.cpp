@@ -250,8 +250,8 @@ int FieldMap::calculateTotal(int checkSumField) const {
   return result;
 }
 
-FieldMap::LengthAndTotal FieldMap::calculateLengthAndTotal(
-    int beginStringField, int bodyLengthField, int checkSumField) const {
+FieldMap::LengthAndTotal FieldMap::calculateLengthAndTotal(int beginStringField, int bodyLengthField, int checkSumField)
+    const {
   LengthAndTotal result{0, 0};
 
   for (auto const &field : m_fields) {

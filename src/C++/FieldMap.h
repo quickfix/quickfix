@@ -241,7 +241,10 @@ public:
 
   int calculateTotal(int checkSumField = FIELD::CheckSum) const;
 
-  struct LengthAndTotal { int length; int total; };
+  struct LengthAndTotal {
+    int length;
+    int total;
+  };
   LengthAndTotal calculateLengthAndTotal(
       int beginStringField = FIELD::BeginString,
       int bodyLengthField = FIELD::BodyLength,
