@@ -1926,9 +1926,11 @@ TEST_CASE_METHOD(acceptorFixture, "AcceptorSessionTestCase") {
     CHECK(0 == disconnected);
     CHECK(2 == fromHeartbeat);
 
-    // message is not a possible dup, disconnected
+    // message is not a possible dup, session reject then disconnect
     heartbeat.getHeader().setField(PossDupFlag(false));
     object->next(heartbeat, now);
+    CHECK(1 == toReject);
+    CHECK(0 == toLogout);
     CHECK(1 == disconnected);
     CHECK(2 == fromHeartbeat);
   }
