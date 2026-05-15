@@ -75,7 +75,6 @@ TEST_CASE("FieldBaseTests") {
     CHECK(!(stringField <= "str"));
   }
 
-#ifdef HAVE_CXX17
   SECTION("StringField_ImplicitConversionToStringView") {
     StringField stringField(1, "hello");
     std::string_view sv = stringField;
@@ -89,5 +88,4 @@ TEST_CASE("FieldBaseTests") {
     CHECK(stringField <= std::string_view{"string_long"});
     CHECK(!(stringField <= std::string_view{"str"}));
   }
-#endif
 }
