@@ -90,12 +90,13 @@ if(HAVE_FTIME)
 endif()
 
 target_compile_features(${PROJECT_NAME} PUBLIC cxx_std_11)
-target_include_directories(${PROJECT_NAME} INTERFACE ${PROJECT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${PROJECT_SOURCE_DIR}/include> $<INSTALL_INTERFACE:include>)
 target_include_directories(${PROJECT_NAME} PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src ${PROJECT_SOURCE_DIR}/src/C++)
 
 set_target_properties(${PROJECT_NAME} PROPERTIES VERSION ${quickfix_VERSION} SOVERSION ${quickfix_VERSION_MAJOR} )
 
-install(TARGETS ${PROJECT_NAME} DESTINATION lib)
+install(TARGETS ${PROJECT_NAME} EXPORT quickfix-config DESTINATION lib)
+install(EXPORT quickfix-config DESTINATION share/cmake/quickfix)
 
 get_target_property(debug_postfix ${PROJECT_NAME} DEBUG_POSTFIX)
 if(${debug_postfix} STREQUAL debug_postfix-NOTFOUND)
