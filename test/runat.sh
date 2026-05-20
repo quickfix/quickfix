@@ -5,12 +5,13 @@ trap "trap - TERM && kill -- -$$ 2 &&> /dev/null" INT TERM KILL EXIT
 killall ut at
 
 RUBY="ruby -I."
-DIR=`pwd`
+SCRIPT=$(realpath "$0")
+DIR=$(dirname "$SCRIPT")
 PORT=$1
+cd "$DIR"
 ./setup.sh $PORT
 
 ./at -f cfg/at.cfg >/dev/null 2>&1 &
-cd $DIR
 
 TMPDIR=$(mktemp -d)
 
