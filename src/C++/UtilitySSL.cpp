@@ -711,10 +711,10 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
   char *cp;
   int n;
 
-/*
- * Start with a empty stack/list where new
- * entries get added in sorted order.
- */
+  /*
+   * Start with a empty stack/list where new
+   * entries get added in sorted order.
+   */
   skCAList = sk_X509_NAME_new(caListX509NameCmp);
 
   /*

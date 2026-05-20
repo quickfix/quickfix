@@ -30,10 +30,10 @@
 #include "FieldNumbers.h"
 #include "FieldTypes.h"
 #include "Utility.h"
+#include <algorithm>
 #include <numeric>
 #include <sstream>
 #include <string_view>
-#include <algorithm>
 
 namespace FIX {
 /**

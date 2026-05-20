@@ -81,9 +81,6 @@
 /////////////////////////////////////////////
 #else
 /////////////////////////////////////////////
-#include <sys/ioctl.h>
-#include <sys/socket.h>
-#include <sys/types.h>
 #include <arpa/inet.h>
 #include <errno.h>
 #include <fcntl.h>
@@ -93,8 +90,11 @@
 #include <pthread.h>
 #include <signal.h>
 #include <stdlib.h>
+#include <sys/ioctl.h>
+#include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/time.h>
+#include <sys/types.h>
 #include <time.h>
 #include <unistd.h>
 #define INVALID_SOCKET_HANDLE -1
