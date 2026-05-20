@@ -25,9 +25,7 @@
 #endif
 
 #include <FieldTypes.h>
-#if __cplusplus >= 201103L
 #include <chrono>
-#endif
 
 #include "catch_amalgamated.hpp"
 
@@ -72,14 +70,12 @@ TEST_CASE("FieldTypesTests") {
     CHECK(1557104400 == dateTime.getTimeT());
   }
 
-#if __cplusplus >= 201103L
   SECTION("DateTime_getTimePoint") {
     FIX::DateTime dateTime;
     dateTime.setYMD(2019, 5, 6);
     dateTime.setHMS(1, 0, 0, 123456789, 9);
     CHECK(std::chrono::system_clock::to_time_t(dateTime.getTimePoint()) == dateTime.getTimeT());
   }
-#endif
 
   SECTION("DateTime_addAndSubtractSeconds") {
     int secondsInAnHour = 3600;

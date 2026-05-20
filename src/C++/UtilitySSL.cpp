@@ -715,11 +715,7 @@ STACK_OF(X509_NAME) * findCAList(const char *cpCAfile, const char *cpCApath) {
  * Start with a empty stack/list where new
  * entries get added in sorted order.
  */
-#ifndef __SUNPRO_CC
   skCAList = sk_X509_NAME_new(caListX509NameCmp);
-#else
-  skCAList = sk_X509_NAME_new((int (*)(const X509_name_st *const *, const X509_name_st *const *))caListX509NameCmp);
-#endif
 
   /*
    * Process CA certificate bundle file

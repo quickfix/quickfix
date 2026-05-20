@@ -27,19 +27,13 @@
 #pragma warning(disable : 4503 4355 4786 4290)
 #endif
 
-#if defined(_MSC_VER) && (_MSC_VER < 1600)
-#include "stdint_msvc.h"
-#else
-#include <stdint.h> /* integer types int8_t .. uint64_t, intptr_t */
-#endif
+#include <stdint.h>
 
 #include "Utility.h"
 #include <string>
 #include <time.h>
 
-#if __cplusplus >= 201103L
 #include <chrono>
-#endif
 
 namespace FIX {
 /*! \addtogroup user
@@ -226,11 +220,9 @@ struct DateTime {
   /// can overflow on 32-bit platforms when we go beyond year 2038.
   inline time_t getTimeT() const { return (SECONDS_PER_DAY * (m_date - JULIAN_19700101) + m_time / NANOS_PER_SEC); }
 
-#if __cplusplus >= 201103L
   std::chrono::system_clock::time_point getTimePoint() const {
     return std::chrono::system_clock::from_time_t(getTimeT());
   }
-#endif
 
   /// Convert the DateTime to a struct tm which is in UTC
   tm getTmUtc() const {

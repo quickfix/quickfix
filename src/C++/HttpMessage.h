@@ -56,11 +56,7 @@ public:
   void setString(const std::string &string) EXCEPT(InvalidMessage);
 
   void clear() {
-#if defined(_MSC_VER) && _MSC_VER < 1300
-    m_root = "";
-#else
     m_root.clear();
-#endif
     m_parameters.clear();
   }
 

@@ -482,13 +482,9 @@ std::pair<socket_handle, socket_handle> socket_createpair() {
 
 tm time_gmtime(const time_t *t) {
 #ifdef _MSC_VER
-#if (_MSC_VER >= 1400)
   tm result;
   gmtime_s(&result, t);
   return result;
-#else
-  return *gmtime(t);
-#endif
 #else
   tm result;
   return *gmtime_r(t, &result);
@@ -497,13 +493,9 @@ tm time_gmtime(const time_t *t) {
 
 tm time_localtime(const time_t *t) {
 #ifdef _MSC_VER
-#if (_MSC_VER >= 1400)
   tm result;
   localtime_s(&result, t);
   return result;
-#else
-  return *localtime(t);
-#endif
 #else
   tm result;
   return *localtime_r(t, &result);
