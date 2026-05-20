@@ -210,26 +210,26 @@ std::string Message::toString(int beginStringField, int bodyLengthField, int che
 
 std::string &Message::toString(std::string &str, int beginStringField, int bodyLengthField, int checkSumField) const {
   // Combined traversal: compute bodyLength and partial checksum in a single pass each (3 traversals instead of 6)
-  auto hlt = m_header.calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
-  auto blt = FieldMap::calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
-  auto tlt = m_trailer.calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
+  auto headerLengthAndTotal = m_header.calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
+  auto bodyLengthAndTotal = FieldMap::calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
+  auto trailerLengthAndTotal = m_trailer.calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
 
-  int bodyLen = hlt.length + blt.length + tlt.length;
+  int bodyLength = headerLengthAndTotal.length + bodyLengthAndTotal.length + trailerLengthAndTotal.length;
 
   // Add BodyLength field's own checksum contribution without allocating a string.
   // The field wire format is "tag=value\001"; sum the ASCII values of each byte.
-  auto sumAsciiDigits = [](int n) {
-    int s = 0;
+  auto sumAsciiDigits = [](int number) {
+    int sum = 0;
     do {
-      s += '0' + (n % 10);
-      n /= 10;
-    } while (n > 0);
-    return s;
+      sum += '0' + (number % 10);
+      number /= 10;
+    } while (number > 0);
+    return sum;
   };
-  int blContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLen) + '\001';
-  int totalChecksum = (hlt.total + blt.total + tlt.total + blContrib) % 256;
+  int bodyLengthFieldContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLength) + '\001';
+  int totalChecksum = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib) % 256;
 
-  m_header.setField(IntField(bodyLengthField, bodyLen));
+  m_header.setField(IntField(bodyLengthField, bodyLength));
   m_trailer.setField(CheckSumField(checkSumField, totalChecksum));
 
 #if defined(_MSC_VER) && _MSC_VER < 1300
@@ -238,7 +238,7 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
   str.clear();
 #endif
 
-  str.reserve(bodyLen + 64);
+  str.reserve(bodyLength + 64);
 
   m_header.calculateString(str);
   FieldMap::calculateString(str);
