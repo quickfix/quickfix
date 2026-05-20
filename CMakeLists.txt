@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
 
-set (quickfix_PROJECT_NAME quickfix)
+project(quickfix VERSION 1.16.0 LANGUAGES CXX C)
 
 add_definitions(-DNOMINMAX)
 
@@ -9,8 +9,7 @@ if(UNIX)
   add_definitions(-D_FILE_OFFSET_BITS=64)
 endif()
 
-project(${quickfix_PROJECT_NAME} VERSION 1.16.0 LANGUAGES CXX C)
-message("-- Project name ${CMAKE_PROJECT_NAME}")
+message(STATUS "Project name ${CMAKE_PROJECT_NAME}")
 
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -68,25 +67,25 @@ if(HAVE_SSL)
 find_package(OpenSSL REQUIRED)
 include_directories(${OPENSSL_INCLUDE_DIR})
 
-message("-- OPENSSL_INCLUDE_DIR: ${OPENSSL_INCLUDE_DIR}")
-message("-- OPENSSL_LIBRARIES: ${OPENSSL_LIBRARIES}")
-message("-- OPENSSL_ROOT_DIR: ${OPENSSL_ROOT_DIR}")
+message(STATUS "OPENSSL_INCLUDE_DIR: ${OPENSSL_INCLUDE_DIR}")
+message(STATUS "OPENSSL_LIBRARIES: ${OPENSSL_LIBRARIES}")
+message(STATUS "OPENSSL_ROOT_DIR: ${OPENSSL_ROOT_DIR}")
 
-message("-- Building with SSL")
+message(STATUS "Building with SSL")
 endif()
 
 if(HAVE_MYSQL)
 find_package(MySQL REQUIRED)
 include_directories(${MYSQL_INCLUDE_DIR})
 
-message("-- Building with MySQL")
+message(STATUS "Building with MySQL")
 endif()
 
 if(HAVE_POSTGRESQL)
 find_package(PostgreSQL REQUIRED)
 include_directories(${PostgreSQL_INCLUDE_DIRS})
 
-message("-- Building with POSTGRESQL")
+message(STATUS "Building with POSTGRESQL")
 endif()
 
 if(HAVE_ODBC)
@@ -95,7 +94,7 @@ add_definitions(-DHAVE_ODBC)
 include_directories(SYSTEM ${ODBC_INCLUDE_DIRS})
 set(ODBC_LIBRARIES "ODBC::ODBC")
 
-message("-- Building with ODBC")
+message(STATUS "Building with ODBC")
 endif()
 
 if (HAVE_PYTHON3)
