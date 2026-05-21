@@ -8,9 +8,9 @@ set(quickfix_python_lib_name _${PROJECT_NAME})
 
 add_library(${quickfix_python_lib_name} SHARED  ${quickfix_python_SOURCES})
 
-target_include_directories(${quickfix_python_lib_name} PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src/C++)
+target_include_directories(${quickfix_python_lib_name} PRIVATE ${PROJECT_SOURCE_DIR} ${PROJECT_SOURCE_DIR}/src/C++ ${PROJECT_SOURCE_DIR}/src/swig)
 
-target_link_libraries(${quickfix_python_lib_name} ${PROJECT_NAME})
+target_link_libraries(${quickfix_python_lib_name} ${PROJECT_NAME} Python3::Module)
 
 if (HAVE_SSL)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -DHAVE_SSL=1")

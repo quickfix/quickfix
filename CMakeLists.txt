@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.12 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.18 FATAL_ERROR)
 
 set (quickfix_PROJECT_NAME quickfix)
 
@@ -99,8 +99,7 @@ message("-- Building with ODBC")
 endif()
 
 if (HAVE_PYTHON3)
-  find_package(PythonLibs 3 REQUIRED)
-  include_directories(${PYTHON_INCLUDE_DIRS})
+  find_package(Python3 REQUIRED COMPONENTS Development.Module)
 endif ()
 
 add_subdirectory(src)
