@@ -22,8 +22,8 @@ jobs:
       - name: Install dependencies
         uses: actions/setup-python@v5
         with:
-            python-version: '3.10' 
-            
+            python-version: '3.10'
+
       - name: Checkout
         uses: actions/checkout@v2
 
@@ -41,7 +41,7 @@ jobs:
 
       - name: Configure ${{ matrix.compiler-settings }}
         shell: bash
-        run: ${{ matrix.compiler-settings }} ./configure
+        run: ${{ matrix.compiler-settings }} ./configure CFLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all" CXXFLAGS="-fsanitize=address,undefined -fno-sanitize-recover=all"
         if: ${{ success() && matrix.compiler-settings != '' }}
 
       - name: Configure
