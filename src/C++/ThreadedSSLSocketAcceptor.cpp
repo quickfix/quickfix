@@ -133,7 +133,7 @@ int ThreadedSSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int ve
 ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
     Application &application,
     MessageStoreFactory &factory,
-    const SessionSettings &settings) EXCEPT(ConfigError)
+    const SessionSettings &settings)
     : Acceptor(application, factory, settings),
       m_sslInit(false),
       m_verify(SSL_CLIENT_VERIFY_NOTSET),
@@ -146,7 +146,7 @@ ThreadedSSLSocketAcceptor::ThreadedSSLSocketAcceptor(
     Application &application,
     MessageStoreFactory &factory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : Acceptor(application, factory, settings, logFactory),
       m_sslInit(false),
       m_verify(SSL_CLIENT_VERIFY_NOTSET),
@@ -165,7 +165,7 @@ ThreadedSSLSocketAcceptor::~ThreadedSSLSocketAcceptor() {
   socket_term();
 }
 
-void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) EXCEPT(ConfigError) {
+void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) {
   std::set<SessionID> sessions = s.getSessions();
   std::set<SessionID>::iterator i;
   for (i = sessions.begin(); i != sessions.end(); ++i) {
@@ -180,7 +180,7 @@ void ThreadedSSLSocketAcceptor::onConfigure(const SessionSettings &s) EXCEPT(Con
   }
 }
 
-void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) EXCEPT(RuntimeError) {
+void ThreadedSSLSocketAcceptor::onInitialize(const SessionSettings &s) {
   if (!m_sslInit) {
 
     ssl_init();

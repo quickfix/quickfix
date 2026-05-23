@@ -30,7 +30,7 @@ void Group::addGroup(const Group &group) { FieldMap::addGroup(group.field(), gro
 
 void Group::replaceGroup(unsigned num, const FIX::Group &group) { FieldMap::replaceGroup(num, group.field(), group); }
 
-Group &Group::getGroup(unsigned num, Group &group) const EXCEPT(FieldNotFound) {
+Group &Group::getGroup(unsigned num, Group &group) const {
   return static_cast<Group &>(FieldMap::getGroup(num, group.field(), group));
 }
 

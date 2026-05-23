@@ -31,10 +31,8 @@ MessageStore *NullStoreFactory::create(const UtcTimeStamp &now, const SessionID 
 
 void NullStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
-bool NullStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) { return true; }
+bool NullStore::set(SEQNUM msgSeqNum, const std::string &msg) { return true; }
 
-void NullStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &messages) const EXCEPT(IOException) {
-  messages.clear();
-}
+void NullStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &messages) const { messages.clear(); }
 
 } // namespace FIX

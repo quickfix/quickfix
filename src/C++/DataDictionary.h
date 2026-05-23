@@ -103,18 +103,18 @@ class DataDictionary {
 public:
   DataDictionary();
   DataDictionary(const DataDictionary &copy);
-  DataDictionary(std::istream &stream, bool preserveMsgFldsOrder = false) EXCEPT(ConfigError);
-  DataDictionary(const std::string &url, bool preserveMsgFldsOrder = false) EXCEPT(ConfigError);
+  DataDictionary(std::istream &stream, bool preserveMsgFldsOrder = false);
+  DataDictionary(const std::string &url, bool preserveMsgFldsOrder = false);
   virtual ~DataDictionary();
 
-  void readFromURL(const std::string &url) EXCEPT(ConfigError);
-  void readFromDocument(const DOMDocumentPtr &pDoc) EXCEPT(ConfigError);
-  void readFromStream(std::istream &stream) EXCEPT(ConfigError);
+  void readFromURL(const std::string &url);
+  void readFromDocument(const DOMDocumentPtr &pDoc);
+  void readFromStream(std::istream &stream);
 
   message_order const &getOrderedFields() const;
-  message_order const &getHeaderOrderedFields() const EXCEPT(ConfigError);
-  message_order const &getTrailerOrderedFields() const EXCEPT(ConfigError);
-  message_order const &getMessageOrderedFields(const std::string &msgType) const EXCEPT(ConfigError);
+  message_order const &getHeaderOrderedFields() const;
+  message_order const &getTrailerOrderedFields() const;
+  message_order const &getMessageOrderedFields(const std::string &msgType) const;
 
   // storage functions
   void setVersion(const std::string &beginString) {
@@ -337,10 +337,10 @@ public:
   static void validate(
       const Message &message,
       const DataDictionary *const pSessionDD,
-      const DataDictionary *const pAppID) EXCEPT(FIX::Exception);
+      const DataDictionary *const pAppID);
 
-  void validate(const Message &message) const EXCEPT(FIX::Exception) { validate(message, false); }
-  void validate(const Message &message, bool bodyOnly) const EXCEPT(FIX::Exception) {
+  void validate(const Message &message) const { validate(message, false); }
+  void validate(const Message &message, bool bodyOnly) const {
     validate(message, bodyOnly ? (DataDictionary *)0 : this, this);
   }
 
@@ -369,13 +369,13 @@ private:
   }
 
   /// Check if field tag number is defined in spec.
-  void checkValidTagNumber(const FieldBase &field) const EXCEPT(InvalidTagNumber) {
+  void checkValidTagNumber(const FieldBase &field) const {
     if (m_fields.find(field.getTag()) == m_fields.end()) {
       throw InvalidTagNumber(field.getTag());
     }
   }
 
-  void checkValidFormat(const FieldBase &field) const EXCEPT(IncorrectDataFormat) {
+  void checkValidFormat(const FieldBase &field) const {
     try {
       TYPE::Type type = TYPE::Unknown;
       getFieldType(field.getTag(), type);
@@ -490,7 +490,7 @@ private:
     }
   }
 
-  void checkValue(const FieldBase &field) const EXCEPT(IncorrectTagValue) {
+  void checkValue(const FieldBase &field) const {
     if (!hasFieldValue(field.getTag())) {
       return;
     }
@@ -502,22 +502,21 @@ private:
   }
 
   /// Check if a field has a value.
-  void checkHasValue(const FieldBase &field) const EXCEPT(NoTagValue) {
+  void checkHasValue(const FieldBase &field) const {
     if (m_checkFieldsHaveValues && !field.getString().length()) {
       throw NoTagValue(field.getTag());
     }
   }
 
   /// Check if a field is in this message type.
-  void checkIsInMessage(const FieldBase &field, const MsgType &msgType) const EXCEPT(TagNotDefinedForMessage) {
+  void checkIsInMessage(const FieldBase &field, const MsgType &msgType) const {
     if (!isMsgField(msgType, field.getTag())) {
       throw TagNotDefinedForMessage(field.getTag());
     }
   }
 
   /// Check if group count matches number of groups in
-  void checkGroupCount(const FieldBase &field, const FieldMap &fieldMap, const MsgType &msgType) const
-      EXCEPT(RepeatingGroupCountMismatch) {
+  void checkGroupCount(const FieldBase &field, const FieldMap &fieldMap, const MsgType &msgType) const {
     int fieldNum = field.getTag();
     if (isGroup(msgType, fieldNum)) {
       if ((int)fieldMap.groupCount(fieldNum) != IntConvertor::convert(field.getString())) {
@@ -528,7 +527,7 @@ private:
 
   /// Check if a message has all required fields.
   void checkHasRequired(const FieldMap &header, const FieldMap &body, const FieldMap &trailer, const MsgType &msgType)
-      const EXCEPT(RequiredTagMissing) {
+      const {
     for (const NonBodyFields::value_type &NBF : m_headerFields) {
       if (NBF.second == true && !header.isSetField(NBF.first)) {
         throw RequiredTagMissing(NBF.first);

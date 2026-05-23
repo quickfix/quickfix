@@ -141,8 +141,8 @@ enum SSLHandshakeStatus {
 /// Socket implementation of Initiator.
 class SSLSocketInitiator : public Initiator, SocketConnector::Strategy {
 public:
-  SSLSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
-  SSLSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &) EXCEPT(ConfigError);
+  SSLSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &);
+  SSLSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &);
 
   virtual ~SSLSocketInitiator();
 
@@ -160,8 +160,8 @@ public:
 private:
   typedef std::map<socket_handle, SSLSocketConnection *> SocketConnections;
 
-  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
+  void onConfigure(const SessionSettings &);
+  void onInitialize(const SessionSettings &);
 
   void onStart();
   bool onPoll();

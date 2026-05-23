@@ -297,7 +297,7 @@ bool ThreadedSSLSocketConnection::read() {
   }
 }
 
-bool ThreadedSSLSocketConnection::readMessage(std::string &message) EXCEPT(SocketRecvFailed) {
+bool ThreadedSSLSocketConnection::readMessage(std::string &message) {
   try {
     return m_parser.readFixMessage(message);
   } catch (MessageParseError &) {}

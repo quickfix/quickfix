@@ -22,7 +22,7 @@ public:
 
   char *getValue(int row, int column) { unreachable(); }
 
-  void throwException() EXCEPT(IOException) {}
+  void throwException() {}
 };
 
 class MySQLConnection {
@@ -108,20 +108,20 @@ public:
 
   ~MySQLStore() {}
 
-  bool set(SEQNUM, const std::string &) EXCEPT(IOException) { unreachable(); }
-  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const EXCEPT(IOException) {}
+  bool set(SEQNUM, const std::string &) { unreachable(); }
+  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const {}
 
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException) { unreachable(); }
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException) { unreachable(); }
-  void setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException) {}
-  void setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException) {}
-  void incrNextSenderMsgSeqNum() EXCEPT(IOException) {}
-  void incrNextTargetMsgSeqNum() EXCEPT(IOException) {}
+  SEQNUM getNextSenderMsgSeqNum() const { unreachable(); }
+  SEQNUM getNextTargetMsgSeqNum() const { unreachable(); }
+  void setNextSenderMsgSeqNum(SEQNUM value) {}
+  void setNextTargetMsgSeqNum(SEQNUM value) {}
+  void incrNextSenderMsgSeqNum() {}
+  void incrNextTargetMsgSeqNum() {}
 
-  UtcTimeStamp getCreationTime() const EXCEPT(IOException) { unreachable(); }
+  UtcTimeStamp getCreationTime() const { unreachable(); }
 
-  void reset(const UtcTimeStamp &now) EXCEPT(IOException) {}
-  void refresh() EXCEPT(IOException) {}
+  void reset(const UtcTimeStamp &now) {}
+  void refresh() {}
 };
 
 class MySQLLogFactory : public LogFactory {

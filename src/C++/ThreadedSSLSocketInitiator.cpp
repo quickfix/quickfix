@@ -133,7 +133,7 @@ int ThreadedSSLSocketInitiator::passwordHandleCB(char *buf, int bufsize, int ver
 ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application,
     MessageStoreFactory &factory,
-    const SessionSettings &settings) EXCEPT(ConfigError)
+    const SessionSettings &settings)
     : Initiator(application, factory, settings),
       m_lastConnect(0),
       m_reconnectInterval(30),
@@ -151,7 +151,7 @@ ThreadedSSLSocketInitiator::ThreadedSSLSocketInitiator(
     Application &application,
     MessageStoreFactory &factory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : Initiator(application, factory, settings, logFactory),
       m_lastConnect(0),
       m_reconnectInterval(30),
@@ -175,7 +175,7 @@ ThreadedSSLSocketInitiator::~ThreadedSSLSocketInitiator() {
   socket_term();
 }
 
-void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &settings) EXCEPT(ConfigError) {
+void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &settings) {
   const Dictionary &dict = settings.get();
 
   if (dict.has(RECONNECT_INTERVAL)) // ReconnectInterval in [DEFAULT]
@@ -193,7 +193,7 @@ void ThreadedSSLSocketInitiator::onConfigure(const SessionSettings &settings) EX
   }
 }
 
-void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &settings) EXCEPT(RuntimeError) {
+void ThreadedSSLSocketInitiator::onInitialize(const SessionSettings &settings) {
   if (m_sslInit) {
     return;
   }

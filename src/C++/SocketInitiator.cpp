@@ -31,7 +31,7 @@ namespace FIX {
 SocketInitiator::SocketInitiator(
     Application &application,
     MessageStoreFactory &factory,
-    const SessionSettings &settings) EXCEPT(ConfigError)
+    const SessionSettings &settings)
     : Initiator(application, factory, settings),
       m_connector(1),
       m_lastConnect(0),
@@ -44,7 +44,7 @@ SocketInitiator::SocketInitiator(
     Application &application,
     MessageStoreFactory &factory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : Initiator(application, factory, settings, logFactory),
       m_connector(1),
       m_lastConnect(0),
@@ -64,7 +64,7 @@ SocketInitiator::~SocketInitiator() {
   }
 }
 
-void SocketInitiator::onConfigure(const SessionSettings &s) EXCEPT(ConfigError) {
+void SocketInitiator::onConfigure(const SessionSettings &s) {
   const Dictionary &dict = s.get();
 
   if (dict.has(RECONNECT_INTERVAL)) // ReconnectInterval in [DEFAULT]
@@ -82,7 +82,7 @@ void SocketInitiator::onConfigure(const SessionSettings &s) EXCEPT(ConfigError) 
   }
 }
 
-void SocketInitiator::onInitialize(const SessionSettings &s) EXCEPT(RuntimeError) {}
+void SocketInitiator::onInitialize(const SessionSettings &s) {}
 
 void SocketInitiator::onStart() {
   connect();

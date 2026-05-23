@@ -35,17 +35,17 @@ namespace FIX {
 /// Basic HTTP Server
 class HttpServer : public SocketServer::Strategy {
 public:
-  HttpServer(const SessionSettings &) EXCEPT(ConfigError);
+  HttpServer(const SessionSettings &);
 
-  static void startGlobal(const SessionSettings &) EXCEPT(ConfigError, RuntimeError);
+  static void startGlobal(const SessionSettings &);
   static void stopGlobal();
 
-  void start() EXCEPT(ConfigError, RuntimeError);
+  void start();
   void stop();
 
 private:
-  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
+  void onConfigure(const SessionSettings &);
+  void onInitialize(const SessionSettings &);
 
   void onStart();
   bool onPoll();

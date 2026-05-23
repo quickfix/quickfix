@@ -51,13 +51,11 @@ public:
   /// Notification of admin message being sent to target
   virtual void toAdmin(Message &, const SessionID &) = 0;
   /// Notification of app message being sent to target
-  virtual void toApp(Message &, const SessionID &) EXCEPT(DoNotSend) = 0;
+  virtual void toApp(Message &, const SessionID &) = 0;
   /// Notification of admin message being received from target
-  virtual void fromAdmin(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon) = 0;
+  virtual void fromAdmin(const Message &, const SessionID &) = 0;
   /// Notification of app message being received from target
-  virtual void fromApp(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType) = 0;
+  virtual void fromApp(const Message &, const SessionID &) = 0;
 };
 
 /**
@@ -91,17 +89,15 @@ public:
     Locker l(m_mutex);
     app().toAdmin(message, sessionID);
   }
-  void toApp(Message &message, const SessionID &sessionID) EXCEPT(DoNotSend) {
+  void toApp(Message &message, const SessionID &sessionID) {
     Locker l(m_mutex);
     app().toApp(message, sessionID);
   }
-  void fromAdmin(const Message &message, const SessionID &sessionID)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon) {
+  void fromAdmin(const Message &message, const SessionID &sessionID) {
     Locker l(m_mutex);
     app().fromAdmin(message, sessionID);
   }
-  void fromApp(const Message &message, const SessionID &sessionID)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType) {
+  void fromApp(const Message &message, const SessionID &sessionID) {
     Locker l(m_mutex);
     app().fromApp(message, sessionID);
   }
@@ -123,11 +119,9 @@ class NullApplication : public Application {
   void onLogon(const SessionID &) {}
   void onLogout(const SessionID &) {}
   void toAdmin(Message &, const SessionID &) {}
-  void toApp(Message &, const SessionID &) EXCEPT(DoNotSend) {}
-  void fromAdmin(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, RejectLogon) {}
-  void fromApp(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType) {}
+  void toApp(Message &, const SessionID &) {}
+  void fromAdmin(const Message &, const SessionID &) {}
+  void fromApp(const Message &, const SessionID &) {}
 };
 /*! @} */
 } // namespace FIX

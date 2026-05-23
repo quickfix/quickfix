@@ -55,7 +55,6 @@ namespace std
 
 %{
 #include <config.h>
-#include <Except.h>
 #include <Exceptions.h>
 #include <FieldTypes.h>
 #include <Fields.h>
@@ -249,7 +248,7 @@ bool tryPythonException(std::function<bool()> const& function)
   {
     raisePythonException<FIX::Exception>(e, SWIGTYPE_p_FIX__Exception); return false;
   }
-  catch(std::exception const& e) 
+  catch(std::exception const& e)
   {
     SWIG_Error(SWIG_RuntimeError, e.what()); return false;
   }
@@ -393,7 +392,7 @@ VALUE tryRubyException(std::function<VALUE()> const& function)
   {
     raiseRubyException<FIX::Exception>(e, SWIGTYPE_p_FIX__Exception); return Qnil;
   }
-  catch(std::exception const& e) 
+  catch(std::exception const& e)
   {
     SWIG_Error(SWIG_RuntimeError, e.what()); return Qnil;
   }
@@ -403,7 +402,7 @@ VALUE tryRubyException(std::function<VALUE()> const& function)
   }
 }
 #endif
-         
+
 typedef FIX::UtcTimeStamp UtcTimeStamp;
 typedef FIX::UtcDate UtcDate;
 typedef FIX::UtcTimeOnly UtcTimeOnly;
@@ -530,7 +529,6 @@ typedef FIX::SessionSettings SessionSettings;
     }
 }
 
-%include "../C++/Except.h"
 %include "../C++/Exceptions.h"
 %include "../C++/FieldTypes.h"
 %include "../C++/Field.h"

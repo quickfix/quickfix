@@ -31,7 +31,7 @@ namespace FIX {
 ThreadedSocketInitiator::ThreadedSocketInitiator(
     Application &application,
     MessageStoreFactory &factory,
-    const SessionSettings &settings) EXCEPT(ConfigError)
+    const SessionSettings &settings)
     : Initiator(application, factory, settings),
       m_lastConnect(0),
       m_reconnectInterval(30),
@@ -45,7 +45,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
     Application &application,
     MessageStoreFactory &factory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : Initiator(application, factory, settings, logFactory),
       m_lastConnect(0),
       m_reconnectInterval(30),
@@ -57,7 +57,7 @@ ThreadedSocketInitiator::ThreadedSocketInitiator(
 
 ThreadedSocketInitiator::~ThreadedSocketInitiator() { socket_term(); }
 
-void ThreadedSocketInitiator::onConfigure(const SessionSettings &s) EXCEPT(ConfigError) {
+void ThreadedSocketInitiator::onConfigure(const SessionSettings &s) {
   const Dictionary &dict = s.get();
 
   if (dict.has(RECONNECT_INTERVAL)) // ReconnectInterval in [DEFAULT]
@@ -75,7 +75,7 @@ void ThreadedSocketInitiator::onConfigure(const SessionSettings &s) EXCEPT(Confi
   }
 }
 
-void ThreadedSocketInitiator::onInitialize(const SessionSettings &s) EXCEPT(RuntimeError) {}
+void ThreadedSocketInitiator::onInitialize(const SessionSettings &s) {}
 
 void ThreadedSocketInitiator::onStart() {
   while (!isStopped()) {

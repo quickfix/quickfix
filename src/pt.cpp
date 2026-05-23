@@ -218,10 +218,7 @@ static unsigned short s_networkBenchmarkPort = 54322;
 class NetworkBenchmarkApplication : public FIX::NullApplication {
 public:
   std::atomic<int> received{0};
-  void fromApp(const FIX::Message &, const FIX::SessionID &)
-      EXCEPT(FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType) {
-    received.fetch_add(1, std::memory_order_relaxed);
-  }
+  void fromApp(const FIX::Message &, const FIX::SessionID &) { received.fetch_add(1, std::memory_order_relaxed); }
 };
 
 static std::string makeSocketConfig(

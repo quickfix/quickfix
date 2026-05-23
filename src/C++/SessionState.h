@@ -156,47 +156,47 @@ public:
     m_queue.erase(m_queue.begin(), m_queue.lower_bound(msgSeqNum));
   }
 
-  bool set(SEQNUM s, const std::string &m) EXCEPT(IOException) {
+  bool set(SEQNUM s, const std::string &m) {
     Locker l(m_mutex);
     return m_pStore->set(s, m);
   }
-  void get(SEQNUM b, SEQNUM e, std::vector<std::string> &m) const EXCEPT(IOException) {
+  void get(SEQNUM b, SEQNUM e, std::vector<std::string> &m) const {
     Locker l(m_mutex);
     m_pStore->get(b, e, m);
   }
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException) {
+  SEQNUM getNextSenderMsgSeqNum() const {
     Locker l(m_mutex);
     return m_pStore->getNextSenderMsgSeqNum();
   }
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException) {
+  SEQNUM getNextTargetMsgSeqNum() const {
     Locker l(m_mutex);
     return m_pStore->getNextTargetMsgSeqNum();
   }
-  void setNextSenderMsgSeqNum(SEQNUM n) EXCEPT(IOException) {
+  void setNextSenderMsgSeqNum(SEQNUM n) {
     Locker l(m_mutex);
     m_pStore->setNextSenderMsgSeqNum(n);
   }
-  void setNextTargetMsgSeqNum(SEQNUM n) EXCEPT(IOException) {
+  void setNextTargetMsgSeqNum(SEQNUM n) {
     Locker l(m_mutex);
     m_pStore->setNextTargetMsgSeqNum(n);
   }
-  void incrNextSenderMsgSeqNum() EXCEPT(IOException) {
+  void incrNextSenderMsgSeqNum() {
     Locker l(m_mutex);
     m_pStore->incrNextSenderMsgSeqNum();
   }
-  void incrNextTargetMsgSeqNum() EXCEPT(IOException) {
+  void incrNextTargetMsgSeqNum() {
     Locker l(m_mutex);
     m_pStore->incrNextTargetMsgSeqNum();
   }
-  UtcTimeStamp getCreationTime() const EXCEPT(IOException) {
+  UtcTimeStamp getCreationTime() const {
     Locker l(m_mutex);
     return m_pStore->getCreationTime();
   }
-  void reset(const UtcTimeStamp &now) EXCEPT(IOException) {
+  void reset(const UtcTimeStamp &now) {
     Locker l(m_mutex);
     m_pStore->reset(now);
   }
-  void refresh() EXCEPT(IOException) {
+  void refresh() {
     Locker l(m_mutex);
     m_pStore->refresh();
   }

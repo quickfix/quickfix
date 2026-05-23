@@ -35,7 +35,7 @@
 
 namespace FIX {
 Acceptor::Acceptor(Application &application, MessageStoreFactory &messageStoreFactory, const SessionSettings &settings)
-    EXCEPT(ConfigError)
+
     : m_threadid(0),
       m_application(application),
       m_messageStoreFactory(messageStoreFactory),
@@ -52,7 +52,7 @@ Acceptor::Acceptor(
     Application &application,
     MessageStoreFactory &messageStoreFactory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : m_threadid(0),
       m_application(application),
       m_messageStoreFactory(messageStoreFactory),
@@ -65,7 +65,7 @@ Acceptor::Acceptor(
   initialize();
 }
 
-void Acceptor::initialize() EXCEPT(ConfigError) {
+void Acceptor::initialize() {
   std::set<SessionID> sessions = m_settings.getSessions();
   std::set<SessionID>::iterator i;
 
@@ -143,7 +143,7 @@ const Dictionary *const Acceptor::getSessionSettings(const SessionID &sessionID)
   }
 }
 
-void Acceptor::start() EXCEPT(ConfigError, RuntimeError) {
+void Acceptor::start() {
   if (m_processing) {
     throw RuntimeError("Acceptor::start called when already processing messages");
   }
@@ -167,7 +167,7 @@ void Acceptor::start() EXCEPT(ConfigError, RuntimeError) {
   }
 }
 
-void Acceptor::block() EXCEPT(ConfigError, RuntimeError) {
+void Acceptor::block() {
   if (m_processing) {
     throw RuntimeError("Acceptor::block called when already processing messages");
   }
@@ -180,7 +180,7 @@ void Acceptor::block() EXCEPT(ConfigError, RuntimeError) {
   startThread(this);
 }
 
-bool Acceptor::poll() EXCEPT(ConfigError, RuntimeError) {
+bool Acceptor::poll() {
   if (m_processing) {
     throw RuntimeError("Acceptor::poll called when already processing messages");
   }

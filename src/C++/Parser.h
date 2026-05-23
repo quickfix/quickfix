@@ -37,8 +37,8 @@ public:
   Parser() {}
   ~Parser() {}
 
-  bool extractLength(int &length, std::string::size_type &pos, const std::string &buffer) EXCEPT(MessageParseError);
-  bool readFixMessage(std::string &str) EXCEPT(MessageParseError);
+  bool extractLength(int &length, std::string::size_type &pos, const std::string &buffer);
+  bool readFixMessage(std::string &str);
 
   void addToStream(const char *str, size_t len) { m_buffer.append(str, len); }
   void addToStream(const std::string &str) { m_buffer.append(str); }

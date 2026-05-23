@@ -30,12 +30,12 @@ MessageStore *MemoryStoreFactory::create(const UtcTimeStamp &now, const SessionI
 
 void MemoryStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
-bool MemoryStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) {
+bool MemoryStore::set(SEQNUM msgSeqNum, const std::string &msg) {
   m_messages[msgSeqNum] = msg;
   return true;
 }
 
-void MemoryStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &messages) const EXCEPT(IOException) {
+void MemoryStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &messages) const {
   messages.clear();
   Messages::const_iterator find = m_messages.find(begin);
   for (; find != m_messages.end() && find->first <= end; ++find) {

@@ -153,7 +153,7 @@ bool ThreadedSocketConnection::read() {
   }
 }
 
-bool ThreadedSocketConnection::readMessage(std::string &msg) EXCEPT(SocketRecvFailed) {
+bool ThreadedSocketConnection::readMessage(std::string &msg) {
   try {
     return m_parser.readFixMessage(msg);
   } catch (MessageParseError &) {}

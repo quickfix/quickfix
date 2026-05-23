@@ -5907,7 +5907,6 @@ SWIGINTERN IntArray *IntArray_frompointer(int *t){
   }
 
 #include <config.h>
-#include <Except.h>
 #include <Exceptions.h>
 #include <FieldTypes.h>
 #include <Fields.h>

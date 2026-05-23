@@ -22,7 +22,6 @@
 #ifndef FIX_EXCEPTIONS_H
 #define FIX_EXCEPTIONS_H
 
-#include "Except.h"
 #include "Utility.h"
 
 #include <stdexcept>
@@ -36,7 +35,7 @@ struct Exception : public std::logic_error {
       : std::logic_error(detail.size() ? type + ": " + detail : type),
         type(type),
         detail(detail) {}
-  ~Exception() NOEXCEPT {}
+  ~Exception() noexcept {}
 
   std::string type;
   std::string detail;
@@ -47,7 +46,7 @@ struct DataDictionaryNotFound : public Exception {
   DataDictionaryNotFound(const std::string &version, const std::string &what = "")
       : Exception("Could not find data dictionary", what),
         version(version) {}
-  ~DataDictionaryNotFound() NOEXCEPT {}
+  ~DataDictionaryNotFound() noexcept {}
 
   std::string version;
 };

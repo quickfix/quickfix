@@ -245,7 +245,7 @@ template <typename T> struct IntTConvertor {
 
   static bool convert(const std::string &value, T &result) { return convert(value.begin(), value.end(), result); }
 
-  static T convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static T convert(const std::string &value) {
     T result = 0;
     if (!convert(value.begin(), value.end(), result)) {
       throw FieldConvertError(value);
@@ -266,7 +266,7 @@ typedef IntTConvertor<unsigned_int64> UInt64Convertor;
 
 /// Converts checksum to/from a string
 struct CheckSumConvertor {
-  static std::string convert(int value) EXCEPT(FieldConvertError) {
+  static std::string convert(int value) {
     if (value > 255 || value < 0) {
       throw FieldConvertError();
     }
@@ -277,7 +277,7 @@ struct CheckSumConvertor {
 
   static bool convert(const std::string &value, int &result) { return IntConvertor::convert(value, result); }
 
-  static int convert(const std::string &value) EXCEPT(FieldConvertError) { return IntConvertor::convert(value); }
+  static int convert(const std::string &value) { return IntConvertor::convert(value); }
 };
 
 /// Converts double to/from a string
@@ -388,7 +388,7 @@ public:
     return true;
   }
 
-  static double convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static double convert(const std::string &value) {
     double result = 0.0;
     if (!convert(value, result)) {
       throw FieldConvertError(value);
@@ -415,7 +415,7 @@ struct CharConvertor {
     return true;
   }
 
-  static char convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static char convert(const std::string &value) {
     char result = '\0';
     if (!convert(value, result)) {
       throw FieldConvertError(value);
@@ -450,7 +450,7 @@ struct BoolConvertor {
     return true;
   }
 
-  static bool convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static bool convert(const std::string &value) {
     bool result = false;
     if (!convert(value, result)) {
       throw FieldConvertError(value);
@@ -462,7 +462,7 @@ struct BoolConvertor {
 
 /// Converts a UtcTimeStamp to/from a string
 struct UtcTimeStampConvertor {
-  static std::string convert(const UtcTimeStamp &value, int precision = 0) EXCEPT(FieldConvertError) {
+  static std::string convert(const UtcTimeStamp &value, int precision = 0) {
     char result[17 + 10]; // Maximum
     int year, month, day, hour, minute, second, fraction;
 
@@ -489,7 +489,7 @@ struct UtcTimeStampConvertor {
     return std::string(result, precision ? (17 + 1 + precision) : 17);
   }
 
-  static UtcTimeStamp convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static UtcTimeStamp convert(const std::string &value) {
     size_t length = value.size();
     if (length < 17 || length > 27) {
       throw FieldConvertError(value);
@@ -599,7 +599,7 @@ struct UtcTimeStampConvertor {
 
 /// Converts a UtcTimeOnly to/from a string
 struct UtcTimeOnlyConvertor {
-  static std::string convert(const UtcTimeOnly &value, int precision = 0) EXCEPT(FieldConvertError) {
+  static std::string convert(const UtcTimeOnly &value, int precision = 0) {
     char result[8 + 10]; // Maximum
     int hour, minute, second, fraction;
 
@@ -621,7 +621,7 @@ struct UtcTimeOnlyConvertor {
     return std::string(result, precision ? (8 + 1 + precision) : 8);
   }
 
-  static UtcTimeOnly convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static UtcTimeOnly convert(const std::string &value) {
     size_t length = value.size();
     if (length < 8 || length > 18) {
       throw FieldConvertError(value);
@@ -704,7 +704,7 @@ struct UtcTimeOnlyConvertor {
 
 /// Converts a UtcDate to/from a string
 struct UtcDateConvertor {
-  static std::string convert(const UtcDate &value) EXCEPT(FieldConvertError) {
+  static std::string convert(const UtcDate &value) {
     int year, month, day;
     value.getYMD(year, month, day);
 
@@ -717,7 +717,7 @@ struct UtcDateConvertor {
     return std::string(result, sizeof(result));
   }
 
-  static UtcDate convert(const std::string &value) EXCEPT(FieldConvertError) {
+  static UtcDate convert(const std::string &value) {
     if (value.size() != 8) {
       throw FieldConvertError(value);
     }

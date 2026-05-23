@@ -29,12 +29,12 @@
 #include <fstream>
 
 namespace FIX {
-SessionSettings::SessionSettings(std::istream &stream, bool resolveEnvVars) EXCEPT(ConfigError)
+SessionSettings::SessionSettings(std::istream &stream, bool resolveEnvVars)
     : m_resolveEnvVars(resolveEnvVars) {
   stream >> *this;
 }
 
-SessionSettings::SessionSettings(const std::string &file, bool resolveEnvVars) EXCEPT(ConfigError)
+SessionSettings::SessionSettings(const std::string &file, bool resolveEnvVars)
     : m_resolveEnvVars(resolveEnvVars) {
   std::ifstream fstream(file.c_str());
   if (!fstream.is_open()) {
@@ -43,7 +43,7 @@ SessionSettings::SessionSettings(const std::string &file, bool resolveEnvVars) E
   fstream >> *this;
 }
 
-std::istream &operator>>(std::istream &stream, SessionSettings &s) EXCEPT(ConfigError) {
+std::istream &operator>>(std::istream &stream, SessionSettings &s) {
   Settings settings(s.m_resolveEnvVars);
   stream >> settings;
 
@@ -111,7 +111,7 @@ const bool SessionSettings::has(const SessionID &sessionID) const {
   return m_settings.find(sessionID) != m_settings.end();
 }
 
-const Dictionary &SessionSettings::get(const SessionID &sessionID) const EXCEPT(ConfigError) {
+const Dictionary &SessionSettings::get(const SessionID &sessionID) const {
   Dictionaries::const_iterator i;
   i = m_settings.find(sessionID);
   if (i == m_settings.end()) {
@@ -120,7 +120,7 @@ const Dictionary &SessionSettings::get(const SessionID &sessionID) const EXCEPT(
   return i->second;
 }
 
-void SessionSettings::set(const SessionID &sessionID, Dictionary settings) EXCEPT(ConfigError) {
+void SessionSettings::set(const SessionID &sessionID, Dictionary settings) {
   if (has(sessionID)) {
     throw ConfigError("Duplicate Session " + sessionID.toString());
   }
@@ -134,7 +134,7 @@ void SessionSettings::set(const SessionID &sessionID, Dictionary settings) EXCEP
   m_settings[sessionID] = settings;
 }
 
-void SessionSettings::set(const Dictionary &defaults) EXCEPT(ConfigError) {
+void SessionSettings::set(const Dictionary &defaults) {
   m_defaults = defaults;
   for (Dictionaries::value_type &setting : m_settings) {
     setting.second.merge(defaults);
@@ -149,7 +149,7 @@ std::set<SessionID> SessionSettings::getSessions() const {
   return result;
 }
 
-void SessionSettings::validate(const Dictionary &dictionary) const EXCEPT(ConfigError) {
+void SessionSettings::validate(const Dictionary &dictionary) const {
   std::string beginString = dictionary.getString(BEGINSTRING);
   if (beginString != BeginString_FIX40 && beginString != BeginString_FIX41 && beginString != BeginString_FIX42
       && beginString != BeginString_FIX43 && beginString != BeginString_FIX44 && beginString != BeginString_FIXT11) {

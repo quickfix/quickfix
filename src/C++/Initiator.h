@@ -51,17 +51,17 @@ class Client;
  */
 class Initiator {
 public:
-  Initiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
-  Initiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &) EXCEPT(ConfigError);
+  Initiator(Application &, MessageStoreFactory &, const SessionSettings &);
+  Initiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &);
 
   virtual ~Initiator();
 
   /// Start initiator.
-  void start() EXCEPT(ConfigError, RuntimeError);
+  void start();
   /// Block on the initiator
-  void block() EXCEPT(ConfigError, RuntimeError);
+  void block();
   /// Poll the initiator
-  bool poll() EXCEPT(ConfigError, RuntimeError);
+  bool poll();
 
   /// Stop initiator.
   void stop(bool force = false);
@@ -101,12 +101,12 @@ protected:
   void connect();
 
 private:
-  void initialize() EXCEPT(ConfigError);
+  void initialize();
 
   /// Implemented to configure acceptor
-  virtual void onConfigure(const SessionSettings &) EXCEPT(ConfigError) {};
+  virtual void onConfigure(const SessionSettings &) {};
   /// Implemented to initialize initiator
-  virtual void onInitialize(const SessionSettings &) EXCEPT(RuntimeError) {};
+  virtual void onInitialize(const SessionSettings &) {};
   /// Implemented to start connecting to targets.
   virtual void onStart() = 0;
   /// Implemented to connect and poll for events.

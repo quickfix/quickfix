@@ -38,9 +38,8 @@ namespace FIX {
 /// Threaded Socket implementation of Initiator.
 class ThreadedSocketInitiator : public Initiator {
 public:
-  ThreadedSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
-  ThreadedSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &)
-      EXCEPT(ConfigError);
+  ThreadedSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &);
+  ThreadedSocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &);
 
   virtual ~ThreadedSocketInitiator();
 
@@ -48,8 +47,8 @@ private:
   typedef std::map<socket_handle, thread_id> SocketToThread;
   typedef std::pair<ThreadedSocketInitiator *, ThreadedSocketConnection *> ThreadPair;
 
-  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
+  void onConfigure(const SessionSettings &);
+  void onInitialize(const SessionSettings &);
 
   void onStart();
   bool onPoll();

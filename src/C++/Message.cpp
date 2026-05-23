@@ -44,13 +44,13 @@ Message::Message(const message_order &headerOrder, const message_order &trailerO
       m_trailer(trailerOrder),
       m_validStructure(true) {}
 
-Message::Message(const std::string &string, bool validate) EXCEPT(InvalidMessage)
+Message::Message(const std::string &string, bool validate)
     : m_validStructure(true),
       m_tag(0) {
   setString(string, validate);
 }
 
-Message::Message(const std::string &string, const DataDictionary &dataDictionary, bool validate) EXCEPT(InvalidMessage)
+Message::Message(const std::string &string, const DataDictionary &dataDictionary, bool validate)
     : m_validStructure(true),
       m_tag(0) {
   setString(string, validate, &dataDictionary, &dataDictionary);
@@ -60,7 +60,7 @@ Message::Message(
     const std::string &string,
     const DataDictionary &sessionDataDictionary,
     const DataDictionary &applicationDataDictionary,
-    bool validate) EXCEPT(InvalidMessage)
+    bool validate)
     : m_validStructure(true),
       m_tag(0) {
   setString(string, validate, &sessionDataDictionary, &applicationDataDictionary);
@@ -72,7 +72,7 @@ Message::Message(
     const message_order &order,
     const std::string &string,
     const DataDictionary &dataDictionary,
-    bool validate) EXCEPT(InvalidMessage)
+    bool validate)
     : FieldMap(order),
       m_header(headerOrder),
       m_trailer(trailerOrder),
@@ -87,7 +87,7 @@ Message::Message(
     const std::string &string,
     const DataDictionary &sessionDataDictionary,
     const DataDictionary &applicationDataDictionary,
-    bool validate) EXCEPT(InvalidMessage)
+    bool validate)
     : FieldMap(order),
       m_header(headerOrder),
       m_trailer(trailerOrder),
@@ -227,7 +227,9 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
     return sum;
   };
   int bodyLengthFieldContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLength) + '\001';
-  int totalChecksum = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib) % 256;
+  int totalChecksum
+      = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib)
+        % 256;
 
   m_header.setField(IntField(bodyLengthField, bodyLength));
   m_trailer.setField(CheckSumField(checkSumField, totalChecksum));
@@ -297,7 +299,7 @@ void Message::setString(
     const std::string &string,
     bool doValidation,
     const DataDictionary *pSessionDataDictionary,
-    const DataDictionary *pApplicationDataDictionary) EXCEPT(InvalidMessage) {
+    const DataDictionary *pApplicationDataDictionary) {
   clear();
 
   std::string::size_type pos = 0;
@@ -512,7 +514,7 @@ bool Message::isTrailerField(int field, const DataDictionary *pD) {
   return false;
 }
 
-SessionID Message::getSessionID(const std::string &qualifier) const EXCEPT(FieldNotFound) {
+SessionID Message::getSessionID(const std::string &qualifier) const {
   return SessionID(
       getHeader().getField<BeginString>(),
       getHeader().getField<SenderCompID>(),

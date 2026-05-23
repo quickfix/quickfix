@@ -37,7 +37,7 @@ namespace FIX {
 Initiator::Initiator(
     Application &application,
     MessageStoreFactory &messageStoreFactory,
-    const SessionSettings &settings) EXCEPT(ConfigError)
+    const SessionSettings &settings)
     : m_threadid(0),
       m_application(application),
       m_messageStoreFactory(messageStoreFactory),
@@ -54,7 +54,7 @@ Initiator::Initiator(
     Application &application,
     MessageStoreFactory &messageStoreFactory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : m_threadid(0),
       m_application(application),
       m_messageStoreFactory(messageStoreFactory),
@@ -67,7 +67,7 @@ Initiator::Initiator(
   initialize();
 }
 
-void Initiator::initialize() EXCEPT(ConfigError) {
+void Initiator::initialize() {
   std::set<SessionID> sessions = m_settings.getSessions();
   std::set<SessionID>::iterator i;
 
@@ -179,7 +179,7 @@ bool Initiator::isDisconnected(const SessionID &sessionID) const {
   return m_disconnected.find(sessionID) != m_disconnected.end();
 }
 
-void Initiator::start() EXCEPT(ConfigError, RuntimeError) {
+void Initiator::start() {
   if (m_processing) {
     throw RuntimeError("Initiator::start called when already processing messages");
   }
@@ -203,7 +203,7 @@ void Initiator::start() EXCEPT(ConfigError, RuntimeError) {
   }
 }
 
-void Initiator::block() EXCEPT(ConfigError, RuntimeError) {
+void Initiator::block() {
   if (m_processing) {
     throw RuntimeError("Initiator::block called when already processing messages");
   }
@@ -219,7 +219,7 @@ void Initiator::block() EXCEPT(ConfigError, RuntimeError) {
   startThread(this);
 }
 
-bool Initiator::poll() EXCEPT(ConfigError, RuntimeError) {
+bool Initiator::poll() {
   if (m_processing) {
     throw RuntimeError("Initiator::poll called when already processing messages");
   }

@@ -14,7 +14,7 @@ enum SSLHandshakeStatus {
 class SSLSocketInitiator : public Initiator, SocketConnector::Strategy {
 public:
   SSLSocketInitiator(Application &application, MessageStoreFactory &factory, const SessionSettings &settings)
-      EXCEPT(ConfigError)
+
       : Initiator(application, factory, settings) {
     throw ConfigError("HAVE_SSL not enabled");
   }
@@ -23,7 +23,7 @@ public:
       Application &application,
       MessageStoreFactory &factory,
       const SessionSettings &settings,
-      LogFactory &logFactory) EXCEPT(ConfigError)
+      LogFactory &logFactory)
       : Initiator(application, factory, settings, logFactory) {
     throw ConfigError("HAVE_SSL not enabled");
   }
@@ -54,7 +54,7 @@ private:
 class SSLSocketAcceptor : public Acceptor, SocketServer::Strategy {
 public:
   SSLSocketAcceptor(Application &application, MessageStoreFactory &factory, const SessionSettings &settings)
-      EXCEPT(ConfigError)
+
       : Acceptor(application, factory, settings) {
     throw ConfigError("HAVE_SSL not enabled");
   }
@@ -63,7 +63,7 @@ public:
       Application &application,
       MessageStoreFactory &factory,
       const SessionSettings &settings,
-      LogFactory &logFactory) EXCEPT(ConfigError)
+      LogFactory &logFactory)
       : Acceptor(application, factory, settings, logFactory) {
     throw ConfigError("HAVE_SSL not enabled");
   }

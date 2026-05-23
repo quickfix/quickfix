@@ -20,8 +20,7 @@ struct TestSettings {
 
 class TestApplication : public NullApplication {
 public:
-  void fromApp(const Message &, const SessionID &)
-      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType) {}
+  void fromApp(const Message &, const SessionID &) {}
   void onRun() {}
 };
 
@@ -57,21 +56,19 @@ class ExeceptionStore : public MessageStore {
 public:
   virtual ~ExeceptionStore() {};
 
-  bool set(SEQNUM, const std::string &) EXCEPT(IOException) { throw IOException("set threw an IOException"); }
-  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const EXCEPT(IOException) {
-    throw IOException("get threw an IOException");
-  }
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException) { return 0; };
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException) { return 0; };
-  void setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException) {};
-  void setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException) {};
-  void incrNextSenderMsgSeqNum() EXCEPT(IOException) {};
-  void incrNextTargetMsgSeqNum() EXCEPT(IOException) {};
+  bool set(SEQNUM, const std::string &) { throw IOException("set threw an IOException"); }
+  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const { throw IOException("get threw an IOException"); }
+  SEQNUM getNextSenderMsgSeqNum() const { return 0; };
+  SEQNUM getNextTargetMsgSeqNum() const { return 0; };
+  void setNextSenderMsgSeqNum(SEQNUM value) {};
+  void setNextTargetMsgSeqNum(SEQNUM value) {};
+  void incrNextSenderMsgSeqNum() {};
+  void incrNextTargetMsgSeqNum() {};
 
-  UtcTimeStamp getCreationTime() const EXCEPT(IOException) { return UtcTimeStamp::now(); };
+  UtcTimeStamp getCreationTime() const { return UtcTimeStamp::now(); };
 
-  void reset(const UtcTimeStamp &) EXCEPT(IOException) { throw IOException("reset IOException"); };
-  void refresh() EXCEPT(IOException) {};
+  void reset(const UtcTimeStamp &) { throw IOException("reset IOException"); };
+  void refresh() {};
 };
 
 class ExceptionMessageStoreFactory : public MessageStoreFactory {

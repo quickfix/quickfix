@@ -114,7 +114,7 @@ public:
 
   HSTMT statement() { return m_statement; }
 
-  void throwException() EXCEPT(IOException) {
+  void throwException() {
     if (!success()) {
       throw IOException("Query failed [" + m_query + "] " + reason());
     }

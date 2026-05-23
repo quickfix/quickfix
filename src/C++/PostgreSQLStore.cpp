@@ -175,7 +175,7 @@ MessageStore *PostgreSQLStoreFactory::create(
 
 void PostgreSQLStoreFactory::destroy(MessageStore *pStore) { delete pStore; }
 
-bool PostgreSQLStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOException) {
+bool PostgreSQLStore::set(SEQNUM msgSeqNum, const std::string &msg) {
   char *msgCopy = new char[(msg.size() * 2) + 1];
   PQescapeString(msgCopy, msg.c_str(), msg.size());
 
@@ -209,7 +209,7 @@ bool PostgreSQLStore::set(SEQNUM msgSeqNum, const std::string &msg) EXCEPT(IOExc
   return true;
 }
 
-void PostgreSQLStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &result) const EXCEPT(IOException) {
+void PostgreSQLStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &result) const {
   result.clear();
   std::stringstream queryString;
   queryString << "SELECT message FROM messages WHERE "
@@ -231,11 +231,11 @@ void PostgreSQLStore::get(SEQNUM begin, SEQNUM end, std::vector<std::string> &re
   }
 }
 
-SEQNUM PostgreSQLStore::getNextSenderMsgSeqNum() const EXCEPT(IOException) { return m_cache.getNextSenderMsgSeqNum(); }
+SEQNUM PostgreSQLStore::getNextSenderMsgSeqNum() const { return m_cache.getNextSenderMsgSeqNum(); }
 
-SEQNUM PostgreSQLStore::getNextTargetMsgSeqNum() const EXCEPT(IOException) { return m_cache.getNextTargetMsgSeqNum(); }
+SEQNUM PostgreSQLStore::getNextTargetMsgSeqNum() const { return m_cache.getNextTargetMsgSeqNum(); }
 
-void PostgreSQLStore::setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException) {
+void PostgreSQLStore::setNextSenderMsgSeqNum(SEQNUM value) {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET outgoing_seqnum=" << value << " WHERE "
               << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -251,7 +251,7 @@ void PostgreSQLStore::setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException) {
   m_cache.setNextSenderMsgSeqNum(value);
 }
 
-void PostgreSQLStore::setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException) {
+void PostgreSQLStore::setNextTargetMsgSeqNum(SEQNUM value) {
   std::stringstream queryString;
   queryString << "UPDATE sessions SET incoming_seqnum=" << value << " WHERE "
               << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -267,19 +267,19 @@ void PostgreSQLStore::setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException) {
   m_cache.setNextTargetMsgSeqNum(value);
 }
 
-void PostgreSQLStore::incrNextSenderMsgSeqNum() EXCEPT(IOException) {
+void PostgreSQLStore::incrNextSenderMsgSeqNum() {
   m_cache.incrNextSenderMsgSeqNum();
   setNextSenderMsgSeqNum(m_cache.getNextSenderMsgSeqNum());
 }
 
-void PostgreSQLStore::incrNextTargetMsgSeqNum() EXCEPT(IOException) {
+void PostgreSQLStore::incrNextTargetMsgSeqNum() {
   m_cache.incrNextTargetMsgSeqNum();
   setNextTargetMsgSeqNum(m_cache.getNextTargetMsgSeqNum());
 }
 
-UtcTimeStamp PostgreSQLStore::getCreationTime() const EXCEPT(IOException) { return m_cache.getCreationTime(); }
+UtcTimeStamp PostgreSQLStore::getCreationTime() const { return m_cache.getCreationTime(); }
 
-void PostgreSQLStore::reset(const UtcTimeStamp &now) EXCEPT(IOException) {
+void PostgreSQLStore::reset(const UtcTimeStamp &now) {
   std::stringstream queryString;
   queryString << "DELETE FROM messages WHERE "
               << "beginstring=" << "'" << m_sessionID.getBeginString().getValue() << "' and "
@@ -317,7 +317,7 @@ void PostgreSQLStore::reset(const UtcTimeStamp &now) EXCEPT(IOException) {
   }
 }
 
-void PostgreSQLStore::refresh() EXCEPT(IOException) {
+void PostgreSQLStore::refresh() {
   m_cache.reset(UtcTimeStamp::now());
   populateCache();
 }

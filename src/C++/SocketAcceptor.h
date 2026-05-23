@@ -38,8 +38,8 @@ class SocketAcceptor : public Acceptor, SocketServer::Strategy {
 public:
   typedef std::map<SessionID, uint16_t> SessionToPort;
 
-  SocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
-  SocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &) EXCEPT(ConfigError);
+  SocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &);
+  SocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &);
 
   virtual ~SocketAcceptor();
 
@@ -52,8 +52,8 @@ private:
   typedef std::map<uint16_t, Sessions> PortToSessions;
   typedef std::map<socket_handle, SocketConnection *> SocketConnections;
 
-  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
+  void onConfigure(const SessionSettings &);
+  void onInitialize(const SessionSettings &);
 
   void onStart();
   bool onPoll();

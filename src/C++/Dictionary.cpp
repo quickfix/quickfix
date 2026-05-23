@@ -30,8 +30,7 @@
 #include <set>
 
 namespace FIX {
-std::string Dictionary::getString(const std::string &key, bool capitalize) const
-    EXCEPT(ConfigError, FieldConvertError) {
+std::string Dictionary::getString(const std::string &key, bool capitalize) const {
   Data::const_iterator i = m_data.find(string_toUpper(key));
   if (i == m_data.end()) {
     throw ConfigError(key + " not defined");
@@ -45,7 +44,7 @@ std::string Dictionary::getString(const std::string &key, bool capitalize) const
   return result;
 }
 
-int Dictionary::getInt(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
+int Dictionary::getInt(const std::string &key) const {
   try {
     return IntConvertor::convert(getString(key));
   } catch (FieldConvertError &) {
@@ -53,7 +52,7 @@ int Dictionary::getInt(const std::string &key) const EXCEPT(ConfigError, FieldCo
   }
 }
 
-double Dictionary::getDouble(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
+double Dictionary::getDouble(const std::string &key) const {
   try {
     return DoubleConvertor::convert(getString(key));
   } catch (FieldConvertError &) {
@@ -61,7 +60,7 @@ double Dictionary::getDouble(const std::string &key) const EXCEPT(ConfigError, F
   }
 }
 
-bool Dictionary::getBool(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
+bool Dictionary::getBool(const std::string &key) const {
   try {
     return BoolConvertor::convert(getString(key));
   } catch (FieldConvertError &) {
@@ -69,7 +68,7 @@ bool Dictionary::getBool(const std::string &key) const EXCEPT(ConfigError, Field
   }
 }
 
-int Dictionary::getDay(const std::string &key) const EXCEPT(ConfigError, FieldConvertError) {
+int Dictionary::getDay(const std::string &key) const {
   try {
     std::string value = getString(key);
     if (value.size() < 2) {

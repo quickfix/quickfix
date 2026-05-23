@@ -30,8 +30,7 @@
 namespace FIX {
 DataDictionaryProvider::DataDictionaryProvider(const DataDictionaryProvider &copy) { *this = copy; }
 
-const DataDictionary &DataDictionaryProvider::getSessionDataDictionary(const BeginString &beginString) const
-    EXCEPT(DataDictionaryNotFound) {
+const DataDictionary &DataDictionaryProvider::getSessionDataDictionary(const BeginString &beginString) const {
   std::map<std::string, std::shared_ptr<DataDictionary>>::const_iterator find
       = m_transportDictionaries.find(beginString);
   if (find != m_transportDictionaries.end()) {
@@ -41,8 +40,7 @@ const DataDictionary &DataDictionaryProvider::getSessionDataDictionary(const Beg
   return emptyDataDictionary;
 }
 
-const DataDictionary &DataDictionaryProvider::getApplicationDataDictionary(const ApplVerID &applVerID) const
-    EXCEPT(DataDictionaryNotFound) {
+const DataDictionary &DataDictionaryProvider::getApplicationDataDictionary(const ApplVerID &applVerID) const {
   std::map<std::string, std::shared_ptr<DataDictionary>>::const_iterator find
       = m_applicationDictionaries.find(applVerID);
   if (find != m_applicationDictionaries.end()) {

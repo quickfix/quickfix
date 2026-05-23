@@ -43,9 +43,9 @@ public:
   DataDictionaryProvider() {}
   DataDictionaryProvider(const DataDictionaryProvider &copy);
 
-  const DataDictionary &getSessionDataDictionary(const BeginString &beginString) const EXCEPT(DataDictionaryNotFound);
+  const DataDictionary &getSessionDataDictionary(const BeginString &beginString) const;
 
-  const DataDictionary &getApplicationDataDictionary(const ApplVerID &applVerID) const EXCEPT(DataDictionaryNotFound);
+  const DataDictionary &getApplicationDataDictionary(const ApplVerID &applVerID) const;
 
   void addTransportDataDictionary(const BeginString &beginString, std::shared_ptr<DataDictionary>);
   void addApplicationDataDictionary(const ApplVerID &applVerID, std::shared_ptr<DataDictionary>);

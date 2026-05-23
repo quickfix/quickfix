@@ -340,7 +340,7 @@ bool SSLSocketConnection::isValidSession() {
   return !(m_sessions.find(sessionID) == m_sessions.end());
 }
 
-void SSLSocketConnection::readFromSocket() EXCEPT(SocketRecvFailed) {
+void SSLSocketConnection::readFromSocket() {
   bool pending = false;
 
   m_readFromSocketNeedsToWriteData = false;

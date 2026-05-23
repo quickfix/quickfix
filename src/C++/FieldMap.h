@@ -106,7 +106,7 @@ public:
   FieldMap &operator=(FieldMap &&rhs);
 
   /// Set a field without type checking
-  void setField(const FieldBase &field, bool overwrite = true) EXCEPT(RepeatedTag) {
+  void setField(const FieldBase &field, bool overwrite = true) {
     if (!overwrite) {
       addField(field);
     } else {
@@ -120,7 +120,7 @@ public:
   }
 
   /// Set a field without a field class
-  void setField(int tag, const std::string &value) EXCEPT(RepeatedTag, NoTagValue) {
+  void setField(int tag, const std::string &value) {
     FieldBase fieldBase(tag, value);
     setField(fieldBase);
   }
@@ -136,15 +136,13 @@ public:
   }
 
   /// Get a field without type checking
-  FieldBase &getField(FieldBase &field) const EXCEPT(FieldNotFound) {
+  FieldBase &getField(FieldBase &field) const {
     field = getFieldRef(field.getTag());
     return field;
   }
 
   /// Get a field without type checking
-  template <typename T> const T &getField() const EXCEPT(FieldNotFound) {
-    return *reinterpret_cast<const T *>(&getFieldRef(T::tag));
-  }
+  template <typename T> const T &getField() const { return *reinterpret_cast<const T *>(&getFieldRef(T::tag)); }
 
   template <typename F> std::optional<F> getFieldOptional() const {
     F field;
@@ -152,10 +150,10 @@ public:
   }
 
   /// Get a field without a field class
-  const std::string &getField(int tag) const EXCEPT(FieldNotFound) { return getFieldRef(tag).getString(); }
+  const std::string &getField(int tag) const { return getFieldRef(tag).getString(); }
 
   /// Get direct access to a field through a reference
-  const FieldBase &getFieldRef(int tag) const EXCEPT(FieldNotFound) {
+  const FieldBase &getFieldRef(int tag) const {
     Fields::const_iterator field = findTag(tag);
     if (field == m_fields.end()) {
       throw FieldNotFound(tag);
@@ -164,7 +162,7 @@ public:
   }
 
   /// Get direct access to a field through a pointer
-  const FieldBase *const getFieldPtr(int tag) const EXCEPT(FieldNotFound) { return &getFieldRef(tag); }
+  const FieldBase *const getFieldPtr(int tag) const { return &getFieldRef(tag); }
 
   /// Check to see if a field is set
   bool isSetField(const FieldBase &field) const { return isSetField(field.getTag()); }
@@ -184,12 +182,10 @@ public:
   void replaceGroup(int num, int tag, const FieldMap &group);
 
   /// Get a specific instance of a group.
-  FieldMap &getGroup(int num, int tag, FieldMap &group) const EXCEPT(FieldNotFound) {
-    return group = getGroupRef(num, tag);
-  }
+  FieldMap &getGroup(int num, int tag, FieldMap &group) const { return group = getGroupRef(num, tag); }
 
   /// Get direct access to a field through a reference
-  FieldMap &getGroupRef(int num, int tag) const EXCEPT(FieldNotFound) {
+  FieldMap &getGroupRef(int num, int tag) const {
     Groups::const_iterator tagWithGroups = m_groups.find(tag);
     if (tagWithGroups == m_groups.end()) {
       throw FieldNotFound(tag);
@@ -204,7 +200,7 @@ public:
   }
 
   /// Get direct access to a field through a pointer
-  FieldMap *getGroupPtr(int num, int tag) const EXCEPT(FieldNotFound) { return &getGroupRef(num, tag); }
+  FieldMap *getGroupPtr(int num, int tag) const { return &getGroupRef(num, tag); }
 
   const Groups &groups() const { return m_groups; }
 

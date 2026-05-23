@@ -70,7 +70,7 @@ namespace FIX
     return m_pNode.value();
   }
 
-  PUGIXML_DOMDocument::PUGIXML_DOMDocument() EXCEPT ( ConfigError )
+  PUGIXML_DOMDocument::PUGIXML_DOMDocument()
   {
   }
 

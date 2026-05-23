@@ -32,7 +32,7 @@ namespace FIX {
 
 HttpMessage::HttpMessage() {}
 
-HttpMessage::HttpMessage(const std::string &string) EXCEPT(InvalidMessage) { setString(string); }
+HttpMessage::HttpMessage(const std::string &string) { setString(string); }
 
 std::string HttpMessage::toString() const {
   std::string str;
@@ -44,7 +44,7 @@ std::string &HttpMessage::toString(std::string &str) const {
   return str;
 }
 
-void HttpMessage::setString(const std::string &string) EXCEPT(InvalidMessage) {
+void HttpMessage::setString(const std::string &string) {
   clear();
 
   std::string::size_type eolPos = string.find("\r\n");

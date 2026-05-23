@@ -132,9 +132,8 @@ class ThreadedSSLSocketAcceptor : public Acceptor {
   friend class SocketConnection;
 
 public:
-  ThreadedSSLSocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
-  ThreadedSSLSocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &)
-      EXCEPT(ConfigError);
+  ThreadedSSLSocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &);
+  ThreadedSSLSocketAcceptor(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &);
 
   virtual ~ThreadedSSLSocketAcceptor();
 
@@ -174,8 +173,8 @@ private:
   typedef std::pair<socket_handle, SSL *> SocketKey;
   typedef std::map<SocketKey, thread_id> SocketToThread;
 
-  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
+  void onConfigure(const SessionSettings &);
+  void onInitialize(const SessionSettings &);
 
   void onStart();
   bool onPoll();

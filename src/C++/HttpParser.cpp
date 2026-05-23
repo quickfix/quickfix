@@ -28,7 +28,7 @@
 #include <algorithm>
 
 namespace FIX {
-bool HttpParser::readHttpMessage(std::string &str) EXCEPT(MessageParseError) {
+bool HttpParser::readHttpMessage(std::string &str) {
   std::string::size_type pos = 0;
 
   if (m_buffer.length() < 4) {

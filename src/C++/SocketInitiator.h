@@ -35,16 +35,16 @@ namespace FIX {
 /// Socket implementation of Initiator.
 class SocketInitiator : public Initiator, SocketConnector::Strategy {
 public:
-  SocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &) EXCEPT(ConfigError);
-  SocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &) EXCEPT(ConfigError);
+  SocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &);
+  SocketInitiator(Application &, MessageStoreFactory &, const SessionSettings &, LogFactory &);
 
   virtual ~SocketInitiator();
 
 private:
   typedef std::map<socket_handle, SocketConnection *> SocketConnections;
 
-  void onConfigure(const SessionSettings &) EXCEPT(ConfigError);
-  void onInitialize(const SessionSettings &) EXCEPT(RuntimeError);
+  void onConfigure(const SessionSettings &);
+  void onInitialize(const SessionSettings &);
 
   void onStart();
   bool onPoll();

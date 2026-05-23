@@ -32,8 +32,7 @@ void Application::onLogon(const FIX::SessionID &sessionID) {}
 
 void Application::onLogout(const FIX::SessionID &sessionID) {}
 
-void Application::fromApp(const FIX::Message &message, const FIX::SessionID &sessionID)
-    EXCEPT(FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType) {
+void Application::fromApp(const FIX::Message &message, const FIX::SessionID &sessionID) {
   crack(message, sessionID);
 }
 

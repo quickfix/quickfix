@@ -29,7 +29,7 @@ Legacy Autotools build: `./bootstrap && ./configure && make && make check`.
 | Acceptance | `at` | End-to-end FIX session tests |
 | Performance | `pt` | Throughput benchmark (Release only) |
 
-Run all: `cmake --build build --target test`  
+Run all: `cmake --build build --target test`
 Unit only: `./test/ut`
 
 Acceptance tests require a network port and a config file under `test/cfg/`.
@@ -75,18 +75,6 @@ All production code lives in the `FIX` namespace.
 - Minimum: **C++17** (`set(CMAKE_CXX_STANDARD 17)` in CMakeLists.txt).
 - Use RAII; prefer `std::unique_ptr` / `std::shared_ptr` over raw owning pointers.
 - Use move semantics where appropriate.
-
-## Error Handling
-
-QuickFIX uses a custom exception macro pattern:
-
-```cpp
-void fromApp(const Message& message, const SessionID& sessionID)
-    EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType);
-```
-
-Custom exception types are declared with the `EXCEPT` macro defined in `include/quickfix/Exceptions.h`.
-Do not silently swallow exceptions; propagate or log them explicitly.
 
 ## File Layout
 

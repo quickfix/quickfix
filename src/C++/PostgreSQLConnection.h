@@ -77,7 +77,7 @@ public:
 
   char *getValue(int row, int column) { return PQgetvalue(m_result, row, column); }
 
-  void throwException() EXCEPT(IOException) {
+  void throwException() {
     if (!success()) {
       throw IOException("Query failed [" + m_query + "] ");
     }

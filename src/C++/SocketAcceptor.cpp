@@ -31,7 +31,7 @@
 
 namespace FIX {
 SocketAcceptor::SocketAcceptor(Application &application, MessageStoreFactory &factory, const SessionSettings &settings)
-    EXCEPT(ConfigError)
+
     : Acceptor(application, factory, settings),
       m_pServer(0) {}
 
@@ -39,7 +39,7 @@ SocketAcceptor::SocketAcceptor(
     Application &application,
     MessageStoreFactory &factory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : Acceptor(application, factory, settings, logFactory),
       m_pServer(0) {}
 
@@ -50,7 +50,7 @@ SocketAcceptor::~SocketAcceptor() {
   }
 }
 
-void SocketAcceptor::onConfigure(const SessionSettings &sessionSettings) EXCEPT(ConfigError) {
+void SocketAcceptor::onConfigure(const SessionSettings &sessionSettings) {
   for (const SessionID &sessionID : sessionSettings.getSessions()) {
     const Dictionary &settings = sessionSettings.get(sessionID);
     settings.getInt(SOCKET_ACCEPT_PORT);
@@ -63,7 +63,7 @@ void SocketAcceptor::onConfigure(const SessionSettings &sessionSettings) EXCEPT(
   }
 }
 
-void SocketAcceptor::onInitialize(const SessionSettings &sessionSettings) EXCEPT(RuntimeError) {
+void SocketAcceptor::onInitialize(const SessionSettings &sessionSettings) {
   uint16_t port = 0;
 
   try {

@@ -83,20 +83,20 @@ public:
   FileStore(const UtcTimeStamp &now, std::string, const SessionID &sessionID);
   virtual ~FileStore();
 
-  bool set(SEQNUM, const std::string &) EXCEPT(IOException);
-  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const EXCEPT(IOException);
+  bool set(SEQNUM, const std::string &);
+  void get(SEQNUM, SEQNUM, std::vector<std::string> &) const;
 
-  SEQNUM getNextSenderMsgSeqNum() const EXCEPT(IOException);
-  SEQNUM getNextTargetMsgSeqNum() const EXCEPT(IOException);
-  void setNextSenderMsgSeqNum(SEQNUM value) EXCEPT(IOException);
-  void setNextTargetMsgSeqNum(SEQNUM value) EXCEPT(IOException);
-  void incrNextSenderMsgSeqNum() EXCEPT(IOException);
-  void incrNextTargetMsgSeqNum() EXCEPT(IOException);
+  SEQNUM getNextSenderMsgSeqNum() const;
+  SEQNUM getNextTargetMsgSeqNum() const;
+  void setNextSenderMsgSeqNum(SEQNUM value);
+  void setNextTargetMsgSeqNum(SEQNUM value);
+  void incrNextSenderMsgSeqNum();
+  void incrNextTargetMsgSeqNum();
 
-  UtcTimeStamp getCreationTime() const EXCEPT(IOException);
+  UtcTimeStamp getCreationTime() const;
 
-  void reset(const UtcTimeStamp &now) EXCEPT(IOException);
-  void refresh() EXCEPT(IOException);
+  void reset(const UtcTimeStamp &now);
+  void refresh();
 
 private:
   typedef std::pair<int64_t, std::size_t> OffsetSize;
@@ -108,7 +108,7 @@ private:
   void setSeqNum();
   void setSession();
 
-  bool get(SEQNUM, std::string &) const EXCEPT(IOException);
+  bool get(SEQNUM, std::string &) const;
 
   MemoryStore m_cache;
   NumToOffset m_offsets;

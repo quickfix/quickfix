@@ -216,7 +216,7 @@ bool SocketConnection::isValidSession() {
   return !(m_sessions.find(sessionID) == m_sessions.end());
 }
 
-void SocketConnection::readFromSocket() EXCEPT(SocketRecvFailed) {
+void SocketConnection::readFromSocket() {
   ssize_t size = socket_recv(m_socket, m_buffer, sizeof(m_buffer));
   if (size <= 0) {
     throw SocketRecvFailed(size);

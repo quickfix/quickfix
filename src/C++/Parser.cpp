@@ -29,8 +29,7 @@
 #include <algorithm>
 
 namespace FIX {
-bool Parser::extractLength(int &length, std::string::size_type &pos, const std::string &buffer)
-    EXCEPT(MessageParseError) {
+bool Parser::extractLength(int &length, std::string::size_type &pos, const std::string &buffer) {
   if (!buffer.size()) {
     return false;
   }
@@ -60,7 +59,7 @@ bool Parser::extractLength(int &length, std::string::size_type &pos, const std::
   return true;
 }
 
-bool Parser::readFixMessage(std::string &str) EXCEPT(MessageParseError) {
+bool Parser::readFixMessage(std::string &str) {
   std::string::size_type pos = 0;
 
   if (m_buffer.length() < 2) {

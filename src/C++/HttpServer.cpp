@@ -33,7 +33,7 @@ Mutex HttpServer::s_mutex;
 int HttpServer::s_count = 0;
 HttpServer *HttpServer::s_pServer = 0;
 
-void HttpServer::startGlobal(const SessionSettings &s) EXCEPT(ConfigError, RuntimeError) {
+void HttpServer::startGlobal(const SessionSettings &s) {
   Locker l(s_mutex);
 
   if (!s.get().has(HTTP_ACCEPT_PORT)) {
@@ -58,18 +58,16 @@ void HttpServer::stopGlobal() {
   }
 }
 
-HttpServer::HttpServer(const SessionSettings &settings) EXCEPT(ConfigError)
+HttpServer::HttpServer(const SessionSettings &settings)
     : m_pServer(0),
       m_settings(settings),
       m_threadid(0),
       m_port(0),
       m_stop(false) {}
 
-void HttpServer::onConfigure(const SessionSettings &s) EXCEPT(ConfigError) {
-  m_port = s.get().getInt(HTTP_ACCEPT_PORT);
-}
+void HttpServer::onConfigure(const SessionSettings &s) { m_port = s.get().getInt(HTTP_ACCEPT_PORT); }
 
-void HttpServer::onInitialize(const SessionSettings &s) EXCEPT(RuntimeError) {
+void HttpServer::onInitialize(const SessionSettings &s) {
   try {
     m_pServer = new SocketServer(1);
     m_pServer->add(m_port, true, false, 0, 0);
@@ -78,7 +76,7 @@ void HttpServer::onInitialize(const SessionSettings &s) EXCEPT(RuntimeError) {
   }
 }
 
-void HttpServer::start() EXCEPT(ConfigError, RuntimeError) {
+void HttpServer::start() {
   m_stop = false;
   onConfigure(m_settings);
   onInitialize(m_settings);

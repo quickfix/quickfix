@@ -90,7 +90,7 @@ public:
     return m_rows[row][column];
   }
 
-  void throwException() EXCEPT(IOException) {
+  void throwException() {
     if (!success()) {
       throw IOException("Query failed [" + m_query + "] " + reason());
     }

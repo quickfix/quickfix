@@ -38,8 +38,6 @@
 #include "Allocator.h"
 #endif
 
-#include "Except.h"
-
 #ifdef ENABLE_DEBUG_ALLOCATOR
 #include <ext/debug_allocator.h>
 #define ALLOCATOR __gnu_cxx::debug_allocator

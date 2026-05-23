@@ -94,7 +94,7 @@ bool HttpConnection::read() {
   }
 }
 
-bool HttpConnection::readMessage(std::string &msg) EXCEPT(SocketRecvFailed) {
+bool HttpConnection::readMessage(std::string &msg) {
   try {
     return m_parser.readHttpMessage(msg);
   } catch (MessageParseError &) {

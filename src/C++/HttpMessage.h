@@ -40,7 +40,7 @@ public:
   HttpMessage();
 
   /// Construct a message from a string
-  HttpMessage(const std::string &string) EXCEPT(InvalidMessage);
+  HttpMessage(const std::string &string);
 
   HttpMessage(const HttpMessage &copy) {
     m_root = copy.m_root;
@@ -53,7 +53,7 @@ public:
   /// Get a string representation without making a copy
   std::string &toString(std::string &) const;
 
-  void setString(const std::string &string) EXCEPT(InvalidMessage);
+  void setString(const std::string &string);
 
   void clear() {
     m_root.clear();
@@ -78,7 +78,7 @@ public:
     return find != m_parameters.end();
   }
 
-  const std::string &getParameter(const std::string &key) const EXCEPT(std::logic_error) {
+  const std::string &getParameter(const std::string &key) const {
     Parameters::const_iterator find = m_parameters.find(key);
     if (find == m_parameters.end()) {
       throw std::logic_error("Parameter " + key + " not found");

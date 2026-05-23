@@ -37,13 +37,12 @@ void Application::onLogout(const FIX::SessionID &sessionID) {
   std::cout << std::endl << "Logout - " << sessionID << std::endl;
 }
 
-void Application::fromApp(const FIX::Message &message, const FIX::SessionID &sessionID)
-    EXCEPT(FIX::FieldNotFound, FIX::IncorrectDataFormat, FIX::IncorrectTagValue, FIX::UnsupportedMessageType) {
+void Application::fromApp(const FIX::Message &message, const FIX::SessionID &sessionID) {
   crack(message, sessionID);
   std::cout << std::endl << "IN: " << message << std::endl;
 }
 
-void Application::toApp(FIX::Message &message, const FIX::SessionID &sessionID) EXCEPT(FIX::DoNotSend) {
+void Application::toApp(FIX::Message &message, const FIX::SessionID &sessionID) {
   try {
     FIX::PossDupFlag possDupFlag;
     message.getHeader().getField(possDupFlag);

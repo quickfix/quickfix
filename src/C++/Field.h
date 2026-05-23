@@ -297,7 +297,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(char value) { setString(CharConvertor::convert(value)); }
-  char getValue() const EXCEPT(IncorrectDataFormat) {
+  char getValue() const {
     try {
       return CharConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -316,7 +316,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(double value, int padding = 0) { setString(DoubleConvertor::convert(value, padding)); }
-  double getValue() const EXCEPT(IncorrectDataFormat) {
+  double getValue() const {
     try {
       return DoubleConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -335,7 +335,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(int value) { setString(IntConvertor::convert(value)); }
-  int getValue() const EXCEPT(IncorrectDataFormat) {
+  int getValue() const {
     try {
       return IntConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -358,7 +358,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(int64_t value) { setString(Int64Convertor::convert(value)); }
-  int64_t getValue() const EXCEPT(IncorrectDataFormat) {
+  int64_t getValue() const {
     try {
       return Int64Convertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -377,7 +377,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(uint64_t value) { setString(UInt64Convertor::convert(value)); }
-  uint64_t getValue() const EXCEPT(IncorrectDataFormat) {
+  uint64_t getValue() const {
     try {
       return UInt64Convertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -396,7 +396,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(bool value) { setString(BoolConvertor::convert(value)); }
-  bool getValue() const EXCEPT(IncorrectDataFormat) {
+  bool getValue() const {
     try {
       return BoolConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -415,7 +415,7 @@ public:
       : FieldBase(field, UtcTimeStampConvertor::convert(UtcTimeStamp::now(), precision)) {}
 
   void setValue(const UtcTimeStamp &value) { setString(UtcTimeStampConvertor::convert(value)); }
-  UtcTimeStamp getValue() const EXCEPT(IncorrectDataFormat) {
+  UtcTimeStamp getValue() const {
     try {
       return UtcTimeStampConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -438,7 +438,7 @@ public:
       : FieldBase(field, UtcDateConvertor::convert(UtcDate())) {}
 
   void setValue(const UtcDate &value) { setString(UtcDateConvertor::convert(value)); }
-  UtcDate getValue() const EXCEPT(IncorrectDataFormat) {
+  UtcDate getValue() const {
     try {
       return UtcDateConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -461,7 +461,7 @@ public:
       : FieldBase(field, UtcTimeOnlyConvertor::convert(UtcTimeOnly(), precision)) {}
 
   void setValue(const UtcTimeOnly &value) { setString(UtcTimeOnlyConvertor::convert(value)); }
-  UtcTimeOnly getValue() const EXCEPT(IncorrectDataFormat) {
+  UtcTimeOnly getValue() const {
     try {
       return UtcTimeOnlyConvertor::convert(getString());
     } catch (FieldConvertError &) {
@@ -484,7 +484,7 @@ public:
       : FieldBase(field, "") {}
 
   void setValue(int value) { setString(CheckSumConvertor::convert(value)); }
-  int getValue() const EXCEPT(IncorrectDataFormat) {
+  int getValue() const {
     try {
       return CheckSumConvertor::convert(getString());
     } catch (FieldConvertError &) {

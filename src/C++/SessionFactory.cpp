@@ -35,7 +35,7 @@
 namespace FIX {
 SessionFactory::~SessionFactory() {}
 
-Session *SessionFactory::create(const SessionID &sessionID, const Dictionary &settings) EXCEPT(ConfigError) {
+Session *SessionFactory::create(const SessionID &sessionID, const Dictionary &settings) {
   std::string connectionType = settings.getString(CONNECTION_TYPE);
   if (connectionType != "acceptor" && connectionType != "initiator") {
     throw ConfigError("Invalid ConnectionType");
@@ -243,7 +243,7 @@ void SessionFactory::destroy(Session *pSession) { delete pSession; }
 std::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(
     const SessionID &sessionID,
     const Dictionary &settings,
-    const std::string &settingsKey) EXCEPT(ConfigError) {
+    const std::string &settingsKey) {
   std::shared_ptr<DataDictionary> pDD;
   std::string path = settings.getString(settingsKey);
   Dictionaries::iterator i = m_dictionaries.find(path);
@@ -279,7 +279,7 @@ std::shared_ptr<DataDictionary> SessionFactory::createDataDictionary(
 void SessionFactory::processFixtDataDictionaries(
     const SessionID &sessionID,
     const Dictionary &settings,
-    DataDictionaryProvider &provider) EXCEPT(ConfigError) {
+    DataDictionaryProvider &provider) {
   std::shared_ptr<DataDictionary> pDataDictionary
       = createDataDictionary(sessionID, settings, TRANSPORT_DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
@@ -309,7 +309,7 @@ void SessionFactory::processFixtDataDictionaries(
 void SessionFactory::processFixDataDictionary(
     const SessionID &sessionID,
     const Dictionary &settings,
-    DataDictionaryProvider &provider) EXCEPT(ConfigError) {
+    DataDictionaryProvider &provider) {
   std::shared_ptr<DataDictionary> pDataDictionary = createDataDictionary(sessionID, settings, DATA_DICTIONARY);
   provider.addTransportDataDictionary(sessionID.getBeginString(), pDataDictionary);
   provider.addApplicationDataDictionary(Message::toApplVerID(sessionID.getBeginString()), pDataDictionary);

@@ -135,7 +135,7 @@ int SSLSocketAcceptor::passPhraseHandleCB(char *buf, int bufsize, int verify, vo
 SSLSocketAcceptor::SSLSocketAcceptor(
     Application &application,
     MessageStoreFactory &factory,
-    const SessionSettings &settings) EXCEPT(ConfigError)
+    const SessionSettings &settings)
     : Acceptor(application, factory, settings),
       m_pServer(0),
       m_sslInit(false),
@@ -147,7 +147,7 @@ SSLSocketAcceptor::SSLSocketAcceptor(
     Application &application,
     MessageStoreFactory &factory,
     const SessionSettings &settings,
-    LogFactory &logFactory) EXCEPT(ConfigError)
+    LogFactory &logFactory)
     : Acceptor(application, factory, settings, logFactory),
       m_pServer(0),
       m_sslInit(false),
@@ -167,7 +167,7 @@ SSLSocketAcceptor::~SSLSocketAcceptor() {
   }
 }
 
-void SSLSocketAcceptor::onConfigure(const SessionSettings &sessionSettings) EXCEPT(ConfigError) {
+void SSLSocketAcceptor::onConfigure(const SessionSettings &sessionSettings) {
   std::set<SessionID> sessions = sessionSettings.getSessions();
   for (const SessionID &sessionID : sessions) {
     const Dictionary &settings = sessionSettings.get(sessionID);
@@ -181,7 +181,7 @@ void SSLSocketAcceptor::onConfigure(const SessionSettings &sessionSettings) EXCE
   }
 }
 
-void SSLSocketAcceptor::onInitialize(const SessionSettings &sessionSettings) EXCEPT(RuntimeError) {
+void SSLSocketAcceptor::onInitialize(const SessionSettings &sessionSettings) {
   if (!m_sslInit) {
     ssl_init();
 
