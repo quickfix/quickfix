@@ -98909,6 +98909,70 @@ fail:
 
 
 SWIGINTERN VALUE
+_wrap_Session_sendBareToTarget(int argc, VALUE *argv, VALUE self) {
+  std::string *arg1 = 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  bool result;
+  VALUE vresult = Qnil;
+  
+  if ((argc < 2) || (argc > 2)) {
+    rb_raise(rb_eArgError, "wrong # of arguments(%d for 2)",argc); SWIG_fail;
+  }
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(argv[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), Ruby_Format_TypeError( "", "std::string const &","FIX::Session::sendBareToTarget", 1, argv[0] )); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "std::string const &","FIX::Session::sendBareToTarget", 1, argv[0])); 
+    }
+    arg1 = ptr;
+  }
+  res2 = SWIG_ConvertPtr(argv[1], &argp2, SWIGTYPE_p_FIX__SessionID,  0 );
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), Ruby_Format_TypeError( "", "FIX::SessionID const &","FIX::Session::sendBareToTarget", 2, argv[1] )); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, Ruby_Format_TypeError("invalid null reference ", "FIX::SessionID const &","FIX::Session::sendBareToTarget", 2, argv[1])); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  {
+    if(tryRubyException([&]() mutable 
+        {
+      try {
+        result = (bool)FIX::Session::sendBareToTarget((std::string const &)*arg1,(FIX::SessionID const &)*arg2);
+      } catch(FIX::SessionNotFound &_e) {
+        rb_exc_raise(SWIG_Ruby_ExceptionType(SWIGTYPE_p_FIX__SessionNotFound, SWIG_NewPointerObj((new FIX::SessionNotFound(static_cast< const FIX::SessionNotFound& >(_e))),SWIGTYPE_p_FIX__SessionNotFound,SWIG_POINTER_OWN))); SWIG_fail;
+          }
+          return self;
+        fail:
+          return Qnil;
+        }) == Qnil) 
+    {
+      SWIG_fail;
+    }
+  }
+  vresult = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" ) 	 
+    {
+      rb_str_resize( argv[0], 0 );
+      rb_str_append( argv[0], rb_str_new2(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return vresult;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return Qnil;
+}
+
+
+SWIGINTERN VALUE
 _wrap_Session_sendToTarget__SWIG_3(int argc, VALUE *argv, VALUE self) {
   FIX::Message *arg1 = 0 ;
   FIX::SenderCompID *arg2 = 0 ;
@@ -131343,6 +131407,7 @@ SWIGEXPORT void Init_quickfix(void) {
   rb_define_method(SwigClassSession.klass, "getSessionID", VALUEFUNC(_wrap_Session_getSessionID), -1);
   rb_define_method(SwigClassSession.klass, "setDataDictionaryProvider", VALUEFUNC(_wrap_Session_setDataDictionaryProvider), -1);
   rb_define_method(SwigClassSession.klass, "getDataDictionaryProvider", VALUEFUNC(_wrap_Session_getDataDictionaryProvider), -1);
+  rb_define_singleton_method(SwigClassSession.klass, "sendBareToTarget", VALUEFUNC(_wrap_Session_sendBareToTarget), -1);
   rb_define_singleton_method(SwigClassSession.klass, "sendToTarget", VALUEFUNC(_wrap_Session_sendToTarget), -1);
   rb_define_singleton_method(SwigClassSession.klass, "getSessions", VALUEFUNC(_wrap_Session_getSessions), -1);
   rb_define_singleton_method(SwigClassSession.klass, "doesSessionExist", VALUEFUNC(_wrap_Session_doesSessionExist), -1);

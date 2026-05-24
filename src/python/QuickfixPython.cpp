@@ -131765,6 +131765,74 @@ fail:
 }
 
 
+SWIGINTERN PyObject *_wrap_Session_sendBareToTarget(PyObject *self, PyObject *args) {
+  PyObject *resultobj = 0;
+  std::string *arg1 = 0 ;
+  FIX::SessionID *arg2 = 0 ;
+  int res1 = SWIG_OLDOBJ ;
+  void *argp2 = 0 ;
+  int res2 = 0 ;
+  PyObject *swig_obj[2] ;
+  bool result;
+  
+  (void)self;
+  if (!SWIG_Python_UnpackTuple(args, "Session_sendBareToTarget", 2, 2, swig_obj)) SWIG_fail;
+  {
+    std::string *ptr = (std::string *)0;
+    res1 = SWIG_AsPtr_std_string(swig_obj[0], &ptr);
+    if (!SWIG_IsOK(res1)) {
+      SWIG_exception_fail(SWIG_ArgError(res1), "in method '" "Session_sendBareToTarget" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    if (!ptr) {
+      SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Session_sendBareToTarget" "', argument " "1"" of type '" "std::string const &""'"); 
+    }
+    arg1 = ptr;
+  }
+  res2 = SWIG_ConvertPtr(swig_obj[1], &argp2, SWIGTYPE_p_FIX__SessionID,  0  | 0);
+  if (!SWIG_IsOK(res2)) {
+    SWIG_exception_fail(SWIG_ArgError(res2), "in method '" "Session_sendBareToTarget" "', argument " "2"" of type '" "FIX::SessionID const &""'"); 
+  }
+  if (!argp2) {
+    SWIG_exception_fail(SWIG_ValueError, "invalid null reference " "in method '" "Session_sendBareToTarget" "', argument " "2"" of type '" "FIX::SessionID const &""'"); 
+  }
+  arg2 = reinterpret_cast< FIX::SessionID * >(argp2);
+  {
+    if(!tryPythonException([&]() mutable 
+        {
+      try {
+        {
+          SWIG_PYTHON_THREAD_BEGIN_ALLOW;
+              result = (bool)FIX::Session::sendBareToTarget((std::string const &)*arg1,(FIX::SessionID const &)*arg2);
+              SWIG_PYTHON_THREAD_END_ALLOW;
+            }
+      } catch(FIX::SessionNotFound &_e) {
+        SWIG_Python_Raise(SWIG_NewPointerObj((new FIX::SessionNotFound(static_cast< const FIX::SessionNotFound& >(_e))),SWIGTYPE_p_FIX__SessionNotFound,SWIG_POINTER_OWN), "FIX::SessionNotFound", SWIGTYPE_p_FIX__SessionNotFound); SWIG_fail;
+          }
+          return true;
+        fail:
+          return false;
+        })) 
+    {
+      SWIG_fail;
+    }
+  }
+  resultobj = SWIG_From_bool(static_cast< bool >(result));
+  {
+    if( std::string("std::string const &") == "std::string &" )
+    {
+      if( !PyDict_Check(resultobj) )
+      resultobj = PyDict_New();
+      PyDict_SetItem( resultobj, PyLong_FromLong(PyDict_Size(resultobj)), PyUnicode_FromString(arg1->c_str()) );
+    }
+  }
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return resultobj;
+fail:
+  if (SWIG_IsNewObj(res1)) delete arg1;
+  return NULL;
+}
+
+
 SWIGINTERN PyObject *_wrap_Session_sendToTarget__SWIG_3(PyObject *self, Py_ssize_t nobjs, PyObject **swig_obj) {
   PyObject *resultobj = 0;
   FIX::Message *arg1 = 0 ;
@@ -159447,6 +159515,7 @@ static PyMethodDef SwigMethods[] = {
 	 { "Session_getSessionID", _wrap_Session_getSessionID, METH_O, NULL},
 	 { "Session_setDataDictionaryProvider", _wrap_Session_setDataDictionaryProvider, METH_VARARGS, NULL},
 	 { "Session_getDataDictionaryProvider", _wrap_Session_getDataDictionaryProvider, METH_O, NULL},
+	 { "Session_sendBareToTarget", _wrap_Session_sendBareToTarget, METH_VARARGS, NULL},
 	 { "Session_sendToTarget", _wrap_Session_sendToTarget, METH_VARARGS, NULL},
 	 { "Session_getSessions", _wrap_Session_getSessions, METH_NOARGS, NULL},
 	 { "Session_doesSessionExist", _wrap_Session_doesSessionExist, METH_O, NULL},
