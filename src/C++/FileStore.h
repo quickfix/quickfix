@@ -31,6 +31,7 @@
 #include <cstdint>
 #include <fstream>
 #include <string>
+#include <unordered_map>
 
 namespace FIX {
 class Session;
@@ -100,7 +101,7 @@ public:
 
 private:
   typedef std::pair<int64_t, std::size_t> OffsetSize;
-  typedef std::map<SEQNUM, OffsetSize> NumToOffset;
+  typedef std::unordered_map<SEQNUM, OffsetSize> NumToOffset;
 
   void open(bool deleteFile);
   void populateCache();
@@ -122,6 +123,8 @@ private:
   FILE *m_headerFile;
   FILE *m_seqNumsFile;
   FILE *m_sessionFile;
+
+  int64_t m_msgFileSize;
 };
 } // namespace FIX
 
