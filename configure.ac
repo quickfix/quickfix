@@ -38,9 +38,7 @@ AX_RUBY()
 
 AC_CANONICAL_HOST
 
-AX_CXX_COMPILE_STDCXX( [11], [noext], mandatory)
-AX_CXX_COMPILE_STDCXX( [14], [noext], optional)
-AX_CXX_COMPILE_STDCXX( [17], [noext], optional)
+AX_CXX_COMPILE_STDCXX([17], [noext], mandatory)
 
 ########################################
 # TBB
