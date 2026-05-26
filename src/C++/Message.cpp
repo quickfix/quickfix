@@ -227,7 +227,9 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
     return sum;
   };
   int bodyLengthFieldContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLength) + '\001';
-  int totalChecksum = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib) % 256;
+  int totalChecksum
+      = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib)
+        % 256;
 
   m_header.setField(IntField(bodyLengthField, bodyLength));
   m_trailer.setField(CheckSumField(checkSumField, totalChecksum));
@@ -513,11 +515,13 @@ bool Message::isTrailerField(int field, const DataDictionary *pD) {
 }
 
 SessionID Message::getSessionID(const std::string &qualifier) const EXCEPT(FieldNotFound) {
-  return SessionID(
-      getHeader().getField<BeginString>(),
-      getHeader().getField<SenderCompID>(),
-      getHeader().getField<TargetCompID>(),
-      qualifier);
+  BeginString beginString;
+  getHeader().getField(beginString);
+  SenderCompID senderCompID;
+  getHeader().getField(senderCompID);
+  TargetCompID targetCompID;
+  getHeader().getField(targetCompID);
+  return SessionID(beginString, senderCompID, targetCompID, qualifier);
 }
 
 void Message::setSessionID(const SessionID &sessionID) {
@@ -528,7 +532,8 @@ void Message::setSessionID(const SessionID &sessionID) {
 
 void Message::validate() const {
   try {
-    const BodyLength &aBodyLength = FIELD_GET_REF(m_header, BodyLength);
+    BodyLength aBodyLength;
+    m_header.getField(aBodyLength);
 
     const size_t expectedLength = static_cast<size_t>(aBodyLength);
     const size_t receivedLength = bodyLength();
@@ -539,7 +544,8 @@ void Message::validate() const {
       throw InvalidMessage(text.str());
     }
 
-    const CheckSum &aCheckSum = FIELD_GET_REF(m_trailer, CheckSum);
+    CheckSum aCheckSum;
+    m_trailer.getField(aCheckSum);
 
     const int expectedChecksum = (int)aCheckSum;
     const int receivedChecksum = checkSum();

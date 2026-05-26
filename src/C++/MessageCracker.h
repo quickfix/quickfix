@@ -49,7 +49,8 @@ class MessageCracker : public FIX40::MessageCracker,
                        public FIXT11::MessageCracker {
 public:
   void crack(const Message &message, const SessionID &sessionID) {
-    const FIX::BeginString &beginString = FIELD_GET_REF(message.getHeader(), BeginString);
+    FIX::BeginString beginString;
+    message.getHeader().getField(beginString);
 
     crack(message, sessionID, beginString);
   }
@@ -108,7 +109,8 @@ public:
   }
 
   void crack(Message &message, const SessionID &sessionID) {
-    const FIX::BeginString &beginString = FIELD_GET_REF(message.getHeader(), BeginString);
+    FIX::BeginString beginString;
+    message.getHeader().getField(beginString);
 
     crack(message, sessionID, beginString);
   }

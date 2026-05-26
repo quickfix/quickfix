@@ -142,7 +142,9 @@ public:
   }
 
   /// Get a field without type checking
-  template <typename T> const T &getField() const EXCEPT(FieldNotFound) {
+  template <typename T>
+  [[deprecated("Use getField(T&) instead — reinterpret_cast from FieldBase relies on undefined behavior")]]
+  const T &getField() const EXCEPT(FieldNotFound) {
     return *reinterpret_cast<const T *>(&getFieldRef(T::tag));
   }
 
@@ -329,8 +331,24 @@ private:
   FIELD &get(FIELD &field) const { return (FIELD &)(MAP).getField(field); }                                            \
   bool getIfSet(FIELD &field) const { return (MAP).getFieldIfSet(field); }
 
-#define FIELD_GET_PTR(MAP, FLD) (const FIX::FLD *)MAP.getFieldPtr(FIX::FIELD::FLD)
-#define FIELD_GET_REF(MAP, FLD) (const FIX::FLD &)MAP.getFieldRef(FIX::FIELD::FLD)
+namespace FIX {
+
+template <typename T>
+[[deprecated("Use getField(T&) instead — C-style cast from FieldBase relies on undefined behavior")]]
+inline const T &fieldGetRef(const FieldMap &map) {
+  return (const T &)map.getFieldRef(T::tag);
+}
+
+template <typename T>
+[[deprecated("Use getField(T&) instead — C-style cast from FieldBase relies on undefined behavior")]]
+inline const T *fieldGetPtr(const FieldMap &map) {
+  return (const T *)map.getFieldPtr(T::tag);
+}
+
+} // namespace FIX
+
+#define FIELD_GET_PTR(MAP, FLD) FIX::fieldGetPtr<FIX::FLD>(MAP)
+#define FIELD_GET_REF(MAP, FLD) FIX::fieldGetRef<FIX::FLD>(MAP)
 #define FIELD_THROW_IF_NOT_FOUND(MAP, FLD)                                                                             \
   if (!(MAP).isSetField(FIX::FIELD::FLD))                                                                              \
   throw FieldNotFound(FIX::FIELD::FLD)
