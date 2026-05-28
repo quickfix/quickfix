@@ -118,13 +118,13 @@ inline int SocketMonitor::getTimeval(bool poll, double timeout) {
   }
 
   const double elapsed = std::chrono::duration_cast<std::chrono::duration<double>>(Clock::now() - m_ticks).count();
-  if (elapsed >= timeout || elapsed == 0.0) {
+  if (elapsed >= timeout || elapsed <= 0.0) {
     m_ticks = Clock::now();
-    return (timeout * 1000);
+    // timeout is bounded by m_timeout (int seconds); * 1000 fits in int for realistic values.
+    return static_cast<int>(timeout * 1000);
   } else {
-    return ((timeout - elapsed) * 1000);
+    return static_cast<int>((timeout - elapsed) * 1000);
   }
-  return (timeout * 1000);
 }
 
 bool SocketMonitor::sleepIfEmpty(bool poll) {
