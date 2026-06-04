@@ -19,14 +19,14 @@
 **
 ****************************************************************************/
 
-#ifndef FIX_POSTGRESQLLOG_H
-#define FIX_POSTGRESQLLOG_H
 
 #ifndef HAVE_POSTGRESQL
 #error PostgreSQLLog.h included, but HAVE_POSTGRESQL not defined
 #endif
 
 #ifdef HAVE_POSTGRESQL
+#ifndef FIX_POSTGRESQLLOG_H
+#define FIX_POSTGRESQLLOG_H
 
 #ifdef _MSC_VER
 #pragma warning(disable : 4503 4355 4786 4290)
@@ -66,13 +66,13 @@ public:
   void setOutgoingTable(const std::string &outgoingTable) { m_outgoingTable = outgoingTable; }
   void setEventTable(const std::string &eventTable) { m_eventTable = eventTable; }
 
-  void onIncoming(const std::string &value) { insert(m_incomingTable, value); }
+  void onIncoming(const std::string &value) { insert(m_incomingTable, value, true); }
   void onOutgoing(const std::string &value) { insert(m_outgoingTable, value); }
   void onEvent(const std::string &value) { insert(m_eventTable, value); }
 
 private:
   void init();
-  void insert(const std::string &table, const std::string value);
+  void insert(const std::string &table, const std::string value, bool isIncoming = false);
 
   std::string m_incomingTable;
   std::string m_outgoingTable;
@@ -82,7 +82,7 @@ private:
   SessionID *m_pSessionID;
 };
 
-/// Creates a MySQL based implementation of Log.
+/// Creates a PostgreSQL based implementation of Log.
 class PostgreSQLLogFactory : public LogFactory {
 public:
   static const std::string DEFAULT_DATABASE;

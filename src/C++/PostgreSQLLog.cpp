@@ -220,7 +220,7 @@ void PostgreSQLLog::clear() {
 
 void PostgreSQLLog::backup() {}
 
-void PostgreSQLLog::insert(const std::string &table, const std::string value) {
+void PostgreSQLLog::insert(const std::string &table, const std::string value, bool isIncoming) {
   UtcTimeStamp time = UtcTimeStamp::now();
   int year, month, day, hour, minute, second, millis;
   time.getYMD(year, month, day);
@@ -240,8 +240,8 @@ void PostgreSQLLog::insert(const std::string &table, const std::string value) {
 
   if (m_pSessionID) {
     queryString << "'" << m_pSessionID->getBeginString().getValue() << "',"
-                << "'" << m_pSessionID->getSenderCompID().getValue() << "',"
-                << "'" << m_pSessionID->getTargetCompID().getValue() << "',";
+                << "'" << (isIncoming ? m_pSessionID->getTargetCompID().getValue() : m_pSessionID->getSenderCompID().getValue()) << "',"
+                << "'" << (isIncoming ? m_pSessionID->getSenderCompID().getValue() : m_pSessionID->getTargetCompID().getValue()) << "',";
     if (m_pSessionID->getSessionQualifier() == "") {
       queryString << "NULL" << ",";
     } else {
