@@ -56,6 +56,33 @@ TEST_CASE("SocketConnectorTests") {
     server.close();
   }
 
+  SECTION("dropped_connected_socket_fires_disconnect_once") {
+    SocketServer server(0);
+    socket_handle serverSocket = server.add(0, true, true);
+
+    SocketConnector connector(1);
+    SocketConnectorTestStrategy strategy;
+    socket_handle clientSocket = connector.connect("127.0.0.1", socket_hostport(serverSocket), false, 1024, 1024);
+    CHECK(clientSocket != INVALID_SOCKET_HANDLE);
+
+    process_sleep(0.1);
+    socket_handle acceptedSocket = server.accept(serverSocket);
+    CHECK(acceptedSocket != INVALID_SOCKET_HANDLE);
+
+    connector.block(strategy, true);
+    CHECK(1 == strategy.connect);
+
+    CHECK(connector.getMonitor().drop(clientSocket));
+    connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    destroySocket(acceptedSocket);
+    server.close();
+  }
+
 #ifndef _MSC_VER
   SECTION("connect_to_dead_port_fires_disconnect_once") {
     // Bind a server to get a free port, then close it so nothing is listening.

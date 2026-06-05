@@ -49,7 +49,7 @@ public:
   bool addConnect(socket_handle socket);
   bool addRead(socket_handle socket);
   bool addWrite(socket_handle socket);
-  bool drop(socket_handle socket);
+  bool drop(socket_handle socket, bool queueDropped = true);
   void signal(socket_handle socket);
   void unsignal(socket_handle socket);
   void block(Strategy &strategy, bool poll = 0, double timeout = 0.0);

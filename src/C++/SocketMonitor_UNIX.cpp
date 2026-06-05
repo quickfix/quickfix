@@ -90,7 +90,7 @@ bool SocketMonitor::addWrite(socket_handle s) {
   return true;
 }
 
-bool SocketMonitor::drop(socket_handle s) {
+bool SocketMonitor::drop(socket_handle s, bool queueDropped) {
   Sockets::iterator i = m_readSockets.find(s);
   Sockets::iterator j = m_writeSockets.find(s);
   Sockets::iterator k = m_connectSockets.find(s);
@@ -100,7 +100,9 @@ bool SocketMonitor::drop(socket_handle s) {
     m_readSockets.erase(s);
     m_writeSockets.erase(s);
     m_connectSockets.erase(s);
-    m_dropped.push(s);
+    if (queueDropped) {
+      m_dropped.push(s);
+    }
     return true;
   }
   return false;
