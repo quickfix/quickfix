@@ -227,11 +227,11 @@ void Acceptor::stop(bool force) {
   }
 
   m_stop = true;
-  onStop();
   if (m_threadid) {
     thread_join(m_threadid);
   }
   m_threadid = 0;
+  onStop();
 
   for (Session *session : enabledSessions) {
     session->logon();
