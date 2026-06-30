@@ -181,6 +181,17 @@ void DataDictionary::iterate(const FieldMap &map, const MsgType &msgType) const 
     }
     lastField = field.getTag();
   }
+
+  for (FieldMap::g_const_iterator groups = map.g_begin(); groups != map.g_end(); ++groups) {
+    int delim;
+    const DataDictionary *DD = 0;
+    int field = groups->first;
+    if (getGroup(msgType.getValue(), field, delim, DD)) {
+      for (const FieldMap *group : groups->second) {
+        DD->iterate(*group, msgType);
+      }
+    }
+  }
 }
 
 void DataDictionary::readFromURL(const std::string &url) EXCEPT(ConfigError) {

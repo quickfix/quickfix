@@ -26,6 +26,7 @@
 
 #include "TestHelper.h"
 #include <FieldNumbers.h>
+#include <Group.h>
 #include <PUGIXML_DOMDocument.h>
 #include <Values.h>
 #include <fix40/NewOrderSingle.h>
@@ -658,6 +659,46 @@ TEST_CASE("DataDictionaryTests") {
     group.setField(AllocAccount("account"));
     message.addGroup(group);
     message.set(NoAllocs(2));
+    CHECK_THROWS_AS(object.validate(message), RepeatingGroupCountMismatch);
+  }
+
+  SECTION("checkNestedGroupCount") {
+    object.setVersion(BeginString_FIX42);
+    object.addField(FIELD::BeginString);
+    object.addField(FIELD::BodyLength);
+    object.addField(FIELD::MsgType);
+    object.addField(FIELD::CheckSum);
+    object.addField(FIELD::NoRelatedSym);
+    object.addField(FIELD::Symbol);
+
+    DataDictionary innerGroupDD;
+    innerGroupDD.addMsgType("D");
+    innerGroupDD.addField(FIELD::AllocAccount);
+    innerGroupDD.addMsgField("D", FIELD::AllocAccount);
+
+    DataDictionary outerGroupDD;
+    outerGroupDD.addMsgType("D");
+    outerGroupDD.addField(FIELD::Symbol);
+    outerGroupDD.addField(FIELD::NoAllocs);
+    outerGroupDD.addMsgField("D", FIELD::Symbol);
+    outerGroupDD.addMsgField("D", FIELD::NoAllocs);
+    outerGroupDD.addGroup("D", FIELD::NoAllocs, FIELD::AllocAccount, innerGroupDD);
+
+    object.addGroup("D", FIELD::NoRelatedSym, FIELD::Symbol, outerGroupDD);
+    object.addMsgType(MsgType_NewOrderSingle);
+    object.addMsgField(MsgType_NewOrderSingle, FIELD::NoRelatedSym);
+
+    FIX42::NewOrderSingle message;
+    Group outerGroup(FIELD::NoRelatedSym, FIELD::Symbol);
+    outerGroup.setField(Symbol("IBM"));
+
+    Group innerGroup(FIELD::NoAllocs, FIELD::AllocAccount);
+    innerGroup.setField(AllocAccount("account"));
+    outerGroup.addGroup(innerGroup);
+    outerGroup.setField(NoAllocs(2));
+
+    message.addGroup(outerGroup);
+
     CHECK_THROWS_AS(object.validate(message), RepeatingGroupCountMismatch);
   }
 
