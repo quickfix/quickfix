@@ -1115,7 +1115,7 @@ bool Session::doTargetTooLow(const Message &msg) {
   if (!possDupFlag) {
     std::stringstream stream;
     stream << "MsgSeqNum too low, expecting " << getExpectedTargetNum() << " but received " << msgSeqNum;
-    generateLogout(stream.str());
+    generateReject(msg, SessionRejectReason_VALUE_IS_INCORRECT, FIELD::MsgSeqNum);
     throw std::logic_error(stream.str());
   }
 
