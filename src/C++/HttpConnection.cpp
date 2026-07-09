@@ -48,7 +48,7 @@ void HttpConnection::disconnect(int error) {
     send(HttpMessage::createResponse(error));
   }
 
-  socket_close(m_socket);
+  // Don't close here: the SocketMonitor owns the accepted socket and closes it once via onConnect()'s drop() (#747).
 }
 
 bool HttpConnection::read() {

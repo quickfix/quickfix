@@ -16,6 +16,7 @@ if (QUICKFIX_TESTS)
   ${PROJECT_SOURCE_DIR}/src/C++/test/FileUtilitiesTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/GroupTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/HostDetailsProviderTestCase.cpp
+  ${PROJECT_SOURCE_DIR}/src/C++/test/HttpConnectionTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/HttpMessageTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/HttpParserTestCase.cpp
   ${PROJECT_SOURCE_DIR}/src/C++/test/MemoryStoreTestCase.cpp
