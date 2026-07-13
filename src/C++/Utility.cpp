@@ -25,6 +25,10 @@
 
 #include "Utility.h"
 
+#ifdef _MSC_VER
+#include "scope_guard.hpp"
+#endif
+
 #ifdef USING_STREAMS
 #include <stropts.h>
 #include <sys/conf.h>
@@ -51,9 +55,19 @@ std::string error_wsaerror(int wsa_error_number) {
                 | FORMAT_MESSAGE_MAX_WIDTH_MASK;
   LPSTR buffer = NULL;
 
-  FormatMessageA(format, 0, wsa_error_number, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&buffer, 0, NULL);
+  const auto messageLength
+      = FormatMessageA(format, 0, wsa_error_number, MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), (LPSTR)&buffer, 0, NULL);
+  auto bufferGuard = sg::make_scope_guard([buffer]() noexcept {
+    if (buffer != NULL) {
+      ::LocalFree(buffer);
+    }
+  });
 
-  return "(wsaerror[" + std::to_string(wsa_error_number) + "]:" + buffer + ")";
+  std::string error = "(wsaerror[" + std::to_string(wsa_error_number) + "]:";
+  if (messageLength != 0 && buffer != NULL) {
+    error += buffer;
+  }
+  return error + ")";
 }
 
 std::string error_wsaerror() { return error_wsaerror(WSAGetLastError()); }

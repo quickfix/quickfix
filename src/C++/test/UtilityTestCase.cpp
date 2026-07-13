@@ -51,6 +51,12 @@ TEST_CASE("UtilityTests") {
                            "is normally permitted. )";
     CHECK(expected == FIX::error_wsaerror(WSAEADDRINUSE));
   }
+
+  SECTION("error_wsaerror_failure") {
+    // Bit 29 is reserved for application-defined errors and is never set in system error codes.
+    constexpr int applicationDefinedError = 1 << 29;
+    CHECK("(wsaerror[536870912]:)" == FIX::error_wsaerror(applicationDefinedError));
+  }
 #endif
 
   SECTION("stringReplace_ReplacesAll") {
