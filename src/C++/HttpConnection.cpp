@@ -34,7 +34,7 @@ using namespace HTML;
 
 namespace FIX {
 HttpConnection::HttpConnection(socket_handle s)
-    : m_socket(s) {
+    : m_socket(s), m_closed(false) {
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
@@ -44,11 +44,12 @@ HttpConnection::HttpConnection(socket_handle s)
 bool HttpConnection::send(const std::string &msg) { return socket_send(m_socket, msg.c_str(), msg.length()) >= 0; }
 
 void HttpConnection::disconnect(int error) {
+  if (m_closed) return;
+  m_closed = true;
+
   if (error > 0) {
     send(HttpMessage::createResponse(error));
   }
-
-  socket_close(m_socket);
 }
 
 bool HttpConnection::read() {
@@ -87,7 +88,7 @@ bool HttpConnection::read() {
     }
 
     processStream();
-    return true;
+    return !m_closed;
   } catch (SocketRecvFailed &) {
     disconnect();
     return false;
