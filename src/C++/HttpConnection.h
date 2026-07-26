@@ -63,6 +63,7 @@ private:
 
   socket_handle m_socket;
   char m_buffer[BUFSIZ];
+  bool m_closed;
 
   HttpParser m_parser;
 #if _MSC_VER
