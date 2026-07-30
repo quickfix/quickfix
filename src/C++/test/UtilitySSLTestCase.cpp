@@ -26,6 +26,12 @@
 
 #if (HAVE_SSL > 0)
 
+#ifndef _MSC_VER
+#include <fcntl.h>
+#include <unistd.h>
+#endif
+
+#include <ThreadedSSLSocketConnection.h>
 #include <UtilitySSL.h>
 
 #include "catch_amalgamated.hpp"
@@ -81,5 +87,29 @@ TEST_CASE("UtilitySSLTests") {
     CHECK_FALSE(ssl_set_sni_hostname(nullptr, ""));
   }
 }
+
+#ifndef _MSC_VER
+TEST_CASE("ThreadedSSLSocketConnection supports descriptors above FD_SETSIZE", "[ssl][high-fd]") {
+  int pipeFds[2];
+  REQUIRE(::pipe(pipeFds) == 0);
+
+  const int highFd = ::fcntl(pipeFds[0], F_DUPFD, FD_SETSIZE);
+  if (highFd < 0) {
+    ::close(pipeFds[0]);
+    ::close(pipeFds[1]);
+    SKIP("process file descriptor limit does not allow the regression setup");
+  }
+
+  CHECK(highFd >= FD_SETSIZE);
+  {
+    ThreadedSSLSocketConnection connection(highFd, nullptr, ThreadedSSLSocketConnection::Sessions{}, nullptr);
+    CHECK(connection.getSocket() == highFd);
+  }
+
+  ::close(highFd);
+  ::close(pipeFds[0]);
+  ::close(pipeFds[1]);
+}
+#endif
 
 #endif // HAVE_SSL
