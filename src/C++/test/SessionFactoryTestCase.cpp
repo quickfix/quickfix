@@ -66,6 +66,42 @@ TEST_CASE("SessionFactoryTests") {
     object.destroy(object.create(sessionID, settings));
   }
 
+  SECTION("validationSettingsWithoutDataDictionary") {
+    NullApplication application;
+    MemoryStoreFactory messageStoreFactory;
+    SessionFactory object(application, messageStoreFactory, 0);
+
+    SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
+    Dictionary settings;
+    settings.setString(CONNECTION_TYPE, "initiator");
+    settings.setString(USE_DATA_DICTIONARY, "N");
+    settings.setString(START_TIME, "12:00:00");
+    settings.setString(END_TIME, "12:00:00");
+    settings.setString(HEARTBTINT, "30");
+
+    Message message;
+    message.getHeader().setField(MsgType("A"));
+    message.getHeader().setField(BeginString("FIX.4.2"));
+    message.getHeader().setField(SenderCompID("SENDER"));
+    message.getHeader().setField(TargetCompID("TARGET"));
+    message.setField(11, "");
+
+    // Default behavior when UseDataDictionary=N: ValidateFieldsHaveValues defaults to Y
+    Session *defaultSession = object.create(sessionID, settings);
+    const DataDictionaryProvider &defaultProvider = defaultSession->getDataDictionaryProvider();
+    DataDictionary defaultEmptyDict = defaultProvider.getSessionDataDictionary(BeginString("FIX.4.2"));
+    CHECK_THROWS_AS(defaultEmptyDict.validate(message), NoTagValue);
+    object.destroy(defaultSession);
+
+    // When ValidateFieldsHaveValues=N is explicitly configured
+    settings.setString(VALIDATE_FIELDS_HAVE_VALUES, "N");
+    Session *disabledSession = object.create(sessionID, settings);
+    const DataDictionaryProvider &disabledProvider = disabledSession->getDataDictionaryProvider();
+    DataDictionary disabledEmptyDict = disabledProvider.getSessionDataDictionary(BeginString("FIX.4.2"));
+    CHECK_NOTHROW(disabledEmptyDict.validate(message));
+    object.destroy(disabledSession);
+  }
+
   SECTION("nonStopSession") {
     NullApplication application;
     MemoryStoreFactory messageStoreFactory;

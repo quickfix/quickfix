@@ -43,6 +43,9 @@ public:
   DataDictionaryProvider() {}
   DataDictionaryProvider(const DataDictionaryProvider &copy);
 
+  explicit DataDictionaryProvider(const DataDictionary &defaultDataDictionary)
+      : emptyDataDictionary(defaultDataDictionary) {}
+
   const DataDictionary &getSessionDataDictionary(const BeginString &beginString) const EXCEPT(DataDictionaryNotFound);
 
   const DataDictionary &getApplicationDataDictionary(const ApplVerID &applVerID) const EXCEPT(DataDictionaryNotFound);
