@@ -62,6 +62,8 @@ private:
       const Dictionary &settings,
       const std::string &settingsKey) EXCEPT(ConfigError);
 
+  void applyValidationSettings(const Dictionary &settings, DataDictionary &dataDictionary);
+
   void processFixtDataDictionaries(
       const SessionID &sessionID,
       const Dictionary &settings,
