@@ -233,6 +233,17 @@ class GeneratorCPP
     f.indent
   end
 
+  def pushReplaceText(f)
+    f.puts "#ifdef ReplaceText"
+    f.puts ' #ifdef _MSC_VER'
+    f.puts '  #pragma push_macro("ReplaceText")'
+    f.puts ' #else'
+    f.puts '  #pragma push("ReplaceText")'
+    f.puts ' #endif'
+    f.puts " #undef ReplaceText"
+    f.puts "#endif"
+  end
+
   def fixFieldsStart(f)
     f.puts "#ifndef FIX_FIELDS_H"
     f.puts "#define FIX_FIELDS_H"
@@ -242,10 +253,7 @@ class GeneratorCPP
     f.puts
     f.puts "#undef Yield"
     f.puts
-    f.puts "#ifdef ReplaceText"
-    f.puts '#pragma push("ReplaceText")'
-    f.puts "#undef ReplaceText"
-    f.puts "#endif"
+    pushReplaceText(f)
     f.puts
     f.puts "namespace FIX"
     f.puts "{"
@@ -266,13 +274,21 @@ class GeneratorCPP
     f.puts "#endif //FIX_COMMON_FIELDS_H"
   end
 
+  def popReplaceText(f)
+    f.puts "#ifdef ReplaceText"
+    f.puts ' #ifdef _MSC_VER'
+    f.puts '  #pragma pop_macro("ReplaceText")'
+    f.puts ' #else'
+    f.puts '  #pragma pop("ReplaceText")'
+    f.puts ' #endif'
+    f.puts "#endif"
+  end
+
   def fixFieldsEnd(f)
     f.dedent
     f.puts "}"
     f.puts
-    f.puts "#ifdef ReplaceText"
-    f.puts '#pragma pop("ReplaceText")'
-    f.puts "#endif"
+    popReplaceText(f)
     f.puts
     f.puts "#endif //FIX_FIELDS_H"
   end
@@ -280,6 +296,8 @@ class GeneratorCPP
   def fixFieldNumbersStart(f)
     f.puts "#ifndef FIX_FIELD_NUMBERS_H"
     f.puts "#define FIX_FIELD_NUMBERS_H"
+    f.puts
+    pushReplaceText(f)
     f.puts
     f.puts "namespace FIX"
     f.puts "{"
@@ -298,6 +316,9 @@ class GeneratorCPP
     f.puts "}"
     f.dedent
     f.puts "}"
+    f.puts
+    popReplaceText(f)
+    f.puts
     f.puts "#endif //FIX_FIELDNUMBERS_H"
   end
 

@@ -2016,12 +2016,12 @@ class NoQuoteSets(quickfix.IntField):
 		else:
 			quickfix.IntField.__init__(self, 296, data)
 
-class QuoteAckStatus(quickfix.IntField):
+class QuoteStatus(quickfix.IntField):
 	def __init__(self, data = None):
 		if data == None:
-			quickfix.IntField.__init__(self, 1865)
+			quickfix.IntField.__init__(self, 297)
 		else:
-			quickfix.IntField.__init__(self, 1865, data)
+			quickfix.IntField.__init__(self, 297, data)
 
 class QuoteCancelType(quickfix.IntField):
 	def __init__(self, data = None):
@@ -3331,13 +3331,6 @@ class BasisFeaturePrice(quickfix.DoubleField):
 			quickfix.DoubleField.__init__(self, 260)
 		else:
 			quickfix.DoubleField.__init__(self, 260, data)
-
-class QuoteStatus(quickfix.IntField):
-	def __init__(self, data = None):
-		if data == None:
-			quickfix.IntField.__init__(self, 297)
-		else:
-			quickfix.IntField.__init__(self, 297, data)
 
 class UnderlyingSecurityIDSource(quickfix.StringField):
 	def __init__(self, data = None):
@@ -13152,6 +13145,13 @@ class RelatedPositionDate(quickfix.StringField):
 			quickfix.StringField.__init__(self, 1864)
 		else:
 			quickfix.StringField.__init__(self, 1864, data)
+
+class QuoteAckStatus(quickfix.IntField):
+	def __init__(self, data = None):
+		if data == None:
+			quickfix.IntField.__init__(self, 1865)
+		else:
+			quickfix.IntField.__init__(self, 1865, data)
 
 class OfferID(quickfix.StringField):
 	def __init__(self, data = None):

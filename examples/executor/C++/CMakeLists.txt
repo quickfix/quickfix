@@ -20,6 +20,8 @@ else()
 set_target_properties(${executor_NAME} PROPERTIES
                       RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/bin/debug/executor_cpp/
                       RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/bin/release/executor_cpp/
-                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/bin/release/executor_cpp/)
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/bin/release/executor_cpp/
+                      VS_DEBUGGER_WORKING_DIRECTORY "$(SolutionDir)..\\bin"
+                      VS_DEBUGGER_COMMAND_ARGUMENTS "cfg/executor.cfg")
 endif()
 

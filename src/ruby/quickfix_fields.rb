@@ -3743,15 +3743,15 @@ module Quickfix
 		end
 	end
 
-	class QuoteAckStatus < Quickfix::IntField
-		def QuoteAckStatus.field
-			return 1865
+	class QuoteStatus < Quickfix::IntField
+		def QuoteStatus.field
+			return 297
 		end
 		def initialize(data = nil)
 			if( data == nil )
-				super(1865)
+				super(297)
 			else
-				super(1865, data)
+				super(297, data)
 			end
 		end
 	end
@@ -6183,19 +6183,6 @@ module Quickfix
 				super(260)
 			else
 				super(260, data)
-			end
-		end
-	end
-
-	class QuoteStatus < Quickfix::IntField
-		def QuoteStatus.field
-			return 297
-		end
-		def initialize(data = nil)
-			if( data == nil )
-				super(297)
-			else
-				super(297, data)
 			end
 		end
 	end
@@ -24422,6 +24409,19 @@ module Quickfix
 				super(1864)
 			else
 				super(1864, data)
+			end
+		end
+	end
+
+	class QuoteAckStatus < Quickfix::IntField
+		def QuoteAckStatus.field
+			return 1865
+		end
+		def initialize(data = nil)
+			if( data == nil )
+				super(1865)
+			else
+				super(1865, data)
 			end
 		end
 	end
