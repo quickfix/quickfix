@@ -16,6 +16,8 @@ else()
 set_target_properties(tradeclient PROPERTIES
                       RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/bin/debug/tradeclient/
                       RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/bin/release/tradeclient/
-                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/bin/release/tradeclient/)
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/bin/release/tradeclient/
+                      VS_DEBUGGER_WORKING_DIRECTORY "$(SolutionDir)..\\bin"
+                      VS_DEBUGGER_COMMAND_ARGUMENTS "cfg/tradeclient.cfg")
 endif()    
 

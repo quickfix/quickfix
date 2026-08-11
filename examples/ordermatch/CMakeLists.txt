@@ -16,5 +16,7 @@ else()
 set_target_properties(ordermatch PROPERTIES
                       RUNTIME_OUTPUT_DIRECTORY_DEBUG ${PROJECT_SOURCE_DIR}/bin/debug/ordermatch/
                       RUNTIME_OUTPUT_DIRECTORY_RELEASE ${PROJECT_SOURCE_DIR}/bin/release/ordermatch/
-                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/bin/release/ordermatch/)
+                      RUNTIME_OUTPUT_DIRECTORY_RELWITHDEBINFO ${PROJECT_SOURCE_DIR}/bin/release/ordermatch/
+                      VS_DEBUGGER_WORKING_DIRECTORY "$(SolutionDir)..\\bin"
+                      VS_DEBUGGER_COMMAND_ARGUMENTS "cfg/ordermatch.cfg")
 endif()
