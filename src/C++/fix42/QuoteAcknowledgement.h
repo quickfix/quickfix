@@ -19,15 +19,15 @@ namespace FIX42
     static FIX::MsgType MsgType() { return FIX::MsgType("b"); }
 
     QuoteAcknowledgement(
-      const FIX::QuoteAckStatus& aQuoteAckStatus )
+      const FIX::QuoteStatus& aQuoteStatus )
     : Message(MsgType())
     {
-      set(aQuoteAckStatus);
+      set(aQuoteStatus);
     }
 
     FIELD_SET(*this, FIX::QuoteReqID);
     FIELD_SET(*this, FIX::QuoteID);
-    FIELD_SET(*this, FIX::QuoteAckStatus);
+    FIELD_SET(*this, FIX::QuoteStatus);
     FIELD_SET(*this, FIX::QuoteRejectReason);
     FIELD_SET(*this, FIX::QuoteResponseLevel);
     FIELD_SET(*this, FIX::TradingSessionID);
