@@ -341,6 +341,23 @@ TEST_CASE("MessageTests") {
     CHECK(chksum == object.checkSum());
   }
 
+  SECTION("toStringWithCustomSeparator") {
+    Logon object;
+    object.set(HeartBtInt(30));
+
+    const std::string wire = "8=FIX.4.2\0019=12\00135=A\001108=30\00110=026\001";
+    const std::string readable = "8=FIX.4.2|9=12|35=A|108=30|10=026|";
+
+    CHECK(wire == object.toString());
+    CHECK(wire == object.toString('\001'));
+    CHECK(readable == object.toString('|'));
+
+    std::string output = "discarded";
+    CHECK(&output == &object.toString(output, '|'));
+    CHECK(readable == output);
+    CHECK(wire == object.toString());
+  }
+
   SECTION("headerFieldsFirst") {
     FIX::Message object;
     const std::string str = "8=FIX.4.2\0019=95\00135=D\00134=5\00149=ISLD\00155=INTC\001"
@@ -1117,6 +1134,10 @@ TEST_CASE("MessageTests") {
         ("8=FIX.4.2\0019=54\00135=i\001117=1\001296=1\001302=A\001"
          "311=DELL\001364=10\001365=DELL\001COMP\001\00110=152\001")
         == object.toString());
+    CHECK(
+        ("8=FIX.4.2|9=54|35=i|117=1|296=1|302=A|"
+         "311=DELL|364=10|365=DELL\001COMP\001|10=152|")
+        == object.toString('|'));
   }
 
   SECTION("massQuoteSetString") {

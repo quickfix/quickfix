@@ -185,12 +185,27 @@ public:
       int beginStringField = FIELD::BeginString,
       int bodyLengthField = FIELD::BodyLength,
       int checkSumField = FIELD::CheckSum) const;
+  /**
+   * Get a string representation using a custom field separator.
+   * @param separator Character to place between fields.
+   * @note BodyLength and CheckSum retain their FIX wire-format values, calculated using SOH. Output using any other
+   * separator is intended for display or logging, not transmission.
+   */
+  std::string toString(char separator) const;
   /// Get a string representation without making a copy
   std::string &toString(
       std::string &,
       int beginStringField = FIELD::BeginString,
       int bodyLengthField = FIELD::BodyLength,
       int checkSumField = FIELD::CheckSum) const;
+  /**
+   * Get a string representation using a custom field separator without making a copy.
+   * @param result String to overwrite with the message representation.
+   * @param separator Character to place between fields.
+   * @note BodyLength and CheckSum retain their FIX wire-format values, calculated using SOH. Output using any other
+   * separator is intended for display or logging, not transmission.
+   */
+  std::string &toString(std::string &result, char separator) const;
   /// Get a XML representation of the message
   std::string toXML() const;
   /// Get a XML representation without making a copy

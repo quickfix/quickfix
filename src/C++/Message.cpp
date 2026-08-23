@@ -30,6 +30,23 @@
 
 namespace FIX {
 
+namespace {
+void appendFieldMapWithSeparator(std::string &result, const FieldMap &fieldMap, char separator) {
+  for (const auto &field : fieldMap) {
+    const std::string &fieldString = field.getFixString();
+    result.append(fieldString.data(), fieldString.size() - 1);
+    result += separator;
+
+    const auto groups = fieldMap.groups().find(field.getTag());
+    if (groups != fieldMap.groups().end()) {
+      for (const auto *group : groups->second) {
+        appendFieldMapWithSeparator(result, *group, separator);
+      }
+    }
+  }
+}
+} // namespace
+
 int const headerOrder[] = {FIELD::BeginString, FIELD::BodyLength, FIELD::MsgType};
 
 std::unique_ptr<DataDictionary> Message::s_dataDictionary;
@@ -208,6 +225,12 @@ std::string Message::toString(int beginStringField, int bodyLengthField, int che
   return str;
 }
 
+std::string Message::toString(char separator) const {
+  std::string str;
+  toString(str, separator);
+  return str;
+}
+
 std::string &Message::toString(std::string &str, int beginStringField, int bodyLengthField, int checkSumField) const {
   // Combined traversal: compute bodyLength and partial checksum in a single pass each (3 traversals instead of 6)
   auto headerLengthAndTotal = m_header.calculateLengthAndTotal(beginStringField, bodyLengthField, checkSumField);
@@ -227,7 +250,9 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
     return sum;
   };
   int bodyLengthFieldContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLength) + '\001';
-  int totalChecksum = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib) % 256;
+  int totalChecksum
+      = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib)
+        % 256;
 
   m_header.setField(IntField(bodyLengthField, bodyLength));
   m_trailer.setField(CheckSumField(checkSumField, totalChecksum));
@@ -240,6 +265,19 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
   FieldMap::calculateString(str);
   m_trailer.calculateString(str);
 
+  return str;
+}
+
+std::string &Message::toString(std::string &str, char separator) const {
+  toString(str);
+  if (separator == '\001') {
+    return str;
+  }
+
+  str.clear();
+  appendFieldMapWithSeparator(str, m_header, separator);
+  appendFieldMapWithSeparator(str, *this, separator);
+  appendFieldMapWithSeparator(str, m_trailer, separator);
   return str;
 }
 
