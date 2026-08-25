@@ -499,7 +499,7 @@ dirent_next(
             /* Got a file */
             p = &dirp->data;
         } else {
-            /* The very last entry has been processed or an error occured */
+            /* The very last entry has been processed or an error occurred */
             FindClose (dirp->handle);
             dirp->handle = INVALID_HANDLE_VALUE;
             p = NULL;
@@ -792,7 +792,7 @@ dirent_wcstombs_s(
             mbstr[n] = '\0';
         }
 
-        /* Lenght of resulting multi-bytes string WITH zero-terminator */
+        /* Length of resulting multi-byte string WITH zero-terminator */
         if (pReturnValue) {
             *pReturnValue = n + 1;
         }
