@@ -44,11 +44,20 @@ HttpConnection::HttpConnection(socket_handle s)
 bool HttpConnection::send(const std::string &msg) { return socket_send(m_socket, msg.c_str(), msg.length()) >= 0; }
 
 void HttpConnection::disconnect(int error) {
+  if (!socket_isValid(m_socket)) return; // already disconnected — do nothing
+
   if (error > 0) {
     send(HttpMessage::createResponse(error));
   }
 
-  socket_close(m_socket);
+  // Do NOT close the socket here. Close ownership belongs to the
+  // SocketMonitor: HttpServer::onConnect() ends every request with
+  // getMonitor().drop(s), which closes the fd exactly once. Closing here as
+  // well caused the accepted fd to be closed 2-3 times per request, which in
+  // multithreaded applications could destroy an unrelated fd that reused the
+  // freed fd number (#747). This matches the engine-wide convention —
+  // SocketConnection::disconnect() likewise defers the close to drop().
+  socket_invalidate(m_socket);
 }
 
 bool HttpConnection::read() {
