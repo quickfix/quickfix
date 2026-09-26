@@ -32,6 +32,19 @@
 
 using namespace FIX;
 
+namespace {
+class DestructorCountingFieldMap : public FieldMap {
+public:
+  explicit DestructorCountingFieldMap(int &destructionCount)
+      : m_destructionCount(destructionCount) {}
+
+  ~DestructorCountingFieldMap() override { ++m_destructionCount; }
+
+private:
+  int &m_destructionCount;
+};
+} // namespace
+
 TEST_CASE("FieldMapTests") {
   SECTION("setMessageOrder") {
     int order[] = {1, 2, 3, 0}; // '0' is used to signify the end of array passed to FieldMap()
@@ -170,5 +183,48 @@ TEST_CASE("FieldMapTests") {
     CHECK(beginSeqNo.value() == 42);
     auto endSeqNo = fieldMap.getFieldOptional<FIX::EndSeqNo>();
     CHECK(!endSeqNo.has_value());
+  }
+
+  SECTION("copyAssignmentToSelfPreservesFieldsAndGroups") {
+    FieldMap fieldMap;
+    fieldMap.setField(1, "field1");
+    fieldMap.addGroup(10, FieldMap());
+
+    fieldMap = fieldMap;
+
+    CHECK("field1" == fieldMap.getField(1));
+    CHECK(1U == fieldMap.groupCount(10));
+  }
+
+  SECTION("moveAssignmentReleasesExistingGroups") {
+    int destinationGroupDestructions = 0;
+    int sourceGroupDestructions = 0;
+
+    {
+      FieldMap destination;
+      destination.addGroupPtr(10, new DestructorCountingFieldMap(destinationGroupDestructions), false);
+
+      FieldMap source;
+      source.addGroupPtr(20, new DestructorCountingFieldMap(sourceGroupDestructions), false);
+
+      destination = std::move(source);
+
+      CHECK(1 == destinationGroupDestructions);
+      CHECK(0U == destination.groupCount(10));
+      CHECK(1U == destination.groupCount(20));
+    }
+
+    CHECK(1 == sourceGroupDestructions);
+  }
+
+  SECTION("moveAssignmentToSelfPreservesFieldsAndGroups") {
+    FieldMap fieldMap;
+    fieldMap.setField(1, "field1");
+    fieldMap.addGroup(10, FieldMap());
+
+    fieldMap = std::move(fieldMap);
+
+    CHECK("field1" == fieldMap.getField(1));
+    CHECK(1U == fieldMap.groupCount(10));
   }
 }
