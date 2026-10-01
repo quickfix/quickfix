@@ -92,6 +92,7 @@ private:
   Sessions m_sessions;
   Session *m_pSession;
   SocketMonitor *m_pMonitor;
+  bool m_disconnected;
   Mutex m_mutex;
 #ifdef _MSC_VER
   fd_set m_fds;
