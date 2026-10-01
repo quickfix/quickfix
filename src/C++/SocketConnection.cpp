@@ -37,7 +37,8 @@ SocketConnection::SocketConnection(socket_handle s, Sessions sessions, SocketMon
       m_sendLength(0),
       m_sessions(sessions),
       m_pSession(0),
-      m_pMonitor(pMonitor) {
+      m_pMonitor(pMonitor),
+      m_disconnected(false) {
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
@@ -52,7 +53,8 @@ SocketConnection::SocketConnection(
     : m_socket(s),
       m_sendLength(0),
       m_pSession(i.getSession(sessionID, *this)),
-      m_pMonitor(pMonitor) {
+      m_pMonitor(pMonitor),
+      m_disconnected(false) {
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
@@ -112,19 +114,23 @@ bool SocketConnection::processQueue() {
 }
 
 void SocketConnection::disconnect() {
+  m_disconnected = true;
   if (m_pMonitor) {
     m_pMonitor->drop(m_socket);
   }
 }
 
 bool SocketConnection::read(SocketConnector &s) {
-  if (!m_pSession) {
+  if (!m_pSession || m_disconnected) {
     return false;
   }
 
   try {
     readFromSocket();
     readMessages(s.getMonitor());
+    if (m_disconnected) {
+      return false;
+    }
   } catch (SocketRecvFailed &e) {
     m_pSession->getLog()->onEvent(e.what());
     return false;
@@ -192,7 +198,7 @@ bool SocketConnection::read(SocketAcceptor &acceptor, SocketServer &server) {
     } else {
       readFromSocket();
       readMessages(server.getMonitor());
-      return true;
+      return !m_disconnected;
     }
   } catch (SocketRecvFailed &e) {
     if (m_pSession) {

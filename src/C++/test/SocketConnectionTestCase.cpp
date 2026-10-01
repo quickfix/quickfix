@@ -256,4 +256,14 @@ TEST_CASE("SocketConnectionTests") {
     SocketConnector connector;
     CHECK(!connection.pSocketConnection->read(connector));
   }
+
+  SECTION("ReadSocket_Disconnected_ReturnsFalse") {
+    TestSessionConnection connection;
+    Session *session = connection.getSession();
+    CHECK(nullptr != session);
+    session->disconnect();
+
+    SocketConnector connector;
+    CHECK(!connection.pSocketConnection->read(connector));
+  }
 }
