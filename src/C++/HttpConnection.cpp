@@ -37,21 +37,41 @@ HttpConnection::HttpConnection(socket_handle s)
     : m_socket(s) {
 #ifdef _MSC_VER
   FD_ZERO(&m_fds);
-  FD_SET(m_socket, &m_fds);
+  if (socket_isValid(m_socket)) {
+    FD_SET(m_socket, &m_fds);
+  }
 #endif
 }
 
-bool HttpConnection::send(const std::string &msg) { return socket_send(m_socket, msg.c_str(), msg.length()) >= 0; }
+HttpConnection::~HttpConnection() {
+  disconnect();
+}
+
+bool HttpConnection::send(const std::string &msg) {
+  if (!socket_isValid(m_socket)) {
+    return false;
+  }
+  return socket_send(m_socket, msg.c_str(), msg.length()) >= 0;
+}
 
 void HttpConnection::disconnect(int error) {
+  if (!socket_isValid(m_socket)) {
+    return;
+  }
+
   if (error > 0) {
     send(HttpMessage::createResponse(error));
   }
 
   socket_close(m_socket);
+  socket_invalidate(m_socket);
 }
 
 bool HttpConnection::read() {
+  if (!socket_isValid(m_socket)) {
+    return false;
+  }
+
 #if _MSC_VER
   struct timeval timeout = {2, 0};
   fd_set readset = m_fds;
@@ -87,7 +107,7 @@ bool HttpConnection::read() {
     }
 
     processStream();
-    return true;
+    return socket_isValid(m_socket);
   } catch (SocketRecvFailed &) {
     disconnect();
     return false;

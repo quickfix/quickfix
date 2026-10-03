@@ -36,6 +36,7 @@ class HttpMessage;
 class HttpConnection {
 public:
   HttpConnection(socket_handle s);
+  ~HttpConnection();
 
   socket_handle getSocket() const { return m_socket; }
   bool read();

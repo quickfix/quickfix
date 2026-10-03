@@ -69,4 +69,20 @@ TEST_CASE("SocketMonitorTests") {
 
     socket_close(socket);
   }
+
+  SECTION("remove_SocketExists_ErasedWithoutClosing") {
+    CHECK(monitor.addConnect(socket));
+    CHECK(monitor.remove(socket));
+    CHECK(!monitor.remove(socket));
+
+    socket_close(socket);
+  }
+
+  SECTION("drop_SocketExists_ClosedAndErased") {
+    socket_handle testSocket = socket_createAcceptor(0, true);
+    CHECK(testSocket != INVALID_SOCKET_HANDLE);
+    CHECK(monitor.addConnect(testSocket));
+    CHECK(monitor.drop(testSocket));
+    CHECK(!monitor.drop(testSocket));
+  }
 }
