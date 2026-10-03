@@ -24,6 +24,7 @@
 #include "config.h"
 #endif
 
+#include <HttpConnection.h>
 #include <HttpMessage.h>
 #include <Utility.h>
 
@@ -70,5 +71,27 @@ TEST_CASE("HttpMessageTests") {
     CHECK_THROWS_AS(object.setString(strBad1), InvalidMessage);
     CHECK_THROWS_AS(object.setString(strBad2), InvalidMessage);
     CHECK_THROWS_AS(object.setString(strBad3), InvalidMessage);
+  }
+
+  SECTION("HttpConnection_InvalidSocket_SafeNoOp") {
+    HttpConnection conn(INVALID_SOCKET_HANDLE);
+    CHECK(conn.getSocket() == INVALID_SOCKET_HANDLE);
+    CHECK(!conn.read());
+  }
+
+  SECTION("HttpConnection_DestructorAndDisconnect_Idempotent") {
+    socket_handle pair[2];
+    std::pair<socket_handle, socket_handle> p = socket_createpair();
+    pair[0] = p.first;
+    pair[1] = p.second;
+    CHECK(pair[0] != INVALID_SOCKET_HANDLE);
+    CHECK(pair[1] != INVALID_SOCKET_HANDLE);
+
+    {
+      HttpConnection conn(pair[0]);
+      CHECK(conn.getSocket() == pair[0]);
+    }
+
+    socket_close(pair[1]);
   }
 }

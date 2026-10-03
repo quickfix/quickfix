@@ -91,16 +91,23 @@ bool SocketMonitor::addWrite(socket_handle s) {
 }
 
 bool SocketMonitor::drop(socket_handle s) {
+  if (remove(s)) {
+    socket_close(s);
+    m_dropped.push(s);
+    return true;
+  }
+  return false;
+}
+
+bool SocketMonitor::remove(socket_handle s) {
   Sockets::iterator i = m_readSockets.find(s);
   Sockets::iterator j = m_writeSockets.find(s);
   Sockets::iterator k = m_connectSockets.find(s);
 
   if (i != m_readSockets.end() || j != m_writeSockets.end() || k != m_connectSockets.end()) {
-    socket_close(s);
     m_readSockets.erase(s);
     m_writeSockets.erase(s);
     m_connectSockets.erase(s);
-    m_dropped.push(s);
     return true;
   }
   return false;

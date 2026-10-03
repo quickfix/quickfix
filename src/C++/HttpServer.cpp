@@ -130,7 +130,7 @@ void HttpServer::onConnect(SocketServer &server, socket_handle a, socket_handle 
   }
   HttpConnection connection(s);
   while (connection.read()) {}
-  m_pServer->getMonitor().drop(s);
+  m_pServer->getMonitor().remove(s);
 }
 
 void HttpServer::onWrite(SocketServer &server, socket_handle s) {}
