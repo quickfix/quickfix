@@ -2745,3 +2745,53 @@ TEST_CASE_METHOD(initiatorFIX40Fixture, "customFIX40_UnsupportedMessageType_ERRe
   object->next(executionReport, now);
   CHECK(1 == toReject);
 }
+
+namespace {
+struct rejectCapturingFixture : public acceptorFixture {
+  void toAdmin(FIX::Message &message, const SessionID &sessionID) override {
+    acceptorFixture::toAdmin(message, sessionID);
+    if (message.getHeader().getField(FIELD::MsgType) == MsgType_Reject) {
+      sentReject = message;
+    }
+  }
+
+  void fromApp(const FIX::Message &message, const SessionID &sessionID)
+      EXCEPT(FieldNotFound, IncorrectDataFormat, IncorrectTagValue, UnsupportedMessageType) override {
+    fromAppCalls++;
+    acceptorFixture::fromApp(message, sessionID);
+  }
+
+  void checkRejectedForIncorrectSecurityType() {
+    CHECK(1 == toReject);
+    CHECK(0 == fromAppCalls);
+    CHECK("167" == sentReject.getField(FIELD::RefTagID));
+    CHECK("D" == sentReject.getField(FIELD::RefMsgType));
+    CHECK("5" == sentReject.getField(FIELD::SessionRejectReason));
+    CHECK("2" == sentReject.getField(FIELD::RefSeqNum));
+    CHECK(3 == object->getExpectedTargetNum());
+  }
+
+  FIX::Message sentReject;
+  int fromAppCalls = 0;
+};
+} // namespace
+
+// A value outside of the enumeration of a field makes dictionary validation throw IncorrectTagValue. The
+// session has to turn this into a session-level reject instead of passing the exception or the message on.
+TEST_CASE_METHOD(rejectCapturingFixture, "incorrectEnumValue_NewOrderSingle_SessionReject") {
+  object->next(createLogon("ISLD", "TW", 1), now);
+  REQUIRE(object->receivedLogon());
+
+  FIX42::NewOrderSingle newOrderSingle = createNewOrderSingle("ISLD", "TW", 2);
+  newOrderSingle.setField(SecurityType("ES1"));
+
+  SECTION("parsedMessage") {
+    CHECK_NOTHROW(object->next(newOrderSingle, now));
+    checkRejectedForIncorrectSecurityType();
+  }
+
+  SECTION("rawMessage") {
+    CHECK_NOTHROW(object->next(newOrderSingle.toString(), now));
+    checkRejectedForIncorrectSecurityType();
+  }
+}
