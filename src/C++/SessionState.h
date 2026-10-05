@@ -31,6 +31,8 @@
 #include "MessageStore.h"
 #include "Mutex.h"
 
+#include <atomic>
+
 namespace FIX {
 /// Maintains all of state for the Session class.
 class SessionState : public MessageStore, public Log {
@@ -53,17 +55,17 @@ public:
         m_pStore(0),
         m_pLog(0) {}
 
-  bool enabled() const { return m_enabled; }
-  void enabled(bool value) { m_enabled = value; }
+  bool enabled() const { return m_enabled.load(); }
+  void enabled(bool value) { m_enabled.store(value); }
 
-  bool receivedLogon() const { return m_receivedLogon; }
-  void receivedLogon(bool value) { m_receivedLogon = value; }
+  bool receivedLogon() const { return m_receivedLogon.load(); }
+  void receivedLogon(bool value) { m_receivedLogon.store(value); }
 
   bool sentLogout() const { return m_sentLogout; }
   void sentLogout(bool value) { m_sentLogout = value; }
 
-  bool sentLogon() const { return m_sentLogon; }
-  void sentLogon(bool value) { m_sentLogon = value; }
+  bool sentLogon() const { return m_sentLogon.load(); }
+  void sentLogon(bool value) { m_sentLogon.store(value); }
 
   bool receivedReset() const { return m_receivedReset; }
   void receivedReset(bool value) { m_receivedReset = value; }
@@ -238,10 +240,10 @@ public:
   }
 
 private:
-  bool m_enabled;
-  bool m_receivedLogon;
+  std::atomic<bool> m_enabled;
+  std::atomic<bool> m_receivedLogon;
   bool m_sentLogout;
-  bool m_sentLogon;
+  std::atomic<bool> m_sentLogon;
   bool m_sentReset;
   bool m_receivedReset;
   bool m_initiate;
