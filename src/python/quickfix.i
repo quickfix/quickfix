@@ -258,6 +258,18 @@ def start(self):
 }
 
 %pythoncode %{
+def _quickfix_destroy_connector(self, base):
+  # The shadow classes below keep application, storeFactory, settings and
+  # logFactory as attributes so they outlive the C++ object, which holds
+  # them by reference. Python 3.14 releases instance attributes in a
+  # different order from earlier versions, so `this` can now be released
+  # after them. __del__ (tp_finalize) runs before the instance dict is
+  # cleared, so run the C++ destructor here while they are still alive,
+  # and clear thisown so the SwigPyObject does not delete it again.
+  if getattr(self, 'thisown', False):
+    base.__swig_destroy__(self)
+    self.thisown = False
+
 class SocketInitiator(SocketInitiatorBase):
   application = 0
   storeFactory = 0
@@ -274,6 +286,9 @@ class SocketInitiator(SocketInitiatorBase):
     self.storeFactory = storeFactory
     self.settings = settings
     self.logFactory = logFactory
+
+  def __del__(self):
+    _quickfix_destroy_connector(self, SocketInitiatorBase)
 
 class SocketAcceptor(SocketAcceptorBase):
   application = 0
@@ -292,6 +307,9 @@ class SocketAcceptor(SocketAcceptorBase):
     self.settings = settings
     self.logFactory = logFactory
 
+  def __del__(self):
+    _quickfix_destroy_connector(self, SocketAcceptorBase)
+
 class ThreadedSocketInitiator(ThreadedSocketInitiatorBase):
   application = 0
   storeFactory = 0
@@ -309,6 +327,9 @@ class ThreadedSocketInitiator(ThreadedSocketInitiatorBase):
     self.settings = settings
     self.logFactory = logFactory
 
+  def __del__(self):
+    _quickfix_destroy_connector(self, ThreadedSocketInitiatorBase)
+
 class ThreadedSocketAcceptor(ThreadedSocketAcceptorBase):
   application = 0
   storeFactory = 0
@@ -325,6 +346,9 @@ class ThreadedSocketAcceptor(ThreadedSocketAcceptorBase):
     self.storeFactory = storeFactory
     self.settings = settings
     self.logFactory = logFactory
+
+  def __del__(self):
+    _quickfix_destroy_connector(self, ThreadedSocketAcceptorBase)
 
 #if (HAVE_SSL > 0)
 class SSLSocketInitiator(SSLSocketInitiatorBase):
@@ -344,6 +368,9 @@ class SSLSocketInitiator(SSLSocketInitiatorBase):
     self.settings = settings
     self.logFactory = logFactory
 
+  def __del__(self):
+    _quickfix_destroy_connector(self, SSLSocketInitiatorBase)
+
 class SSLSocketAcceptor(SSLSocketAcceptorBase):
   application = 0
   storeFactory = 0
@@ -360,6 +387,9 @@ class SSLSocketAcceptor(SSLSocketAcceptorBase):
     self.storeFactory = storeFactory
     self.settings = settings
     self.logFactory = logFactory
+
+  def __del__(self):
+    _quickfix_destroy_connector(self, SSLSocketAcceptorBase)
 #endif
 %}
 
