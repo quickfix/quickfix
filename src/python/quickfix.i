@@ -66,6 +66,16 @@
   }
 }
 
+/* fromAdmin and fromApp receive a const Message& that only lives for the
+ * duration of the callback. Give Python an owned copy so the object can be
+ * kept (e.g. put on a queue) and read after the callback has returned.
+ * toAdmin and toApp take a non-const Message& and keep the default
+ * non-owning wrapper so Python can modify the message in place before it
+ * is sent. */
+%typemap(directorin) const FIX::Message& {
+  $input = SWIG_NewPointerObj(new FIX::Message($1), SWIGTYPE_p_FIX__Message, SWIG_POINTER_OWN);
+}
+
 %rename(FIXException) FIX::Exception;
 
 %include ../quickfix.i
