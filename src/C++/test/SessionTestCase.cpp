@@ -2674,7 +2674,7 @@ TEST_CASE_METHOD(initiatorCreatedBeforeStartTimeFixture, "initiatorLogonAtStartT
 
 // Session with StartTime = EndTime = 00:00:00 disconnects every day at 00:00:00
 TEST_CASE_METHOD(sessionFixture, "sessionPeriodicallyDisconnects") {
-  now = UtcTimeStamp(23, 59, 58, 2024, 3, 31);
+  now = UtcTimeStamp(23, 59, 58, 31, 3, 2024);
   startTime = UtcTimeOnly(0, 0, 0);
   endTime = UtcTimeOnly(0, 0, 0);
   createSession(0);
@@ -2684,17 +2684,17 @@ TEST_CASE_METHOD(sessionFixture, "sessionPeriodicallyDisconnects") {
   CHECK(1 == toLogon);
   CHECK(0 == toLogout);
 
-  now = UtcTimeStamp(23, 59, 59, 2024, 3, 31);
+  now = UtcTimeStamp(23, 59, 59, 31, 3, 2024);
   object->next(createHeartbeat("ISLD", "TW", 2), now);
   CHECK(0 == toLogout);
 
-  now = UtcTimeStamp(0, 0, 1, 2024, 4, 1);
+  now = UtcTimeStamp(0, 0, 1, 1, 4, 2024);
   object->next(createHeartbeat("ISLD", "TW", 3), now);
   CHECK(1 == toLogout);
 }
 
 TEST_CASE_METHOD(sessionFixture, "sessionNonStop") {
-  now = UtcTimeStamp(23, 59, 58, 2024, 3, 31);
+  now = UtcTimeStamp(23, 59, 58, 31, 3, 2024);
   startTime = UtcTimeOnly(0, 0, 0);
   endTime = UtcTimeOnly(0, 0, 0);
   createSession(0);
@@ -2705,11 +2705,11 @@ TEST_CASE_METHOD(sessionFixture, "sessionNonStop") {
   CHECK(1 == toLogon);
   CHECK(0 == toLogout);
 
-  now = UtcTimeStamp(23, 59, 59, 2024, 3, 31);
+  now = UtcTimeStamp(23, 59, 59, 31, 3, 2024);
   object->next(createHeartbeat("ISLD", "TW", 2), now);
   CHECK(0 == toLogout);
 
-  now = UtcTimeStamp(0, 0, 1, 2024, 4, 1);
+  now = UtcTimeStamp(0, 0, 1, 1, 4, 2024);
   object->next(createHeartbeat("ISLD", "TW", 3), now);
   CHECK(0 == toLogout);
 }
