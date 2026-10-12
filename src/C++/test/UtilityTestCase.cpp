@@ -24,7 +24,11 @@
 #include "config.h"
 #endif
 
+#include <Mutex.h>
 #include <Utility.h>
+
+#include <future>
+#include <thread>
 
 #include "catch_amalgamated.hpp"
 
@@ -33,6 +37,89 @@ using namespace FIX;
 namespace {
 THREAD_PROC startTestThread(void *p) { return 0; }
 } // namespace
+
+TEST_CASE("MutexTests") {
+  Mutex mutex;
+
+  SECTION("recursiveConcurrentIncrements") {
+    int counter = 0;
+    std::promise<void> start;
+    auto started = start.get_future().share();
+    std::promise<void> firstReady;
+    std::promise<void> secondReady;
+    auto increment = [&](std::promise<void> &ready) {
+      ready.set_value();
+      started.wait();
+      for (int i = 0; i < 20000; ++i) {
+        mutex.lock();
+        mutex.lock();
+        ++counter;
+        mutex.unlock();
+        mutex.unlock();
+      }
+    };
+
+    std::thread first(increment, std::ref(firstReady));
+    std::thread second(increment, std::ref(secondReady));
+    firstReady.get_future().wait();
+    secondReady.get_future().wait();
+    start.set_value();
+    first.join();
+    second.join();
+
+    CHECK(counter == 40000);
+  }
+
+  SECTION("recursiveLockerReleasesAfterFinalUnlock") {
+    std::promise<void> attempting;
+    std::promise<void> acquired;
+    auto entered = acquired.get_future();
+    std::thread contender;
+    {
+      Locker outer(mutex);
+      {
+        Locker inner(mutex);
+        contender = std::thread([&] {
+          attempting.set_value();
+          Locker lock(mutex);
+          acquired.set_value();
+        });
+        attempting.get_future().wait();
+      }
+      CHECK(entered.wait_for(std::chrono::milliseconds(100)) == std::future_status::timeout);
+    }
+    CHECK(entered.wait_for(std::chrono::seconds(5)) == std::future_status::ready);
+    contender.join();
+  }
+
+#ifndef _MSC_VER
+  SECTION("copiesHaveIndependentLockState") {
+    Locker sourceLock(mutex);
+    Mutex copy(mutex);
+    Mutex assigned;
+    assigned.lock();
+    assigned.lock();
+    CHECK(&(assigned = mutex) == &assigned);
+
+    std::promise<void> copyAcquired;
+    std::promise<void> assignedAcquired;
+    auto entered = assignedAcquired.get_future();
+    std::thread contender([&] {
+      Locker first(copy);
+      Locker second(copy);
+      copyAcquired.set_value();
+      Locker third(assigned);
+      assignedAcquired.set_value();
+    });
+    CHECK(copyAcquired.get_future().wait_for(std::chrono::seconds(5)) == std::future_status::ready);
+    assigned.unlock();
+    CHECK(entered.wait_for(std::chrono::milliseconds(100)) == std::future_status::timeout);
+    assigned.unlock();
+    CHECK(entered.wait_for(std::chrono::seconds(5)) == std::future_status::ready);
+    contender.join();
+  }
+#endif
+}
 
 TEST_CASE("UtilityTests") {
   SECTION("error_strerror") {
@@ -202,5 +289,39 @@ TEST_CASE("UtilityTests") {
   SECTION("fileExists_FileDoesNotExist") {
     std::string unknownFile = "unknownfile.txt";
     CHECK(!file_exists(unknownFile.c_str()));
+  }
+}
+
+TEST_CASE("Mutex locker lifetime") {
+  Mutex mutex;
+  int count = 0;
+
+  SECTION("ExceptionUnwindsEveryRecursiveLock") {
+    try {
+      Locker outer(mutex);
+      Locker inner(mutex);
+      throw 1;
+    } catch (int) {}
+    std::thread worker([&] {
+      Locker lock(mutex);
+      ++count;
+    });
+    worker.join();
+    CHECK(count == 1);
+  }
+
+  SECTION("ReverseLockerReleasesAndReacquires") {
+    Locker outer(mutex);
+    {
+      ReverseLocker release(mutex);
+      std::thread worker([&] {
+        Locker lock(mutex);
+        ++count;
+      });
+      worker.join();
+    }
+    Locker inner(mutex);
+    CHECK(count == 1);
+    ++count;
   }
 }
