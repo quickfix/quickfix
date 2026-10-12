@@ -25,7 +25,7 @@
 #include "Utility.h"
 
 #ifndef _MSC_VER
-#include "Exceptions.h"
+#include <mutex>
 #endif
 
 namespace FIX {
@@ -35,20 +35,6 @@ public:
   Mutex() {
 #ifdef _MSC_VER
     InitializeCriticalSection(&m_mutex);
-#else
-    pthread_mutexattr_t attr;
-    int result = pthread_mutexattr_init(&attr);
-    if (result != 0) {
-      throw RuntimeError("Unable to initialize mutex attributes: " + std::to_string(result));
-    }
-    result = pthread_mutexattr_settype(&attr, PTHREAD_MUTEX_RECURSIVE);
-    if (result == 0) {
-      result = pthread_mutex_init(&m_mutex, &attr);
-    }
-    pthread_mutexattr_destroy(&attr);
-    if (result != 0) {
-      throw RuntimeError("Unable to initialize recursive mutex: " + std::to_string(result));
-    }
 #endif
   }
 
@@ -64,8 +50,6 @@ public:
   ~Mutex() {
 #ifdef _MSC_VER
     DeleteCriticalSection(&m_mutex);
-#else
-    pthread_mutex_destroy(&m_mutex);
 #endif
   }
 
@@ -73,7 +57,7 @@ public:
 #ifdef _MSC_VER
     EnterCriticalSection(&m_mutex);
 #else
-    pthread_mutex_lock(&m_mutex);
+    m_mutex.lock();
 #endif
   }
 
@@ -81,7 +65,7 @@ public:
 #ifdef _MSC_VER
     LeaveCriticalSection(&m_mutex);
 #else
-    pthread_mutex_unlock(&m_mutex);
+    m_mutex.unlock();
 #endif
   }
 
@@ -89,7 +73,7 @@ private:
 #ifdef _MSC_VER
   CRITICAL_SECTION m_mutex;
 #else
-  pthread_mutex_t m_mutex;
+  std::recursive_mutex m_mutex;
 #endif
 };
 

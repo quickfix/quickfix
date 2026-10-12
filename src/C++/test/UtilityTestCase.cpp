@@ -291,3 +291,37 @@ TEST_CASE("UtilityTests") {
     CHECK(!file_exists(unknownFile.c_str()));
   }
 }
+
+TEST_CASE("Mutex locker lifetime") {
+  Mutex mutex;
+  int count = 0;
+
+  SECTION("ExceptionUnwindsEveryRecursiveLock") {
+    try {
+      Locker outer(mutex);
+      Locker inner(mutex);
+      throw 1;
+    } catch (int) {}
+    std::thread worker([&] {
+      Locker lock(mutex);
+      ++count;
+    });
+    worker.join();
+    CHECK(count == 1);
+  }
+
+  SECTION("ReverseLockerReleasesAndReacquires") {
+    Locker outer(mutex);
+    {
+      ReverseLocker release(mutex);
+      std::thread worker([&] {
+        Locker lock(mutex);
+        ++count;
+      });
+      worker.join();
+    }
+    Locker inner(mutex);
+    CHECK(count == 1);
+    ++count;
+  }
+}
