@@ -30,6 +30,9 @@
 #include "Log.h"
 #include "MessageStore.h"
 #include "Mutex.h"
+#include <atomic>
+#include <limits>
+#include <stdexcept>
 
 namespace FIX {
 /// Maintains all of state for the Session class.
@@ -37,6 +40,7 @@ class SessionState : public MessageStore, public Log {
   typedef std::map<SEQNUM, Message> Messages;
 
 public:
+  /// Throws std::out_of_range if now is outside the signed epoch-nanosecond range.
   SessionState(const UtcTimeStamp &now)
       : m_enabled(true),
         m_receivedLogon(false),
@@ -48,7 +52,7 @@ public:
         m_logonTimeout(10),
         m_logoutTimeout(2),
         m_testRequest(0),
-        m_lastSentTime(now),
+        m_lastSentTime(encodeLastSentTime(now)),
         m_lastReceivedTime(now),
         m_pStore(0),
         m_pLog(0) {}
@@ -99,9 +103,24 @@ public:
   HeartBtInt &heartBtInt() { return m_heartBtInt; }
   const HeartBtInt &heartBtInt() const { return m_heartBtInt; }
 
-  void lastSentTime(const UtcTimeStamp &value) { m_lastSentTime = value; }
-  UtcTimeStamp &lastSentTime() { return m_lastSentTime; }
-  const UtcTimeStamp &lastSentTime() const { return m_lastSentTime; }
+  /// Stores a timestamp in the signed 64-bit epoch-nanosecond range (approximately 1677-2262).
+  /// Throws std::out_of_range for an invalid value without changing the stored timestamp.
+  void lastSentTime(const UtcTimeStamp &value) {
+    m_lastSentTime.store(encodeLastSentTime(value), std::memory_order_relaxed);
+  }
+  /// Returns an independent snapshot of the last sent timestamp.
+  UtcTimeStamp lastSentTime() { return static_cast<const SessionState &>(*this).lastSentTime(); }
+  /// Returns an independent snapshot of the last sent timestamp.
+  UtcTimeStamp lastSentTime() const {
+    const auto value = m_lastSentTime.load(std::memory_order_relaxed);
+    auto days = value / DateTime::NANOS_PER_DAY;
+    auto nanos = value % DateTime::NANOS_PER_DAY;
+    if (nanos < 0) {
+      --days;
+      nanos += DateTime::NANOS_PER_DAY;
+    }
+    return UtcTimeStamp(DateTime(static_cast<int>(DateTime::JULIAN_19700101 + days), nanos));
+  }
 
   void lastReceivedTime(const UtcTimeStamp &value) { m_lastReceivedTime = value; }
   UtcTimeStamp &lastReceivedTime() { return m_lastReceivedTime; }
@@ -238,6 +257,26 @@ public:
   }
 
 private:
+  // The complete timestamp is one atomic value; it does not publish other state.
+  // Reject values outside the signed epoch-nanosecond range before arithmetic.
+  static int64_t encodeLastSentTime(const UtcTimeStamp &value) {
+    constexpr auto day = DateTime::NANOS_PER_DAY;
+    constexpr auto min = (std::numeric_limits<int64_t>::min)();
+    constexpr auto max = (std::numeric_limits<int64_t>::max)();
+    constexpr auto minDays = min / day - 1;
+    constexpr auto minNanos = day + min % day;
+    constexpr auto maxDays = max / day;
+    constexpr auto maxNanos = max % day;
+    const auto days = static_cast<int64_t>(value.m_date) - DateTime::JULIAN_19700101;
+    const auto nanos = value.m_time;
+    if (nanos < 0 || nanos >= day || days < minDays || days > maxDays || (days == minDays && nanos < minNanos)
+        || (days == maxDays && nanos > maxNanos)) {
+      throw std::out_of_range("lastSentTime is outside the epoch-nanosecond range");
+    }
+    // Multiplying the partial first day would underflow.
+    return days == minDays ? min + (nanos - minNanos) : days * day + nanos;
+  }
+
   bool m_enabled;
   bool m_receivedLogon;
   bool m_sentLogout;
@@ -250,7 +289,7 @@ private:
   int m_testRequest;
   ResendRange m_resendRange;
   HeartBtInt m_heartBtInt;
-  UtcTimeStamp m_lastSentTime;
+  std::atomic<int64_t> m_lastSentTime;
   UtcTimeStamp m_lastReceivedTime;
   std::string m_logoutReason;
   Messages m_queue;
