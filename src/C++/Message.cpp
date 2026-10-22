@@ -227,7 +227,9 @@ std::string &Message::toString(std::string &str, int beginStringField, int bodyL
     return sum;
   };
   int bodyLengthFieldContrib = sumAsciiDigits(bodyLengthField) + '=' + sumAsciiDigits(bodyLength) + '\001';
-  int totalChecksum = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib) % 256;
+  int totalChecksum
+      = (headerLengthAndTotal.total + bodyLengthAndTotal.total + trailerLengthAndTotal.total + bodyLengthFieldContrib)
+        % 256;
 
   m_header.setField(IntField(bodyLengthField, bodyLength));
   m_trailer.setField(CheckSumField(checkSumField, totalChecksum));
@@ -606,7 +608,20 @@ FIX::FieldBase Message::extractField(
 
     try {
       const FieldBase &fieldLength = location->reverse_find(lenField);
-      soh = valueStart + IntConvertor::convert(fieldLength.getString());
+      const int dataLength = IntConvertor::convert(fieldLength.getString());
+      // dataLength is attacker-controlled input from the wire. Bounds-check it against the
+      // remaining buffer before using it to compute an iterator, otherwise a forged length
+      // field causes an out-of-bounds read when the data field's value is extracted below.
+      if (dataLength < 0 || static_cast<std::string::difference_type>(dataLength) > std::distance(valueStart, strEnd)) {
+        throw InvalidMessage(
+            std::string("Data length field ") + IntConvertor::convert(lenField)
+            + std::string(" has an out-of-range value for data field ") + IntConvertor::convert(field));
+      }
+      soh = valueStart + dataLength;
+      if (soh == strEnd || *soh != '\001') {
+        throw InvalidMessage(
+            std::string("SOH not found at computed end of data field ") + IntConvertor::convert(field));
+      }
     } catch (FieldNotFound &) {
       throw InvalidMessage(
           std::string("Data length field ") + IntConvertor::convert(lenField)
