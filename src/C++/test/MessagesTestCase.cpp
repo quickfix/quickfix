@@ -299,6 +299,44 @@ TEST_CASE("MessageTests") {
     CHECK_THROWS_AS(object.setString(str, true, &dataDictionary), InvalidMessage);
   }
 
+  SECTION("setStringWithDataFieldAndOversizedDataLength") {
+    // A forged RawDataLength that is larger than the remaining buffer must be rejected
+    // rather than used to compute an out-of-bounds iterator (heap-buffer-overflow read).
+    FIX::Message object;
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
+
+    FIX::Headline headline("client");
+    FIX42::News msg(headline);
+
+    FIX::RawData data;
+    data.setValue("abc");
+
+    msg.set(FIX::RawDataLength(99999));
+    msg.set(data);
+    std::string str = msg.toString();
+
+    CHECK_THROWS_AS(object.setString(str, true, &dataDictionary), InvalidMessage);
+  }
+
+  SECTION("setStringWithDataFieldAndNegativeDataLength") {
+    // A forged negative RawDataLength must also be rejected rather than underflowing
+    // the bounds check.
+    FIX::Message object;
+    DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX42"));
+
+    FIX::Headline headline("client");
+    FIX42::News msg(headline);
+
+    FIX::RawData data;
+    data.setValue("abc");
+
+    msg.set(FIX::RawDataLength(-5));
+    msg.set(data);
+    std::string str = msg.toString();
+
+    CHECK_THROWS_AS(object.setString(str, true, &dataDictionary), InvalidMessage);
+  }
+
   SECTION("copy") {
     FIX::Message object;
     FIX::MDReqID mdReqID("MARKETDATAID");
