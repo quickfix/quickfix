@@ -31,8 +31,11 @@
 #include "MessageStore.h"
 #include "Mutex.h"
 
+#include <atomic>
+
 namespace FIX {
 /// Maintains all of state for the Session class.
+/// Access to sentLogout is atomic. Instances cannot be copied.
 class SessionState : public MessageStore, public Log {
   typedef std::map<SEQNUM, Message> Messages;
 
@@ -59,8 +62,8 @@ public:
   bool receivedLogon() const { return m_receivedLogon; }
   void receivedLogon(bool value) { m_receivedLogon = value; }
 
-  bool sentLogout() const { return m_sentLogout; }
-  void sentLogout(bool value) { m_sentLogout = value; }
+  bool sentLogout() const { return m_sentLogout.load(); }
+  void sentLogout(bool value) { m_sentLogout.store(value); }
 
   bool sentLogon() const { return m_sentLogon; }
   void sentLogon(bool value) { m_sentLogon = value; }
@@ -240,7 +243,7 @@ public:
 private:
   bool m_enabled;
   bool m_receivedLogon;
-  bool m_sentLogout;
+  std::atomic<bool> m_sentLogout;
   bool m_sentLogon;
   bool m_sentReset;
   bool m_receivedReset;

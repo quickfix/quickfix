@@ -26,8 +26,10 @@
 
 #include <Log.h>
 #include <SessionState.h>
+#include <atomic>
 #include <sstream>
 #include <string>
+#include <thread>
 
 #include "catch_amalgamated.hpp"
 
@@ -94,5 +96,42 @@ TEST_CASE("SessionStateTests") {
     state.backup();
 
     CHECK(0 == log.eventsBackup);
+  }
+
+  SECTION("sentLogoutFlagTransitions") {
+    SessionState state(UtcTimeStamp::now());
+    const SessionState &status = state;
+
+    CHECK_FALSE(status.sentLogout());
+    state.sentLogout(true);
+    CHECK(status.sentLogout());
+    state.sentLogout(false);
+    CHECK_FALSE(status.sentLogout());
+  }
+
+  SECTION("sentLogoutConcurrentStatusReads") {
+    SessionState state(UtcTimeStamp::now());
+    std::atomic<bool> start{false};
+    constexpr int iterations = 100000;
+
+    std::thread writer([&] {
+      while (!start.load(std::memory_order_acquire)) {
+        std::this_thread::yield();
+      }
+      for (int i = 0; i < iterations; ++i) {
+        state.sentLogout((i & 1) != 0);
+      }
+      state.sentLogout(true);
+    });
+
+    start.store(true, std::memory_order_release);
+    int observed = 0;
+    for (int i = 0; i < iterations; ++i) {
+      observed += state.sentLogout();
+    }
+    writer.join();
+
+    INFO("Observed sentLogout set " << observed << " times");
+    CHECK(state.sentLogout());
   }
 }
