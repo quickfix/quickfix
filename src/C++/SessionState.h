@@ -35,6 +35,7 @@
 
 namespace FIX {
 /// Maintains all of state for the Session class.
+/// Access to sentLogout is atomic. Instances cannot be copied.
 class SessionState : public MessageStore, public Log {
   typedef std::map<SEQNUM, Message> Messages;
 
