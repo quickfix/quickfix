@@ -54,6 +54,16 @@ public:
       const TimeRange &,
       int heartBtInt,
       LogFactory *pLogFactory);
+  Session(
+      std::function<UtcTimeStamp()> timestamper,
+      Application &,
+      MessageStoreFactory &,
+      const SessionID &,
+      const DataDictionaryProvider &,
+      const TimeRange &,
+      int heartBtInt,
+      LogFactory *pLogFactory,
+      bool isNonStopSession);
   virtual ~Session();
 
   void logon() {
