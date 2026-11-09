@@ -33,6 +33,24 @@
 
 using namespace FIX;
 
+namespace {
+// Hands out a store that was created on an earlier day and already holds
+// sequence numbers and a message, like a FileStore reopened the next day.
+class PreviousDayStoreFactory : public MessageStoreFactory {
+public:
+  MessageStore *create(const UtcTimeStamp &now, const SessionID &) override {
+    UtcTimeStamp creationTime = now;
+    creationTime.setYMD(2020, 1, 1);
+    MemoryStore *store = new MemoryStore(creationTime);
+    store->set(7, "retained-message");
+    store->setNextSenderMsgSeqNum(8);
+    store->setNextTargetMsgSeqNum(9);
+    return store;
+  }
+  void destroy(MessageStore *store) override { delete store; }
+};
+} // namespace
+
 TEST_CASE("SessionFactoryTests") {
   SECTION("validConfiguration") {
     NullApplication application;
@@ -81,6 +99,51 @@ TEST_CASE("SessionFactoryTests") {
     Session *session = nullptr;
     CHECK_NOTHROW(session = object.create(sessionID, settings));
     CHECK(session->getIsNonStopSession());
+    object.destroy(session);
+  }
+
+  SECTION("nonStopSessionKeepsPreviousDayStore") {
+    NullApplication application;
+    PreviousDayStoreFactory messageStoreFactory;
+    SessionFactory object(application, messageStoreFactory, 0);
+
+    SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
+    Dictionary settings;
+    settings.setString(CONNECTION_TYPE, "initiator");
+    settings.setString(USE_DATA_DICTIONARY, "N");
+    settings.setString(NON_STOP_SESSION, "Y");
+    settings.setString(HEARTBTINT, "30");
+
+    Session *session = object.create(sessionID, settings);
+    CHECK(session->getIsNonStopSession());
+    CHECK(session->getExpectedSenderNum() == 8);
+    CHECK(session->getExpectedTargetNum() == 9);
+    std::vector<std::string> messages;
+    session->getStore()->get(7, 7, messages);
+    CHECK(messages == std::vector<std::string>{"retained-message"});
+    object.destroy(session);
+  }
+
+  SECTION("scheduledSessionResetsPreviousDayStore") {
+    NullApplication application;
+    PreviousDayStoreFactory messageStoreFactory;
+    SessionFactory object(application, messageStoreFactory, 0);
+
+    SessionID sessionID("FIX.4.2", "SENDER", "TARGET");
+    Dictionary settings;
+    settings.setString(CONNECTION_TYPE, "initiator");
+    settings.setString(USE_DATA_DICTIONARY, "N");
+    settings.setString(START_TIME, "00:00:00");
+    settings.setString(END_TIME, "00:00:00");
+    settings.setString(HEARTBTINT, "30");
+
+    Session *session = object.create(sessionID, settings);
+    CHECK_FALSE(session->getIsNonStopSession());
+    CHECK(session->getExpectedSenderNum() == 1);
+    CHECK(session->getExpectedTargetNum() == 1);
+    std::vector<std::string> messages;
+    session->getStore()->get(7, 7, messages);
+    CHECK(messages.empty());
     object.destroy(session);
   }
 
