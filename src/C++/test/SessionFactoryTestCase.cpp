@@ -25,9 +25,12 @@
 #endif
 
 #include <Application.h>
+#include <FileStore.h>
 #include <MessageStore.h>
 #include <Session.h>
 #include <SessionFactory.h>
+
+#include "TestHelper.h"
 
 #include "catch_amalgamated.hpp"
 
@@ -82,6 +85,45 @@ TEST_CASE("SessionFactoryTests") {
     CHECK_NOTHROW(session = object.create(sessionID, settings));
     CHECK(session->getIsNonStopSession());
     object.destroy(session);
+  }
+
+  SECTION("nonStopSessionPreservesPreviousDayFileStore") {
+    NullApplication application;
+    FileStoreFactory fileStoreFactory("store");
+    SessionFactory object(application, fileStoreFactory, 0);
+
+    SessionID sessionID("FIX.4.2", "NONSTOP", "STORE");
+
+    // Simulate a store created on an earlier date, carrying persisted state.
+    UtcTimeStamp oldTime = UtcTimeStamp::now();
+    oldTime.setYMD(2020, 1, 1);
+    {
+      FileStore store(oldTime, "store", sessionID);
+      store.set(7, "retained-message");
+      store.setNextSenderMsgSeqNum(8);
+      store.setNextTargetMsgSeqNum(9);
+    }
+
+    Dictionary settings;
+    settings.setString(CONNECTION_TYPE, "initiator");
+    settings.setString(USE_DATA_DICTIONARY, "N");
+    settings.setString(NON_STOP_SESSION, "Y");
+    settings.setString(HEARTBTINT, "30");
+
+    Session *session = object.create(sessionID, settings);
+    CHECK(session->getIsNonStopSession());
+    CHECK(session->getExpectedSenderNum() == 8);
+    CHECK(session->getExpectedTargetNum() == 9);
+    object.destroy(session);
+
+    // Reopen the raw store: the retained message must still be there.
+    FileStore store(UtcTimeStamp::now(), "store", sessionID);
+    std::vector<std::string> messages;
+    store.get(7, 7, messages);
+    CHECK(messages.size() == 1);
+
+    deleteSession("NONSTOP", "STORE");
+    file_unlink("store/FIX.4.2-NONSTOP-STORE.body");
   }
 
   SECTION("wrongNonStopAndTime") {

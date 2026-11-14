@@ -49,7 +49,8 @@ Session::Session(
     const DataDictionaryProvider &dataDictionaryProvider,
     const TimeRange &sessionTime,
     int heartBtInt,
-    LogFactory *pLogFactory)
+    LogFactory *pLogFactory,
+    bool isNonStopSession)
     : m_timestamper(std::move(timestamper)),
       m_application(application),
       m_sessionID(sessionID),
@@ -69,7 +70,7 @@ Session::Session(
       m_persistMessages(true),
       m_validateLengthAndChecksum(true),
       m_sendNextExpectedMsgSeqNum(false),
-      m_isNonStopSession(false),
+      m_isNonStopSession(isNonStopSession),
       m_state(m_timestamper()),
       m_dataDictionaryProvider(dataDictionaryProvider),
       m_messageStoreFactory(messageStoreFactory),

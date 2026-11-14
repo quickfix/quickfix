@@ -53,7 +53,8 @@ public:
       const DataDictionaryProvider &,
       const TimeRange &,
       int heartBtInt,
-      LogFactory *pLogFactory);
+      LogFactory *pLogFactory,
+      bool isNonStopSession = false);
   virtual ~Session();
 
   void logon() {
