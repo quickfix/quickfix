@@ -151,13 +151,18 @@ void SocketMonitor::unsignal(socket_handle s) {
   m_writeSockets.erase(s);
 }
 
-void SocketMonitor::block(Strategy &strategy, bool should_poll, double timeout) {
-  while (m_dropped.size()) {
-    strategy.onDropped(*this, m_dropped.front());
+void SocketMonitor::processDropped(Strategy &strategy) {
+  while (!m_dropped.empty()) {
+    socket_handle socket = m_dropped.front();
     m_dropped.pop();
-    if (m_dropped.size() == 0) {
-      return;
-    }
+    strategy.onDropped(*this, socket);
+  }
+}
+
+void SocketMonitor::block(Strategy &strategy, bool should_poll, double timeout) {
+  if (!m_dropped.empty()) {
+    processDropped(strategy);
+    return;
   }
 
   int pfds_size = m_readSockets.size() + m_connectSockets.size() + m_writeSockets.size();

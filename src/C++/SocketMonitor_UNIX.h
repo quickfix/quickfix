@@ -53,6 +53,8 @@ public:
   void signal(socket_handle socket);
   void unsignal(socket_handle socket);
   void block(Strategy &strategy, bool poll = 0, double timeout = 0.0);
+  /// Hands every dropped socket back to the strategy through onDropped.
+  void processDropped(Strategy &strategy);
 
   size_t numSockets() { return m_readSockets.size() - 1; }
 

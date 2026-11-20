@@ -116,5 +116,9 @@ socket_handle SocketConnector::connect(
 void SocketConnector::block(Strategy &strategy, bool poll, double timeout) {
   ConnectorWrapper wrapper(*this, strategy);
   m_monitor.block(wrapper, poll, timeout);
+  // Report the sockets dropped during this call before returning. An initiator
+  // opens new connections right after block(), and a new connection may get
+  // the number of a dropped socket that has not been reported yet.
+  m_monitor.processDropped(wrapper);
 }
 } // namespace FIX

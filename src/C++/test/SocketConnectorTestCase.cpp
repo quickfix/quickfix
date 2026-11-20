@@ -41,7 +41,11 @@ struct SocketConnectorTestStrategy : public SocketConnector::Strategy {
   // Like a connection: reading fails once the peer has closed the socket.
   bool onData(SocketConnector &, socket_handle socket) {
     char buffer[64];
-    return socket_recv(socket, buffer, sizeof(buffer)) > 0;
+    if (socket_recv(socket, buffer, sizeof(buffer)) > 0) {
+      return true;
+    }
+    readFailures++;
+    return false;
   }
   // Like an initiator, whose onDisconnect disconnects the session and so
   // drops the socket again.
@@ -53,6 +57,7 @@ struct SocketConnectorTestStrategy : public SocketConnector::Strategy {
 
   int connect = 0;
   int disconnect = 0;
+  int readFailures = 0;
 };
 
 TEST_CASE("SocketConnectorTests") {
@@ -150,12 +155,57 @@ TEST_CASE("SocketConnectorTests") {
     REQUIRE(accepted != INVALID_SOCKET_HANDLE);
     CHECK(server.getMonitor().drop(accepted));
 
-    // Each block() waits up to the connector's one-second timeout: one call
-    // sees the closed connection and drops the socket, the next reports it.
-    for (int i = 0; i < 5 && strategy.disconnect == 0; ++i) {
+    // Each block() waits up to the connector's one-second timeout and returns
+    // once it has seen the closed connection.
+    for (int i = 0; i < 5 && strategy.readFailures == 0; ++i) {
       connector.block(strategy);
     }
+    REQUIRE(1 == strategy.readFailures);
+
+    // The block() that saw the closed connection has already reported it.
     CHECK(1 == strategy.disconnect);
+
+    connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    server.close();
+  }
+
+  SECTION("connection_opened_after_a_drop_is_not_reported") {
+    // An initiator opens connections in onTimeout(), right after block()
+    // returns. A connection closed during block() must be reported before
+    // that: otherwise the late report hits the new connection, which may get
+    // the same socket number (UNIX hands out the lowest free descriptor).
+    SocketServer server(0);
+    socket_handle serverSocket = server.add(0, true, true);
+    uint16_t port = socket_hostport(serverSocket);
+
+    SocketConnector connector(1);
+    SocketConnectorTestStrategy strategy;
+    REQUIRE(connector.connect("127.0.0.1", port, false, 1024, 1024) != INVALID_SOCKET_HANDLE);
+
+    for (int i = 0; i < 5 && strategy.connect == 0; ++i) {
+      connector.block(strategy);
+    }
+    REQUIRE(1 == strategy.connect);
+
+    socket_handle accepted = server.accept(serverSocket);
+    REQUIRE(accepted != INVALID_SOCKET_HANDLE);
+    CHECK(server.getMonitor().drop(accepted));
+
+    for (int i = 0; i < 5 && strategy.readFailures == 0; ++i) {
+      connector.block(strategy);
+    }
+    REQUIRE(1 == strategy.readFailures);
+    CHECK(1 == strategy.disconnect);
+
+    // Like onTimeout(): open the next connection as soon as block() returns.
+    REQUIRE(connector.connect("127.0.0.1", port, false, 1024, 1024) != INVALID_SOCKET_HANDLE);
+
+    for (int i = 0; i < 5 && strategy.connect < 2; ++i) {
+      connector.block(strategy);
+    }
+    CHECK(2 == strategy.connect);
 
     connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
