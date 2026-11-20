@@ -53,7 +53,12 @@ private:
   }
 
   virtual void onError(SocketMonitor &monitor, socket_handle socket) override {
-    if (monitor.drop(socket)) {
+    // Every dropped socket comes back here once from the monitor's dropped
+    // queue, whether the monitor dropped it on a socket error or a
+    // connection's disconnect() dropped it. A socket still in the monitor is
+    // an error being reported: drop() queues it, and that queued call reports
+    // it, so onDisconnect fires exactly once on both paths.
+    if (!monitor.drop(socket)) {
       m_strategy.onDisconnect(m_connector, socket);
     }
   }
