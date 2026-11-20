@@ -29,15 +29,37 @@
 #include <SocketServer.h>
 #ifdef _MSC_VER
 #include <stdlib.h>
+#else
+#include <sys/select.h>
 #endif
+#include <set>
 
 #include "catch_amalgamated.hpp"
 
 using namespace FIX;
 
+namespace {
+// Waits up to a second until the socket has something to read.
+bool waitReadable(socket_handle socket) {
+  fd_set readSet;
+  FD_ZERO(&readSet);
+  FD_SET(socket, &readSet);
+  timeval timeout = {1, 0};
+  return select((int)socket + 1, &readSet, 0, 0, &timeout) > 0;
+}
+} // namespace
+
 struct SocketConnectorTestStrategy : public SocketConnector::Strategy {
   void onConnect(SocketConnector &, socket_handle) { connect++; }
-  void onWrite(SocketConnector &, socket_handle) {}
+  // Like a connection with a queued message: writes it and stops waiting for
+  // the socket to become writable. A write to a socket whose read has failed
+  // and which has not been reported yet would go to a closed descriptor.
+  void onWrite(SocketConnector &connector, socket_handle socket) {
+    if (unreported.count(socket)) {
+      writesToClosed++;
+    }
+    connector.getMonitor().unsignal(socket);
+  }
   // Like a connection: reading fails once the peer has closed the socket.
   bool onData(SocketConnector &, socket_handle socket) {
     char buffer[64];
@@ -45,12 +67,14 @@ struct SocketConnectorTestStrategy : public SocketConnector::Strategy {
       return true;
     }
     readFailures++;
+    unreported.insert(socket);
     return false;
   }
   // Like an initiator, whose onDisconnect disconnects the session and so
   // drops the socket again.
   void onDisconnect(SocketConnector &connector, socket_handle socket) {
     disconnect++;
+    unreported.erase(socket);
     connector.getMonitor().drop(socket);
   }
   void onError(SocketConnector &) {}
@@ -58,6 +82,8 @@ struct SocketConnectorTestStrategy : public SocketConnector::Strategy {
   int connect = 0;
   int disconnect = 0;
   int readFailures = 0;
+  int writesToClosed = 0;
+  std::set<socket_handle> unreported;
 };
 
 TEST_CASE("SocketConnectorTests") {
@@ -208,6 +234,76 @@ TEST_CASE("SocketConnectorTests") {
     CHECK(2 == strategy.connect);
 
     connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    server.close();
+  }
+
+  SECTION("socket_dropped_outside_block_is_reported_before_connecting") {
+    // A TLS handshake timeout drops a socket inside onTimeout(), outside
+    // block(), and onTimeout() connects right after it. The initiator reports
+    // the drop first, so the new connection, which may get the same socket
+    // number, connects and is never reported.
+    SocketServer server(0);
+    socket_handle serverSocket = server.add(0, true, true);
+    uint16_t port = socket_hostport(serverSocket);
+
+    SocketConnector connector(1);
+    SocketConnectorTestStrategy strategy;
+    socket_handle socket = connector.connect("127.0.0.1", port, false, 1024, 1024);
+    REQUIRE(socket != INVALID_SOCKET_HANDLE);
+
+    for (int i = 0; i < 5 && strategy.connect == 0; ++i) {
+      connector.block(strategy);
+    }
+    REQUIRE(1 == strategy.connect);
+
+    CHECK(connector.getMonitor().drop(socket));
+    connector.processDropped(strategy);
+    CHECK(1 == strategy.disconnect);
+
+    REQUIRE(connector.connect("127.0.0.1", port, false, 1024, 1024) != INVALID_SOCKET_HANDLE);
+
+    for (int i = 0; i < 5 && strategy.connect < 2; ++i) {
+      connector.block(strategy);
+    }
+    CHECK(2 == strategy.connect);
+
+    connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    server.close();
+  }
+
+  SECTION("no_write_to_a_socket_after_a_failed_read") {
+    // poll() can report the closed connection (POLLIN) and a writable socket
+    // (POLLOUT) in the same pass. The failed read must be reported before the
+    // write is dispatched, or the initiator writes to a closed descriptor.
+    SocketServer server(0);
+    socket_handle serverSocket = server.add(0, true, true);
+    uint16_t port = socket_hostport(serverSocket);
+
+    SocketConnector connector(1);
+    SocketConnectorTestStrategy strategy;
+    socket_handle socket = connector.connect("127.0.0.1", port, false, 1024, 1024);
+    REQUIRE(socket != INVALID_SOCKET_HANDLE);
+
+    for (int i = 0; i < 5 && strategy.connect == 0; ++i) {
+      connector.block(strategy);
+    }
+    REQUIRE(1 == strategy.connect);
+
+    socket_handle accepted = server.accept(serverSocket);
+    REQUIRE(accepted != INVALID_SOCKET_HANDLE);
+    CHECK(server.getMonitor().drop(accepted));
+    REQUIRE(waitReadable(socket));
+
+    // An outgoing message is queued, as SocketConnection::signal() does.
+    REQUIRE(connector.getMonitor().addWrite(socket));
+
+    connector.block(strategy);
+    REQUIRE(1 == strategy.readFailures);
+    CHECK(0 == strategy.writesToClosed);
     CHECK(1 == strategy.disconnect);
 
     server.close();
