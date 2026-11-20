@@ -49,6 +49,8 @@ public:
   void signal(socket_handle socket);
   void unsignal(socket_handle socket);
   void block(Strategy &strategy, bool poll = 0, double timeout = 0.0);
+  /// Hands every dropped socket back to the strategy through onDropped.
+  void processDropped(Strategy &strategy);
 
   size_t numSockets() { return m_readSockets.size() - 1; }
 
@@ -90,6 +92,9 @@ public:
     virtual void onWrite(SocketMonitor &, socket_handle socket) = 0;
     virtual void onError(SocketMonitor &, socket_handle socket) = 0;
     virtual void onError(SocketMonitor &) = 0;
+    // A dropped socket is handed back once from the dropped queue at the
+    // start of the next block(). By default it is reported as an error.
+    virtual void onDropped(SocketMonitor &monitor, socket_handle socket) { onError(monitor, socket); }
     virtual void onTimeout(SocketMonitor &) {}
   };
 };

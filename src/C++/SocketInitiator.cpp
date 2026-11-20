@@ -227,6 +227,11 @@ void SocketInitiator::onTimeout(SocketConnector &) {
   time_t now;
   ::time(&now);
 
+  // Report the sockets dropped since the last block() before connecting: a new
+  // connection must not get the number of a dropped socket that has not been
+  // reported yet, and the dropped sessions must be ready to reconnect now.
+  m_connector.processDropped(*this);
+
   if ((now - m_lastConnect) >= m_reconnectInterval) {
     connect();
     m_lastConnect = now;

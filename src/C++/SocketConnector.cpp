@@ -42,25 +42,50 @@ public:
         m_strategy(strategy) {}
 
 private:
-  virtual void onConnect(SocketMonitor &, socket_handle socket) override { m_strategy.onConnect(m_connector, socket); }
+  // onDisconnect is reported from onDropped only. A socket leaves the monitor
+  // only through drop(), which queues it once, so each connection is reported
+  // exactly once, whether a read failed, the socket failed, or the connection
+  // dropped itself through disconnect().
+  //
+  // Any callback can drop sockets, here or inside the strategy (a session that
+  // disconnects itself), so each one reports the dropped sockets before it
+  // returns. A later event of the same pass, such as a write after a failed
+  // read, then never reaches a connection that is already closed.
+  virtual void onConnect(SocketMonitor &monitor, socket_handle socket) override {
+    m_strategy.onConnect(m_connector, socket);
+    monitor.processDropped(*this);
+  }
 
-  virtual void onWrite(SocketMonitor &, socket_handle socket) override { m_strategy.onWrite(m_connector, socket); }
+  virtual void onWrite(SocketMonitor &monitor, socket_handle socket) override {
+    m_strategy.onWrite(m_connector, socket);
+    monitor.processDropped(*this);
+  }
 
-  virtual void onEvent(SocketMonitor &, socket_handle socket) override {
+  virtual void onEvent(SocketMonitor &monitor, socket_handle socket) override {
     if (!m_strategy.onData(m_connector, socket)) {
-      m_strategy.onDisconnect(m_connector, socket);
+      monitor.drop(socket);
     }
+    monitor.processDropped(*this);
   }
 
   virtual void onError(SocketMonitor &monitor, socket_handle socket) override {
-    if (monitor.drop(socket)) {
-      m_strategy.onDisconnect(m_connector, socket);
-    }
+    monitor.drop(socket);
+    monitor.processDropped(*this);
   }
 
-  virtual void onError(SocketMonitor &) override { m_strategy.onError(m_connector); }
+  virtual void onDropped(SocketMonitor &, socket_handle socket) override {
+    m_strategy.onDisconnect(m_connector, socket);
+  }
 
-  virtual void onTimeout(SocketMonitor &) override { m_strategy.onTimeout(m_connector); };
+  virtual void onError(SocketMonitor &monitor) override {
+    m_strategy.onError(m_connector);
+    monitor.processDropped(*this);
+  }
+
+  virtual void onTimeout(SocketMonitor &monitor) override {
+    m_strategy.onTimeout(m_connector);
+    monitor.processDropped(*this);
+  };
 
   SocketConnector &m_connector;
   SocketConnector::Strategy &m_strategy;
@@ -112,5 +137,10 @@ socket_handle SocketConnector::connect(
 void SocketConnector::block(Strategy &strategy, bool poll, double timeout) {
   ConnectorWrapper wrapper(*this, strategy);
   m_monitor.block(wrapper, poll, timeout);
+}
+
+void SocketConnector::processDropped(Strategy &strategy) {
+  ConnectorWrapper wrapper(*this, strategy);
+  m_monitor.processDropped(wrapper);
 }
 } // namespace FIX

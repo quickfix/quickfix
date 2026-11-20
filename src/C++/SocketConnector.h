@@ -54,6 +54,10 @@ public:
       int rcvBufSize,
       Strategy &);
   void block(Strategy &strategy, bool poll = 0, double timeout = 0.0);
+  /// Reports every socket dropped since the last report through
+  /// Strategy::onDisconnect. Call it before opening new connections outside
+  /// block(): a new connection may get the number of a dropped socket.
+  void processDropped(Strategy &strategy);
   SocketMonitor &getMonitor() { return m_monitor; }
 
 private:
