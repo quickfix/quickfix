@@ -30,7 +30,7 @@
 #ifdef _MSC_VER
 #include <stdlib.h>
 #else
-#include <sys/select.h>
+#include <poll.h>
 #endif
 #include <set>
 
@@ -39,13 +39,19 @@
 using namespace FIX;
 
 namespace {
-// Waits up to a second until the socket has something to read.
+// Waits up to a second until the socket has something to read. UNIX uses
+// poll(): FD_SET() is undefined for a descriptor >= FD_SETSIZE.
 bool waitReadable(socket_handle socket) {
+#ifdef _MSC_VER
   fd_set readSet;
   FD_ZERO(&readSet);
   FD_SET(socket, &readSet);
   timeval timeout = {1, 0};
-  return select((int)socket + 1, &readSet, 0, 0, &timeout) > 0;
+  return select(0, &readSet, 0, 0, &timeout) > 0;
+#else
+  pollfd readable = {socket, POLLIN, 0};
+  return poll(&readable, 1, 1000) > 0;
+#endif
 }
 } // namespace
 
