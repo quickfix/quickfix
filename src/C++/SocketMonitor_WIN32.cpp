@@ -167,7 +167,7 @@ void SocketMonitor::unsignal(socket_handle s) {
 
 void SocketMonitor::block(Strategy &strategy, bool poll, double timeout) {
   while (m_dropped.size()) {
-    strategy.onError(*this, m_dropped.front());
+    strategy.onDropped(*this, m_dropped.front());
     m_dropped.pop();
     if (m_dropped.size() == 0) {
       return;

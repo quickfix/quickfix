@@ -38,8 +38,17 @@ using namespace FIX;
 struct SocketConnectorTestStrategy : public SocketConnector::Strategy {
   void onConnect(SocketConnector &, socket_handle) { connect++; }
   void onWrite(SocketConnector &, socket_handle) {}
-  bool onData(SocketConnector &, socket_handle) { return true; }
-  void onDisconnect(SocketConnector &, socket_handle) { disconnect++; }
+  // Like a connection: reading fails once the peer has closed the socket.
+  bool onData(SocketConnector &, socket_handle socket) {
+    char buffer[64];
+    return socket_recv(socket, buffer, sizeof(buffer)) > 0;
+  }
+  // Like an initiator, whose onDisconnect disconnects the session and so
+  // drops the socket again.
+  void onDisconnect(SocketConnector &connector, socket_handle socket) {
+    disconnect++;
+    connector.getMonitor().drop(socket);
+  }
   void onError(SocketConnector &) {}
 
   int connect = 0;
@@ -111,6 +120,41 @@ TEST_CASE("SocketConnectorTests") {
     // The dropped queue is drained at the start of the next block(), so the
     // socket must be reported by exactly this call.
     connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    connector.block(strategy, true);
+    CHECK(1 == strategy.disconnect);
+
+    server.close();
+  }
+
+  SECTION("peer_closed_connection_is_reported_exactly_once") {
+    // The peer closes the connection, so onData() fails. The strategy's
+    // onDisconnect drops the socket once more, as an initiator does when it
+    // disconnects the session; the connection must still be reported once.
+    SocketServer server(0);
+    socket_handle serverSocket = server.add(0, true, true);
+    uint16_t port = socket_hostport(serverSocket);
+
+    SocketConnector connector(1);
+    SocketConnectorTestStrategy strategy;
+    socket_handle socket = connector.connect("127.0.0.1", port, false, 1024, 1024);
+    REQUIRE(socket != INVALID_SOCKET_HANDLE);
+
+    for (int i = 0; i < 5 && strategy.connect == 0; ++i) {
+      connector.block(strategy);
+    }
+    REQUIRE(1 == strategy.connect);
+
+    socket_handle accepted = server.accept(serverSocket);
+    REQUIRE(accepted != INVALID_SOCKET_HANDLE);
+    CHECK(server.getMonitor().drop(accepted));
+
+    // Each block() waits up to the connector's one-second timeout: one call
+    // sees the closed connection and drops the socket, the next reports it.
+    for (int i = 0; i < 5 && strategy.disconnect == 0; ++i) {
+      connector.block(strategy);
+    }
     CHECK(1 == strategy.disconnect);
 
     connector.block(strategy, true);

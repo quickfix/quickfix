@@ -46,21 +46,20 @@ private:
 
   virtual void onWrite(SocketMonitor &, socket_handle socket) override { m_strategy.onWrite(m_connector, socket); }
 
-  virtual void onEvent(SocketMonitor &, socket_handle socket) override {
+  // onDisconnect is reported from onDropped only. A socket leaves the monitor
+  // only through drop(), which queues it once, so each connection is reported
+  // exactly once, whether a read failed, the socket failed, or the connection
+  // dropped itself through disconnect().
+  virtual void onEvent(SocketMonitor &monitor, socket_handle socket) override {
     if (!m_strategy.onData(m_connector, socket)) {
-      m_strategy.onDisconnect(m_connector, socket);
+      monitor.drop(socket);
     }
   }
 
-  virtual void onError(SocketMonitor &monitor, socket_handle socket) override {
-    // Every dropped socket comes back here once from the monitor's dropped
-    // queue, whether the monitor dropped it on a socket error or a
-    // connection's disconnect() dropped it. A socket still in the monitor is
-    // an error being reported: drop() queues it, and that queued call reports
-    // it, so onDisconnect fires exactly once on both paths.
-    if (!monitor.drop(socket)) {
-      m_strategy.onDisconnect(m_connector, socket);
-    }
+  virtual void onError(SocketMonitor &monitor, socket_handle socket) override { monitor.drop(socket); }
+
+  virtual void onDropped(SocketMonitor &, socket_handle socket) override {
+    m_strategy.onDisconnect(m_connector, socket);
   }
 
   virtual void onError(SocketMonitor &) override { m_strategy.onError(m_connector); }

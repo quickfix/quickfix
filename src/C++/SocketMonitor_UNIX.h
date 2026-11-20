@@ -92,6 +92,9 @@ public:
     virtual void onWrite(SocketMonitor &, socket_handle socket) = 0;
     virtual void onError(SocketMonitor &, socket_handle socket) = 0;
     virtual void onError(SocketMonitor &) = 0;
+    // A dropped socket is handed back once from the dropped queue at the
+    // start of the next block(). By default it is reported as an error.
+    virtual void onDropped(SocketMonitor &monitor, socket_handle socket) { onError(monitor, socket); }
     virtual void onTimeout(SocketMonitor &) {}
   };
 };
