@@ -68,18 +68,19 @@ TEST_CASE("SocketConnectorTests") {
     SocketConnectorTestStrategy strategy;
     connector.connect("127.0.0.1", port, false, 1024, 1024);
 
-    // The error drops the socket, and the drop is reported from the monitor's
-    // dropped queue at the start of the next block().
+    // Each block() waits up to the connector's one-second timeout and returns
+    // as soon as the monitor reports the refused socket. The error drops the
+    // socket, and the drop is reported from the monitor's dropped queue at the
+    // start of the following block().
     for (int i = 0; i < 5 && strategy.disconnect == 0; ++i) {
-      process_sleep(0.1);
       connector.block(strategy);
     }
     CHECK(1 == strategy.disconnect);
 
     // Further blocks must not fire disconnect again: the socket must have been
     // dropped from the monitor when the error was first processed.
-    connector.block(strategy);
-    connector.block(strategy);
+    connector.block(strategy, true);
+    connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
   }
 #endif
@@ -99,18 +100,21 @@ TEST_CASE("SocketConnectorTests") {
     socket_handle socket = connector.connect("127.0.0.1", port, false, 1024, 1024);
     REQUIRE(socket != INVALID_SOCKET_HANDLE);
 
-    for (int i = 0; i < 20 && strategy.connect == 0; ++i) {
-      connector.block(strategy, true);
-      process_sleep(0.05);
+    // Each block() waits up to the connector's one-second timeout and returns
+    // as soon as the connect completes.
+    for (int i = 0; i < 5 && strategy.connect == 0; ++i) {
+      connector.block(strategy);
     }
     REQUIRE(1 == strategy.connect);
 
     CHECK(connector.getMonitor().drop(socket));
 
-    connector.block(strategy, true);
+    // The dropped queue is drained at the start of the next block(), so the
+    // socket must be reported by exactly this call.
     connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
 
+    connector.block(strategy, true);
     connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
 
