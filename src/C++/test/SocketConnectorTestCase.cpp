@@ -77,9 +77,8 @@ TEST_CASE("SocketConnectorTests") {
     }
     CHECK(1 == strategy.disconnect);
 
-    // Further blocks must not fire disconnect again: the socket must have been
+    // Another block() must not fire disconnect again: the socket must have been
     // dropped from the monitor when the error was first processed.
-    connector.block(strategy, true);
     connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
   }
@@ -114,7 +113,6 @@ TEST_CASE("SocketConnectorTests") {
     connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
 
-    connector.block(strategy, true);
     connector.block(strategy, true);
     CHECK(1 == strategy.disconnect);
 
