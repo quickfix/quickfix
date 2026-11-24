@@ -33,6 +33,8 @@
 #include <map>
 #include <set>
 #include <string.h>
+#include <unordered_map>
+#include <unordered_set>
 
 namespace FIX {
 class FieldMap;
@@ -46,11 +48,11 @@ class Message;
  */
 
 class DataDictionary {
-  typedef std::set<int> MsgFields;
-  typedef std::map<std::string, MsgFields> MsgTypeToField;
+  typedef std::unordered_set<int> MsgFields;
+  typedef std::unordered_map<std::string, MsgFields> MsgTypeToField;
   typedef std::set<std::string> MsgTypes;
-  typedef std::set<int> Fields;
-  typedef std::map<int, bool> NonBodyFields;
+  typedef std::unordered_set<int> Fields;
+  typedef std::unordered_map<int, bool> NonBodyFields;
   typedef std::vector<int> OrderedFields;
 
   struct MessageFieldsOrderHolder {
@@ -86,9 +88,9 @@ class DataDictionary {
   typedef std::map<std::string, MessageFieldsOrderHolder> MsgTypeToOrderedFields;
 
   typedef message_order OrderedFieldsArray;
-  typedef std::map<int, TYPE::Type> FieldTypes;
-  typedef std::set<std::string> Values;
-  typedef std::map<int, Values> FieldToValue;
+  typedef std::unordered_map<int, TYPE::Type> FieldTypes;
+  typedef std::unordered_set<std::string> Values;
+  typedef std::unordered_map<int, Values> FieldToValue;
   typedef std::map<int, std::string> FieldToName;
   typedef std::map<std::string, int> NameToField;
   typedef std::map<std::pair<int, std::string>, std::string> ValueToName;
@@ -96,9 +98,8 @@ class DataDictionary {
   // in reality it yields a lot of performance because:
   // 1) avoids memory copying;
   // 2) first lookup is done by comparing integers and not string objects
-  // TODO: use hash_map with good hashing algorithm
-  typedef std::map<std::string, std::pair<int, DataDictionary *>> FieldPresenceMap;
-  typedef std::map<int, FieldPresenceMap> FieldToGroup;
+  typedef std::unordered_map<std::string, std::pair<int, DataDictionary *>> FieldPresenceMap;
+  typedef std::unordered_map<int, FieldPresenceMap> FieldToGroup;
 
 public:
   DataDictionary();
