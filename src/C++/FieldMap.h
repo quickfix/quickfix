@@ -282,7 +282,11 @@ protected:
   void appendField(const FieldBase &field) { m_fields.push_back(field); }
 
   // sort fields after message decoding
-  void sortFields() { std::sort(m_fields.begin(), m_fields.end(), sorter(m_order)); }
+  void sortFields() {
+    if (!std::is_sorted(m_fields.begin(), m_fields.end(), sorter(m_order))) {
+      std::sort(m_fields.begin(), m_fields.end(), sorter(m_order));
+    }
+  }
 
 private:
   Fields::const_iterator findTag(int tag) const { return lookup(m_fields.begin(), m_fields.end(), tag); }

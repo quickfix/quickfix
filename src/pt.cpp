@@ -43,6 +43,7 @@
 #include "fix42/Heartbeat.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix42/QuoteRequest.h"
+#include "fix44/MarketDataSnapshotFullRefresh.h"
 
 #include "TestHelper.h"
 #include "catch_amalgamated.hpp"
@@ -74,6 +75,31 @@ static FIX42::QuoteRequest makeQuoteRequest() {
     noRelatedSym.set(FIX::OrdType(FIX::OrdType_MARKET));
     message.addGroup(noRelatedSym);
     noRelatedSym.clear();
+  }
+  return message;
+}
+
+static FIX44::MarketDataSnapshotFullRefresh makeMarketDataSnapshot() {
+  FIX44::MarketDataSnapshotFullRefresh message;
+  FIX::Header &header = message.getHeader();
+  header.setField(FIX::SenderCompID("LP"));
+  header.setField(FIX::TargetCompID("CLIENT"));
+  header.setField(FIX::MsgSeqNum(12345));
+  header.setField(FIX::SendingTime::now());
+  message.set(FIX::MDReqID("MDREQ-1"));
+  message.set(FIX::Symbol("EUR/USD"));
+  FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
+  for (int i = 0; i < 5; ++i) {
+    entry.set(FIX::MDEntryType(FIX::MDEntryType_BID));
+    entry.set(FIX::MDEntryPx(1.08340 - i * 0.00001));
+    entry.set(FIX::MDEntrySize(1000000 * (i + 1)));
+    message.addGroup(entry);
+    entry.clear();
+    entry.set(FIX::MDEntryType(FIX::MDEntryType_OFFER));
+    entry.set(FIX::MDEntryPx(1.08350 + i * 0.00001));
+    entry.set(FIX::MDEntrySize(1000000 * (i + 1)));
+    message.addGroup(entry);
+    entry.clear();
   }
   return message;
 }
@@ -163,6 +189,21 @@ TEST_CASE("QuoteRequestMessage", "[benchmark]") {
     }
     return noRelatedSym;
   };
+}
+
+TEST_CASE("MarketDataSnapshotMessage", "[benchmark]") {
+  FIX::DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX44"));
+  FIX44::MarketDataSnapshotFullRefresh message = makeMarketDataSnapshot();
+  std::string serialized = message.toString();
+  dataDictionary.validate(FIX::Message(serialized, dataDictionary, true));
+
+  BENCHMARK("Create") { return makeMarketDataSnapshot(); };
+
+  BENCHMARK("Serialize") { return message.toString(); };
+
+  BENCHMARK("Deserialize") { return message.setString(serialized, false, &dataDictionary); };
+
+  BENCHMARK("DeserializeAndValidate") { return message.setString(serialized, true, &dataDictionary); };
 }
 
 TEST_CASE("Validation", "[benchmark]") {
