@@ -280,6 +280,7 @@ protected:
   // append field to message without sorting
   // only applicable during message decoding
   void appendField(const FieldBase &field) { m_fields.push_back(field); }
+  void appendField(FieldBase &&field) { m_fields.push_back(std::move(field)); }
 
   // sort fields after message decoding
   void sortFields() { std::sort(m_fields.begin(), m_fields.end(), sorter(m_order)); }

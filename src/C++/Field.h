@@ -89,6 +89,20 @@ public:
         m_string(rhs.m_string),
         m_metrics(rhs.m_metrics) {}
 
+  FieldBase(FieldBase &&rhs) noexcept
+      : m_tag(rhs.m_tag),
+        m_string(std::move(rhs.m_string)),
+        m_data(std::move(rhs.m_data)),
+        m_metrics(rhs.m_metrics) {}
+
+  FieldBase &operator=(FieldBase &&rhs) noexcept {
+    m_tag = rhs.m_tag;
+    m_string = std::move(rhs.m_string);
+    m_data = std::move(rhs.m_data);
+    m_metrics = rhs.m_metrics;
+    return *this;
+  }
+
   FieldBase &operator=(const FieldBase &rhs) {
     m_tag = rhs.getTag();
     m_string = rhs.m_string;
