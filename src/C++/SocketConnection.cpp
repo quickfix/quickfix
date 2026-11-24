@@ -42,6 +42,7 @@ SocketConnection::SocketConnection(socket_handle s, Sessions sessions, SocketMon
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
 #endif
+  socket_enableSoTimestamp(m_socket);
 }
 
 SocketConnection::SocketConnection(
@@ -57,6 +58,7 @@ SocketConnection::SocketConnection(
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
 #endif
+  socket_enableSoTimestamp(m_socket);
   m_sessions.insert(sessionID);
 }
 
@@ -171,7 +173,7 @@ bool SocketConnection::read(SocketAcceptor &acceptor, SocketServer &server) {
         m_pSession = acceptor.getSession(message, *this);
       }
       if (m_pSession) {
-        m_pSession->next(message, UtcTimeStamp::now());
+        m_pSession->next(message, UtcTimeStamp::now(), false, m_soTimestamp);
       }
       if (!m_pSession) {
         server.getMonitor().drop(m_socket);
@@ -217,7 +219,7 @@ bool SocketConnection::isValidSession() {
 }
 
 void SocketConnection::readFromSocket() EXCEPT(SocketRecvFailed) {
-  ssize_t size = socket_recv(m_socket, m_buffer, sizeof(m_buffer));
+  ssize_t size = socket_recvTimestamp(m_socket, m_buffer, sizeof(m_buffer), m_soTimestamp);
   if (size <= 0) {
     throw SocketRecvFailed(size);
   }
@@ -239,7 +241,7 @@ void SocketConnection::readMessages(SocketMonitor &socketMonitor) {
   std::string message;
   while (readMessage(message)) {
     try {
-      m_pSession->next(message, UtcTimeStamp::now());
+      m_pSession->next(message, UtcTimeStamp::now(), false, m_soTimestamp);
     } catch (InvalidMessage &) {
       if (!m_pSession->isLoggedOn()) {
         socketMonitor.drop(m_socket);

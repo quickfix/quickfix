@@ -4,5 +4,6 @@
 #cmakedefine HAVE_MYSQL
 #cmakedefine HAVE_POSTGRESQL
 #cmakedefine HAVE_SSL 1
+#cmakedefine HAVE_SO_TIMESTAMP 1
 
 #endif

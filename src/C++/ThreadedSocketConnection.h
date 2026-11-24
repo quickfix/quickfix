@@ -80,6 +80,7 @@ private:
   Sessions m_sessions;
   Session *m_pSession;
   bool m_disconnect;
+  std::chrono::system_clock::time_point m_soTimestamp;
 #if _MSC_VER
   fd_set m_fds;
 #endif

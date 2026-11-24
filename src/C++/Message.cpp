@@ -50,9 +50,14 @@ Message::Message(const std::string &string, bool validate) EXCEPT(InvalidMessage
   setString(string, validate);
 }
 
-Message::Message(const std::string &string, const DataDictionary &dataDictionary, bool validate) EXCEPT(InvalidMessage)
+Message::Message(
+    const std::string &string,
+    const DataDictionary &dataDictionary,
+    bool validate,
+    std::chrono::system_clock::time_point soTimestamp) EXCEPT(InvalidMessage)
     : m_validStructure(true),
-      m_tag(0) {
+      m_tag(0),
+      m_soTimestamp(soTimestamp) {
   setString(string, validate, &dataDictionary, &dataDictionary);
 }
 
@@ -60,9 +65,11 @@ Message::Message(
     const std::string &string,
     const DataDictionary &sessionDataDictionary,
     const DataDictionary &applicationDataDictionary,
-    bool validate) EXCEPT(InvalidMessage)
+    bool validate,
+    std::chrono::system_clock::time_point soTimestamp) EXCEPT(InvalidMessage)
     : m_validStructure(true),
-      m_tag(0) {
+      m_tag(0),
+      m_soTimestamp(soTimestamp) {
   setString(string, validate, &sessionDataDictionary, &applicationDataDictionary);
 }
 

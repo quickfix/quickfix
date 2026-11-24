@@ -213,7 +213,11 @@ public:
 
   bool send(Message &);
   void next(const UtcTimeStamp &now);
-  void next(const std::string &, const UtcTimeStamp &now, bool queued = false);
+  void next(
+      const std::string &,
+      const UtcTimeStamp &now,
+      bool queued = false,
+      std::chrono::system_clock::time_point soTimestamp = {});
   void next(const Message &, const UtcTimeStamp &now, bool queued = false);
   void disconnect();
 

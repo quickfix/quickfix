@@ -41,6 +41,7 @@ ThreadedSocketConnection::ThreadedSocketConnection(socket_handle s, Sessions ses
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
 #endif
+  socket_enableSoTimestamp(m_socket);
 }
 
 ThreadedSocketConnection::ThreadedSocketConnection(
@@ -63,6 +64,7 @@ ThreadedSocketConnection::ThreadedSocketConnection(
   FD_ZERO(&m_fds);
   FD_SET(m_socket, &m_fds);
 #endif
+  socket_enableSoTimestamp(m_socket);
   if (m_pSession) {
     m_pSession->setResponder(this);
   }
@@ -122,7 +124,7 @@ bool ThreadedSocketConnection::read() {
     if (result > 0) // Something to read
     {
       // We can read without blocking
-      ssize_t size = socket_recv(m_socket, m_buffer, sizeof(m_buffer));
+      ssize_t size = socket_recvTimestamp(m_socket, m_buffer, sizeof(m_buffer), m_soTimestamp);
       if (size <= 0) {
         throw SocketRecvFailed(size);
       }
@@ -170,7 +172,7 @@ void ThreadedSocketConnection::processStream() {
       }
     }
     try {
-      m_pSession->next(msg, UtcTimeStamp::now());
+      m_pSession->next(msg, UtcTimeStamp::now(), false, m_soTimestamp);
     } catch (InvalidMessage &) {
       if (!m_pSession->isLoggedOn()) {
         disconnect();
