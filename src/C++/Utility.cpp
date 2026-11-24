@@ -215,6 +215,7 @@ socket_handle socket_createAcceptor(int port, bool reuse) {
   if (reuse) {
     socket_setsockopt(socket, SO_REUSEADDR);
   }
+  socket_enableSoTimestamp(socket);
 
   int result = bind(socket, reinterpret_cast<sockaddr *>(&address), socklen);
 
@@ -267,6 +268,47 @@ ssize_t socket_recv(socket_handle s, char *buf, size_t length) {
   return recv(s, buf, static_cast<int>(length), 0);
 #else
   return recv(s, buf, length, 0);
+#endif
+}
+
+int socket_enableSoTimestamp([[maybe_unused]] socket_handle s) {
+#ifdef HAVE_SO_TIMESTAMP
+  return socket_setsockopt(s, SO_TIMESTAMPNS);
+#else
+  return SET_SOCK_OPT_ERROR;
+#endif
+}
+
+ssize_t socket_recvTimestamp(
+    socket_handle s,
+    char *buf,
+    size_t length,
+    [[maybe_unused]] std::chrono::system_clock::time_point &soTimestamp) {
+#ifdef HAVE_SO_TIMESTAMP
+  // See: man 3 cmsg
+  iovec iov = {buf, length};
+  alignas(cmsghdr) char control[CMSG_SPACE(sizeof(timespec))];
+  msghdr msg = {};
+  msg.msg_iov = &iov;
+  msg.msg_iovlen = 1;
+  msg.msg_control = control;
+  msg.msg_controllen = sizeof(control);
+  ssize_t size = recvmsg(s, &msg, 0);
+  if (size <= 0) {
+    return size;
+  }
+  // Extracting kernel receive timestamp from the control messages
+  for (cmsghdr *cmsg = CMSG_FIRSTHDR(&msg); cmsg; cmsg = CMSG_NXTHDR(&msg, cmsg)) {
+    using namespace std::chrono;
+    if (cmsg->cmsg_level == SOL_SOCKET && cmsg->cmsg_type == SCM_TIMESTAMPNS) {
+      const timespec *ts = reinterpret_cast<const timespec *>(CMSG_DATA(cmsg));
+      soTimestamp = system_clock::time_point(
+          duration_cast<system_clock::duration>(seconds(ts->tv_sec) + nanoseconds(ts->tv_nsec)));
+    }
+  }
+  return size;
+#else
+  return socket_recv(s, buf, length);
 #endif
 }
 

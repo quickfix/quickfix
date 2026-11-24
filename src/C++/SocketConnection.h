@@ -85,6 +85,7 @@ private:
 
   socket_handle m_socket;
   char m_buffer[BUFSIZ];
+  std::chrono::system_clock::time_point m_soTimestamp;
 
   Parser m_parser;
   Queue m_sendQueue;

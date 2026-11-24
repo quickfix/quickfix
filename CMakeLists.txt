@@ -53,6 +53,7 @@ option(HAVE_SSL "Build with SSL")
 option(HAVE_MYSQL "Build with MySQL")
 option(HAVE_POSTGRESQL "Build with PostgreSQL")
 option(HAVE_ODBC "Build with ODBC")
+option(HAVE_SO_TIMESTAMP "Set Message soTimestamp from SO_TIMESTAMPNS" OFF)
 option(HAVE_PYTHON3 "Build with default Python3 version")
 
 # add option to build shared or static
@@ -60,6 +61,15 @@ option(QUICKFIX_SHARED_LIBS "Build using shared libraries" ON)
 # add option to build other targets
 option(QUICKFIX_EXAMPLES "Build quickfix examples" ON)
 option(QUICKFIX_TESTS "Build quickfix tests" ON)
+
+if(HAVE_SO_TIMESTAMP)
+  include(CheckSymbolExists)
+  check_symbol_exists(SO_TIMESTAMPNS "sys/socket.h" HAVE_SO_TIMESTAMPNS)
+  if(NOT HAVE_SO_TIMESTAMPNS)
+    message(WARNING "HAVE_SO_TIMESTAMP is ON but SO_TIMESTAMPNS was not found, turning it off")
+    set(HAVE_SO_TIMESTAMP OFF)
+  endif()
+endif()
 
 #Make sure that a previous config.h has not undefined HAVE_SSL
 if(HAVE_SSL)

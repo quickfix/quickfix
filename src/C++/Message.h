@@ -120,15 +120,19 @@ public:
   Message(const std::string &string, bool validate = true) EXCEPT(InvalidMessage);
 
   /// Construct a message from a string using a data dictionary
-  Message(const std::string &string, const FIX::DataDictionary &dataDictionary, bool validate = true)
-      EXCEPT(InvalidMessage);
+  Message(
+      const std::string &string,
+      const FIX::DataDictionary &dataDictionary,
+      bool validate = true,
+      std::chrono::system_clock::time_point soTimestamp = {}) EXCEPT(InvalidMessage);
 
   /// Construct a message from a string using a session and application data dictionary
   Message(
       const std::string &string,
       const FIX::DataDictionary &sessionDataDictionary,
       const FIX::DataDictionary &applicationDataDictionary,
-      bool validate = true) EXCEPT(InvalidMessage);
+      bool validate = true,
+      std::chrono::system_clock::time_point soTimestamp = {}) EXCEPT(InvalidMessage);
 
   /// Construct a message from a string using a data dictionary
   Message(
@@ -174,6 +178,8 @@ public:
 
   bool hasGroup(const FIX::Group &group) const { return FieldMap::hasGroup(group.field()); }
   bool hasGroup(unsigned num, const FIX::Group &group) const { return FieldMap::hasGroup(num, group.field()); }
+
+  std::chrono::system_clock::time_point getSoTimestamp() const { return m_soTimestamp; }
 
 protected:
   // Constructor for derived classes
@@ -387,6 +393,7 @@ protected:
   mutable Trailer m_trailer;
   bool m_validStructure;
   int m_tag;
+  std::chrono::system_clock::time_point m_soTimestamp;
   static std::unique_ptr<DataDictionary> s_dataDictionary;
 };
 /*! @} */

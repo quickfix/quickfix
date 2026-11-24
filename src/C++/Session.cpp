@@ -1167,16 +1167,20 @@ bool Session::nextQueued(SEQNUM num, const UtcTimeStamp &now) {
   return false;
 }
 
-void Session::next(const std::string &msg, const UtcTimeStamp &now, bool queued) {
+void Session::next(
+    const std::string &msg,
+    const UtcTimeStamp &now,
+    bool queued,
+    std::chrono::system_clock::time_point soTimestamp) {
   try {
     m_state.onIncoming(msg);
     const DataDictionary &sessionDD = m_dataDictionaryProvider.getSessionDataDictionary(m_sessionID.getBeginString());
     if (m_sessionID.isFIXT()) {
       const DataDictionary &applicationDD
           = m_dataDictionaryProvider.getApplicationDataDictionary(m_senderDefaultApplVerID);
-      next(Message(msg, sessionDD, applicationDD, m_validateLengthAndChecksum), now, queued);
+      next(Message(msg, sessionDD, applicationDD, m_validateLengthAndChecksum, soTimestamp), now, queued);
     } else {
-      next(Message(msg, sessionDD, m_validateLengthAndChecksum), now, queued);
+      next(Message(msg, sessionDD, m_validateLengthAndChecksum, soTimestamp), now, queued);
     }
   } catch (InvalidMessage &e) {
     m_state.onEvent(e.what());
