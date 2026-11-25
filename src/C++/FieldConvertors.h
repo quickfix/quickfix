@@ -27,13 +27,26 @@
 #include "Utility.h"
 #include "config-all.h"
 #include <assert.h>
-#include <charconv>
 #include <cstdio>
 #include <iomanip>
 #include <iterator>
 #include <limits>
 #include <sstream>
 #include <string>
+
+// std::from_chars for double is faster than fast_strtod only with the fast_float based libstdc++ (GCC 12+).
+// libstdc++ 11 wraps strtod (3.5x slower), older libstdc++ and Apple libc++ do not provide it.
+#ifndef HAVE_FROM_CHARS_DOUBLE
+#if defined(_GLIBCXX_RELEASE) && _GLIBCXX_RELEASE >= 12
+#define HAVE_FROM_CHARS_DOUBLE 1
+#else
+#define HAVE_FROM_CHARS_DOUBLE 0
+#endif
+#endif
+
+#if HAVE_FROM_CHARS_DOUBLE
+#include <charconv>
+#endif
 
 namespace FIX {
 
@@ -352,6 +365,7 @@ public:
     return std::string(result, size);
   }
 
+#if HAVE_FROM_CHARS_DOUBLE
   static bool convert(const std::string &value, double &result) {
     const char *const end = value.data() + value.size();
     const char *const first = value.data() + (!value.empty() && value[0] == '-');
@@ -366,6 +380,44 @@ public:
     result = parsedValue;
     return true;
   }
+#else
+  static bool convert(const std::string &value, double &result) {
+    const char *i = value.c_str();
+
+    // Catch null strings
+    if (!*i) {
+      return false;
+    }
+    // Eat leading '-' and recheck for null string
+    if (*i == '-' && !*++i) {
+      return false;
+    }
+
+    bool haveDigit = false;
+
+    if (IS_DIGIT(*i)) {
+      haveDigit = true;
+      while (IS_DIGIT(*++i))
+        ;
+    }
+
+    if (*i == '.' && IS_DIGIT(*++i)) {
+      haveDigit = true;
+      while (IS_DIGIT(*++i))
+        ;
+    }
+
+    if (*i || !haveDigit) {
+      return false;
+    }
+
+    int processed_chars;
+    const size_t total_length = value.length();
+    result = fast_strtod(value.c_str(), static_cast<int>(total_length), &processed_chars);
+
+    return true;
+  }
+#endif
 
   static double convert(const std::string &value) EXCEPT(FieldConvertError) {
     double result = 0.0;
