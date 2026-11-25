@@ -34,6 +34,20 @@
 #include <sstream>
 #include <string>
 
+// std::from_chars for double is faster than fast_strtod only with the fast_float based libstdc++ (GCC 12+).
+// libstdc++ 11 wraps strtod (3.5x slower), older libstdc++ and Apple libc++ do not provide it.
+#ifndef HAVE_FROM_CHARS_DOUBLE
+#if defined(_GLIBCXX_RELEASE) && _GLIBCXX_RELEASE >= 12
+#define HAVE_FROM_CHARS_DOUBLE 1
+#else
+#define HAVE_FROM_CHARS_DOUBLE 0
+#endif
+#endif
+
+#if HAVE_FROM_CHARS_DOUBLE
+#include <charconv>
+#endif
+
 namespace FIX {
 
 typedef int signed_int;
@@ -351,6 +365,22 @@ public:
     return std::string(result, size);
   }
 
+#if HAVE_FROM_CHARS_DOUBLE
+  static bool convert(const std::string &value, double &result) {
+    const char *const end = value.data() + value.size();
+    const char *const first = value.data() + (!value.empty() && value[0] == '-');
+    if (first == end || !(IS_DIGIT(*first) || *first == '.')) {
+      return false;
+    }
+    double parsedValue;
+    const std::from_chars_result parsed = std::from_chars(value.data(), end, parsedValue, std::chars_format::fixed);
+    if (parsed.ec != std::errc() || parsed.ptr != end) {
+      return false;
+    }
+    result = parsedValue;
+    return true;
+  }
+#else
   static bool convert(const std::string &value, double &result) {
     const char *i = value.c_str();
 
@@ -387,6 +417,7 @@ public:
 
     return true;
   }
+#endif
 
   static double convert(const std::string &value) EXCEPT(FieldConvertError) {
     double result = 0.0;
