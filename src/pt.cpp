@@ -43,6 +43,7 @@
 #include "fix42/Heartbeat.h"
 #include "fix42/NewOrderSingle.h"
 #include "fix42/QuoteRequest.h"
+#include "fix44/MarketDataSnapshotFullRefresh.h"
 
 #include "TestHelper.h"
 #include "catch_amalgamated.hpp"
@@ -81,17 +82,13 @@ static FIX42::QuoteRequest makeQuoteRequest() {
 TEST_CASE("TypeConversions", "[benchmark]") {
   BENCHMARK("IntegerToString") { return FIX::IntConvertor::convert(1234); };
 
-  BENCHMARK("StringToInteger") {
-    std::string value("1234");
-    return FIX::IntConvertor::convert(value);
-  };
+  std::string integerValue("1234");
+  BENCHMARK("StringToInteger") { return FIX::IntConvertor::convert(integerValue); };
 
   BENCHMARK("DoubleToString") { return FIX::DoubleConvertor::convert(123.45); };
 
-  BENCHMARK("StringToDouble") {
-    std::string value("123.45");
-    return FIX::DoubleConvertor::convert(value);
-  };
+  std::string doubleValue("123.45");
+  BENCHMARK("StringToDouble") { return FIX::DoubleConvertor::convert(doubleValue); };
 }
 
 TEST_CASE("HeartbeatMessage", "[benchmark]") {
@@ -122,6 +119,46 @@ TEST_CASE("NewOrderSingleMessage", "[benchmark]") {
   BENCHMARK("Deserialize") { return message.setString(serialized, false, &dataDictionary); };
 
   BENCHMARK("DeserializeAndValidate") { return message.setString(serialized, true, &dataDictionary); };
+}
+
+static FIX44::MarketDataSnapshotFullRefresh makeMarketDataSnapshot() {
+  FIX44::MarketDataSnapshotFullRefresh message;
+  message.set(FIX::MDReqID("MDREQ-1"));
+  message.set(FIX::Symbol("EUR/USD"));
+  FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
+  for (int i = 0; i < 5; ++i) {
+    entry.set(FIX::MDEntryType(FIX::MDEntryType_BID));
+    entry.set(FIX::MDEntryPx(1.08340 - i * 0.00001));
+    entry.set(FIX::MDEntrySize(1000000 * (i + 1)));
+    message.addGroup(entry);
+    entry.clear();
+    entry.set(FIX::MDEntryType(FIX::MDEntryType_OFFER));
+    entry.set(FIX::MDEntryPx(1.08350 + i * 0.00001));
+    entry.set(FIX::MDEntrySize(1000000 * (i + 1)));
+    message.addGroup(entry);
+    entry.clear();
+  }
+  return message;
+}
+
+TEST_CASE("MarketDataSnapshotMessage", "[benchmark]") {
+  FIX::DataDictionary dataDictionary(FIX::TestSettings::pathForSpec("FIX44"));
+  FIX44::MarketDataSnapshotFullRefresh message;
+  message.setString(makeMarketDataSnapshot().toString(), false, &dataDictionary);
+  FIX44::MarketDataSnapshotFullRefresh::NoMDEntries entry;
+
+  BENCHMARK("ReadEntries") {
+    FIX::MDEntryPx price;
+    FIX::MDEntrySize size;
+    FIX::NoMDEntries noMDEntries;
+    message.get(noMDEntries);
+    double total = 0;
+    for (int k = 1; k <= noMDEntries; ++k) {
+      message.getGroup(k, entry);
+      total += entry.get(price).getValue() + entry.get(size).getValue();
+    }
+    return total;
+  };
 }
 
 TEST_CASE("QuoteRequestMessage", "[benchmark]") {

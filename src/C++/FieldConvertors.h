@@ -27,6 +27,7 @@
 #include "Utility.h"
 #include "config-all.h"
 #include <assert.h>
+#include <charconv>
 #include <cstdio>
 #include <iomanip>
 #include <iterator>
@@ -352,39 +353,17 @@ public:
   }
 
   static bool convert(const std::string &value, double &result) {
-    const char *i = value.c_str();
-
-    // Catch null strings
-    if (!*i) {
+    const char *const end = value.data() + value.size();
+    const char *const first = value.data() + (!value.empty() && value[0] == '-');
+    if (first == end || !(IS_DIGIT(*first) || *first == '.')) {
       return false;
     }
-    // Eat leading '-' and recheck for null string
-    if (*i == '-' && !*++i) {
+    double parsedValue;
+    const std::from_chars_result parsed = std::from_chars(value.data(), end, parsedValue, std::chars_format::fixed);
+    if (parsed.ec != std::errc() || parsed.ptr != end) {
       return false;
     }
-
-    bool haveDigit = false;
-
-    if (IS_DIGIT(*i)) {
-      haveDigit = true;
-      while (IS_DIGIT(*++i))
-        ;
-    }
-
-    if (*i == '.' && IS_DIGIT(*++i)) {
-      haveDigit = true;
-      while (IS_DIGIT(*++i))
-        ;
-    }
-
-    if (*i || !haveDigit) {
-      return false;
-    }
-
-    int processed_chars;
-    const size_t total_length = value.length();
-    result = fast_strtod(value.c_str(), static_cast<int>(total_length), &processed_chars);
-
+    result = parsedValue;
     return true;
   }
 
